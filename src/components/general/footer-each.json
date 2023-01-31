@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_general_footer_eaches",
+  "info": {
+    "displayName": "Footer-each"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    }
+  }
+}

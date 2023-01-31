@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_timeline_time_card_eaches",
+  "info": {
+    "displayName": "TimeCards",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "subTimeCard": {
+      "type": "component",
+      "repeatable": true,
+      "component": "timeline.time-card"
+    },
+    "Title": {
+      "type": "string"
+    }
+  }
+}

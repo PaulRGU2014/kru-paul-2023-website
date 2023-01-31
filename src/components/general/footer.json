@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_general_footers",
+  "info": {
+    "displayName": "Footer"
+  },
+  "options": {},
+  "attributes": {
+    "subFooter": {
+      "type": "component",
+      "repeatable": true,
+      "component": "general.footer-each"
+    }
+  }
+}

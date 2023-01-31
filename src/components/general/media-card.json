@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_general_media_cards",
+  "info": {
+    "displayName": "MediaCard"
+  },
+  "options": {},
+  "attributes": {
+    "subMediaCard": {
+      "type": "component",
+      "repeatable": true,
+      "component": "general.about"
+    },
+    "Title": {
+      "type": "string"
+    }
+  }
+}

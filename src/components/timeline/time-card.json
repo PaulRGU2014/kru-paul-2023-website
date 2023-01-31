@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_timeline_time_cards",
+  "info": {
+    "displayName": "TimeCard-each",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "StartDate": {
+      "type": "date"
+    },
+    "EndDate": {
+      "type": "date"
+    },
+    "Title": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "richtext"
+    },
+    "Subtitle": {
+      "type": "text"
+    },
+    "Place": {
+      "type": "string"
+    }
+  }
+}

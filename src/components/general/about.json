@@ -1,0 +1,34 @@
+{
+  "collectionName": "components_general_abouts",
+  "info": {
+    "displayName": "MediaCard-each",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Description": {
+      "type": "richtext",
+      "required": true
+    },
+    "Media": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "MediaOrientation": {
+      "type": "enumeration",
+      "enum": [
+        "left",
+        "right"
+      ],
+      "required": true,
+      "default": "left"
+    }
+  }
+}
