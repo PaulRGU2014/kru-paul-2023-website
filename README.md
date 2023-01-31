@@ -1,1 +1,1 @@
-# kru-paul-2023-update
+# kru-paul-2023-website
