@@ -7,3 +7,6 @@ http://localhost:1337/api/kru-paul-website?populate[About][populate]=subMediaCar
 
 + On Education (No Photo)
 http://localhost:1337/api/education?populate[Education][populate]=*
+
++ Populate everything
+http://localhost:1337/api/kru-paul-website?populate=deep
