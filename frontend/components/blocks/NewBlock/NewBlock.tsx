@@ -1,10 +1,11 @@
 import React from 'react';
 import styles from './NewBlock.module.scss'
 
-export default function NewBlock {
+export default function NewBlock ({content}) {
   return(
-    <div>
+    <div className= {styles.component}>
       This is a new block
+      {content}
     </div>
   )
 }
