@@ -1,8 +1,25 @@
+@import'../../styles/helpers/import';
+
+.component{
+  @include centered($max-width);
+    margin: {
+        top: 0;
+        bottom: 0;
+    };
+}
 
 .wrapper{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.inner{
   display: block;
   background-color: antiquewhite;
   padding: 30px;
   margin: 20px 0;
-  width: 80%;
+  width: calc(80% - 60px);
+  border-radius: 10px;
+  position: relative;
 }
