@@ -1,6 +1,7 @@
+import React from 'react';
 import axios from 'axios';
-import { Strapi } from '@strapi/strapi';
 import { ArrayBindingElement } from 'typescript';
+import MediaCard from '../components/MediaCard/MediaCard'
 
 // axios.get('http://localhost:1337/api/kru-paul-website?populate=deep').then(response => {
 //   console.log(response.data);
@@ -9,12 +10,8 @@ import { ArrayBindingElement } from 'typescript';
 type Props = {
   content: any;
   ctx: object;
-  subMediaCard: ArrayBindingElement
+  subMediaCard: ArrayBindingElement;
 }
-
-
-
-
 
 export default function About ({content} : Props) {
   console.log(content)
@@ -22,12 +19,9 @@ export default function About ({content} : Props) {
   return (
     <div>
       <h1>{content.About.Title}</h1>
-      {content.About.subMediaCard.map( (card:any) => {
+      {content.About.subMediaCard.map((card:any) => {
         return(
-          <div>
-            {card.Description}
-          </div>
-
+          <MediaCard content={card} />
         )
       })}
     </div>

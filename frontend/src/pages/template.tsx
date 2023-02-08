@@ -8,7 +8,7 @@ type Props = {
 }
 
 
-export default function About ({content} : Props) {
+export default function Template ({content} : Props) {
   console.log(content)
 
   return (
@@ -19,7 +19,7 @@ export default function About ({content} : Props) {
 }
 
 
-About.getInitialProps = async () => {
+Template.getInitialProps = async () => {
   try {
     // change url to that component's api
     const res = await axios.get('http://localhost:1337/api/kru-paul-website?populate=deep');
