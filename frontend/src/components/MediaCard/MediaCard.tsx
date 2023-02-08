@@ -1,5 +1,7 @@
 import React from "react";
+import RichText from "./util/RichText";
 import styles from "../MediaCard/MediaCard.module.scss";
+import ReactMarkdown from 'react-markdown'
 
 
 
@@ -15,9 +17,7 @@ export default function MediaCard ({content} : Props) {
         className={styles.wrapper}
       >
         <div>Image Area</div>
-        <div>
-          {content.Description}
-        </div>
+        <ReactMarkdown>{content.Description}</ReactMarkdown>
       </div>
     </>
   )
