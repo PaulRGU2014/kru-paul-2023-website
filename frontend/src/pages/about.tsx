@@ -21,7 +21,7 @@ export default function About ({content} : Props) {
       <h1>{content.About.Title}</h1>
       {content.About.subMediaCard.map((card:any) => {
         return(
-          <MediaCard content={card} />
+          <MediaCard key={card.id} content={card} />
         )
       })}
     </div>

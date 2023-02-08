@@ -1,4 +1,7 @@
 import React from "react";
+import styles from "../MediaCard/MediaCard.module.scss";
+
+
 
 type Props = {
   content : any
@@ -7,9 +10,15 @@ type Props = {
 
 export default function MediaCard ({content} : Props) {
   return (
-    <div>
-      <div>Image Area</div>
-      <div>{content.Description}</div>
-    </div>
+    <>
+      <div
+        className={styles.wrapper}
+      >
+        <div>Image Area</div>
+        <div>
+          {content.Description}
+        </div>
+      </div>
+    </>
   )
 }
