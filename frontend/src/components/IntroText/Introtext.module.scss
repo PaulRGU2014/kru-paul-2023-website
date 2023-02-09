@@ -1,0 +1,9 @@
+@import'../../styles/helpers/import';
+
+.component{
+  @include centered($max-width);
+    margin: {
+        top: 0;
+        bottom: 0;
+    };
+}

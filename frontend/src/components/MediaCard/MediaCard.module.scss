@@ -10,8 +10,6 @@
 
 .wrapper{
   display: flex;
-  flex-direction: column;
-  justify-content: center;
 }
 
 .inner{
@@ -19,7 +17,14 @@
   background-color: antiquewhite;
   padding: 30px;
   margin: 20px 0;
-  width: calc(80% - 60px);
+  width: calc(70% - 60px);
   border-radius: 10px;
   position: relative;
+}
+
+.image{
+  width: calc(30%);
+  img{
+    position: relative !important;
+  }
 }

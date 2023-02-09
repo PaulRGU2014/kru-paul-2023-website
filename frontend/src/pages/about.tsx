@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import { ArrayBindingElement } from 'typescript';
 import MediaCard from '../components/MediaCard/MediaCard'
+import IntroText from '@/components/IntroText/IntroText';
 
 // axios.get('http://localhost:1337/api/kru-paul-website?populate=deep').then(response => {
 //   console.log(response.data);
@@ -17,14 +18,14 @@ export default function About ({content} : Props) {
   console.log(content)
 
   return (
-    <div>
-      <h1>{content.About.Title}</h1>
+    <>
+      <IntroText content={content.About.Title} />
       {content.About.subMediaCard.map((card:any) => {
         return(
           <MediaCard key={card.id} content={card} />
         )
       })}
-    </div>
+    </>
   )
 }
 
