@@ -29,13 +29,14 @@ export default function MediaCard ({content} : Props) {
             {/* <Slider> */}
               {content.Media.data.map((item:any)=>{
                 return(
-                  <Image
-                    key={item.id}
-                    className={styles.image}
-                    src={item.attributes.url}
-                    objectFit='contain'
-                    objectPosition="top left"
-                  />
+                  <></>
+                  // <Image
+                  //   key={item.id}
+                  //   className={styles.image}
+                  //   src={item.attributes.url}
+                  //   objectFit='contain'
+                  //   objectPosition="top left"
+                  // />
                 )
               })}
             {/* </Slider> */}
