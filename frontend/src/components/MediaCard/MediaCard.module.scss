@@ -10,6 +10,7 @@
 
 .wrapper{
   display: flex;
+  align-items: center;
 }
 
 .inner{
@@ -23,8 +24,12 @@
 }
 
 .image{
-  width: calc(30%);
+  width:100%;
   img{
     position: relative !important;
   }
+}
+
+.image_wrapper{
+  width: 30%;
 }

@@ -19,6 +19,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/components/util/Image.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/components/util/Image.jsx", "src/components/MediaCard/MediaCard.jsx"],
   "exclude": ["node_modules"]
 }
