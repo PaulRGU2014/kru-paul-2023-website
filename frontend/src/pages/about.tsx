@@ -15,14 +15,17 @@ export default function About ({content} : Props) {
   console.log(content)
 
   return (
-    <>
+    <div className='aboutPage'>
       <IntroText content={content.About.Title} />
       {content.About.subMediaCard.map((card:any) => {
         return(
+        <>
           <MediaCard key={card.id} content={card} />
+        </>
+
         )
       })}
-    </>
+    </div>
   )
 }
 
