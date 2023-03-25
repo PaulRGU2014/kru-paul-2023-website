@@ -6,11 +6,11 @@
   },
   "options": {},
   "attributes": {
-    "Description": {
+    "desc": {
       "type": "richtext",
       "required": true
     },
-    "Media": {
+    "media": {
       "type": "media",
       "multiple": true,
       "required": false,
@@ -21,7 +21,7 @@
         "audios"
       ]
     },
-    "MediaOrientation": {
+    "mediaOrientation": {
       "type": "enumeration",
       "enum": [
         "left",

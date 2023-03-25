@@ -6,22 +6,22 @@
   },
   "options": {},
   "attributes": {
-    "StartDate": {
+    "startDate": {
       "type": "date"
     },
-    "EndDate": {
+    "endDate": {
       "type": "date"
     },
-    "Title": {
+    "title": {
       "type": "string"
     },
-    "Description": {
+    "desc": {
       "type": "richtext"
     },
-    "Subtitle": {
+    "subtitle": {
       "type": "text"
     },
-    "Place": {
+    "place": {
       "type": "string"
     }
   }

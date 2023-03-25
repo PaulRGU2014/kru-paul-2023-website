@@ -1,7 +1,8 @@
 {
   "collectionName": "components_general_media_cards",
   "info": {
-    "displayName": "MediaCard"
+    "displayName": "MediaCard",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -9,9 +10,6 @@
       "type": "component",
       "repeatable": true,
       "component": "general.about"
-    },
-    "Title": {
-      "type": "string"
     }
   }
 }

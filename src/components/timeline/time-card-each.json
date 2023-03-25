@@ -10,9 +10,6 @@
       "type": "component",
       "repeatable": true,
       "component": "timeline.time-card"
-    },
-    "Title": {
-      "type": "string"
     }
   }
 }
