@@ -1,10 +1,14 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true,
-  images: {
-    loader: "default",
-    domains: ["localhost"],
+module.exports = {
+  env: {
+    dataPath: process.env.DATA_PATH
   },
-}
-
-module.exports = nextConfig
+  images: {
+    loader: 'akamai',
+    path: '',
+  },
+  experimental: { esmExternals: false },
+  reactStrictMode: true,
+  eslint: {
+    ignoreDuringBuilds: true,
+  }
+};

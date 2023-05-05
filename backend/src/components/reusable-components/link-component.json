@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_reusable_components_link_components",
+  "info": {
+    "displayName": "LinkComponent",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "target": {
+      "type": "enumeration",
+      "enum": [
+        "_blank",
+        "_self"
+      ],
+      "default": "_self"
+    }
+  }
+}

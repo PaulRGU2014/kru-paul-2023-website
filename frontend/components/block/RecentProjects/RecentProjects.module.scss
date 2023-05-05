@@ -1,0 +1,214 @@
+@import '../../../scss/helpers/import';
+
+.component{
+    overflow: hidden
+}
+
+.wrapper{
+    @include centered($max-width);
+    margin: {
+        top: $standard-vertical-spacing;
+        bottom: $standard-vertical-spacing;
+    };
+}
+
+.heading{
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    margin: 60px 0 100px 0;
+    h3{
+        font-size: 60px;
+        font-weight: 400;
+        text-transform: uppercase;
+        color: $red;
+        margin: 0;
+    }
+    a{
+        display: inline-flex;
+        align-items: center;
+        font-family: 'Urbanist';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 26px;
+        line-height: 120%;
+        color: $red;
+        padding: 20px 40px;
+        border: 3px solid $red;
+        border-radius: 12px;
+    }
+    @include responsive (md) {
+        flex-direction: column;
+        margin-bottom: 30px;
+        h3{
+            font-size: 40px;
+            text-align: center;
+        }
+        a{
+            justify-content: center;
+            font-size: 18px;
+        }
+    }
+    @include responsive (sm) {
+        h3{
+            font-size: 30px;
+            text-align: left;
+        }
+        a{
+            font-size: 16px;
+        }
+    }
+}
+
+.card_wrapper{
+    position: relative;
+    background-color: #D9D9D9;
+    margin: 40px 0;
+    min-height: 600px;
+    &::after{
+        content: "";
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        background-color: #D9D9D9;
+        top: 0;
+    }
+    &_left{
+        @extend .card_wrapper;
+        @include scroll-animation(fromLeft);
+        &::after{
+            right: 100%;
+        }
+        .card_image{
+            left: -20%;
+        }
+        .card_detail{
+            left: 50%;
+            padding-right: 70px;
+        }
+    }
+    &_right{
+        @extend .card_wrapper;
+        @include scroll-animation(fromRight);
+        &::after{
+            left: 100%;
+        }
+        .card_image{
+            left: 50%;
+        }
+        .card_detail{
+            left: 0;
+            padding-left: 70px;
+        }
+    }
+    @include responsive (md) {
+        padding-bottom: 30px;
+        &::after{
+            display: none;
+        }
+        &_left, &_right{
+            .card_detail{
+                left: 0;
+                padding: 30px;
+            }
+            .card_image{
+                left: auto;
+                width: calc(100% - 60px);
+                height: 52.083vw;
+                margin: 0 30px;
+            }
+        }
+    }
+}
+
+.card{
+    &_image{
+        position: absolute;
+        width: 70%;
+        height: 600px;
+        top: 0;
+        color: red;
+        z-index: 1;
+        @include scroll-animation($anim: fromTop, $speed: 1000ms );
+    }
+    &_logo{
+        position: relative;
+        min-height: 100px;
+        height: auto;
+        @include scroll-animation($anim: fromBottom, $speed: 1000ms );
+    }
+    &_detail{
+        position: relative;
+        width: 50%;
+        height: auto;
+        padding: 70px 0;
+        @include scroll-animation($anim: fromTop, $speed: 1000ms );
+        &_left{
+            @extend .card_detail;
+            padding-left: 50px;
+        }
+        &_right{
+            @extend .card_detail;
+            padding-right: 50px;
+        }
+    }
+    &_link{
+        color: $red;
+        font-family: 'Urbanist';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 22px;
+        line-height: 26px;
+        display: inline-flex;
+        &::after{
+            content: "";
+            display: flex;
+            background-image: url("data:image/svg+xml,%3Csvg width='25' height='25' viewBox='0 0 25 25' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M14.825 3.12646L13.8548 4.22397L22.3884 11.7674H0V13.2322H22.3884L13.8548 20.7756L14.825 21.8731L25 12.8788V12.1208L14.825 3.12646Z' fill='%23F05133'/%3E%3C/svg%3E");
+            width: 25px;
+            height: 25px;
+            margin-left: 10px;
+            transition: all 0.5s $ease-out-quint;
+        }
+        &:hover{
+            &::after{
+                margin-left: 30px;
+                transition: all 0.5s $ease-out-quint;
+            }
+        }
+    }
+    @include responsive ($max-width) {
+        &_logo{
+            min-height: 8.065vw;
+        }
+    }
+    @include responsive (md) {
+        &_image{
+            // display: none;
+            position: relative;
+        }
+        &_logo{
+            min-height: 13.021vw;
+        }
+        &_detail{
+            width: 100%;
+            padding: 30px 0;
+            &_left{
+                padding-left: 30px;
+            }
+            &_right{
+                padding-right: 30px;
+            }                 
+        }   
+    }
+}
+
+.richtext{
+    p{
+        font-size: 18px;
+    }
+    @include responsive (md) {
+        p{
+            font-size: 16px;
+        }
+    }
+}

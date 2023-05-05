@@ -1,0 +1,121 @@
+@import '../../../scss/helpers/import';
+
+.component{
+    background-color: $neutral-black;
+}
+
+.wrapper{
+    @include centered($max-width);
+    margin: {
+        top: 0;
+        bottom: 0;
+    };
+    position: relative;
+    overflow: hidden;
+}
+
+.inner{
+    padding: 0px 30px 80px 0px;
+    min-height: 480px;
+    @include responsive (md) {
+        min-height: unset;
+        padding: 25px 15px;
+    }
+}
+
+.decorOWrapper{
+    display: inline-flex;
+    align-items: center;
+    margin: 0 5px;
+    @include responsive ($max-width) {
+        svg{
+            width: 8.816vw !important;
+            height: 8.816vw !important;
+        }
+    }
+    @include responsive (md) {
+        svg{
+            width: 10vw !important;
+            height: 10vw !important;
+        }
+    }
+    margin: 0 0.408vw;
+}
+
+.heading{
+    display: inline-flex;
+    align-items: baseline;
+    font-family: 'Urbanist';
+    font-style: normal;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 150px;
+    line-height: 104.02%;
+    color: $white;
+    margin-top: 30px;
+    z-index: 1;
+    position: relative;
+    @include scroll-animation($anim: fromBottom, $sequence: 60ms, $speed: 1000ms );
+    @include responsive ($max-width) {
+        font-size: 12.245vw;
+    }
+    @include responsive (md) {
+        font-size: 13.021vw;
+    }
+}
+
+.logo{
+    @include responsive (xs) {
+        svg{
+            width: 250px !important;
+        }
+    }
+}
+
+.richtext{
+    position: relative;
+    max-width: 660px;
+    margin: 30px 0;
+    z-index: 1;
+    @include scroll-animation($anim: fromTop, $sequence: 60ms, $speed: 1000ms );
+    p{
+        font-family: 'Urbanist';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 29px;
+        color: $white;        
+    }
+    @include responsive (md) {
+        p{
+            font-size: 20px;
+        }
+    }
+    @include responsive (xs) {
+        p{
+            font-size: 16px;
+        }
+    }
+}
+
+.image{
+    display: block;
+    height: 270px;
+    position: absolute;
+    bottom: 0px;
+    right: 0;
+    opacity: 0.5;
+    transform-origin:270px 270px;
+    @include responsive (md) {
+        // width: 35.156vw;
+        height: 35.156vw;
+        transform-origin:35.156vw 35.156vw;
+        svg{
+            width: 70.313vw !important;
+            height: 70.313vw !important;
+        }
+    }
+    &_wrapper{
+        @include scroll-animation($anim: fromBottom, $sequence: 60ms, $speed: 1000ms );
+    }
+}

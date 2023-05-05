@@ -1,0 +1,46 @@
+{
+  "kind": "collectionType",
+  "collectionName": "pages",
+  "info": {
+    "singularName": "page",
+    "pluralName": "pages",
+    "displayName": "Page",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "path": {
+      "type": "string"
+    },
+    "pageTitle": {
+      "type": "string"
+    },
+    "pageMetaDescription": {
+      "type": "string"
+    },
+    "metaTags": {
+      "type": "component",
+      "repeatable": false,
+      "component": "reusable-components.meta-tags"
+    },
+    "components": {
+      "type": "dynamiczone",
+      "components": [
+        "page-components.basic-hero",
+        "page-components.accordion",
+        "reusable-components.rich-text",
+        "page-components.your-project",
+        "page-components.recent-project",
+        "page-components.portfolio"
+      ]
+    },
+    "isDark": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    }
+  }
+}

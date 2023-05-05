@@ -1,0 +1,45 @@
+$max-width: 1240px;
+$standard-vertical-spacing: 60px;
+
+$breakpoints: (
+  xxl: (min: 1101px ),
+  xl: ( min: 921px, max: 1100px ),
+  lg: ( min:769px, max:920px ),
+  md: ( min: 481px, max:768px ),
+  sm: ( min: 361px, max:480px ),
+  xs: ( max:360px )
+); // min widths are only used when 'true' is passed as second param to the responsive() mixin
+          
+//colors
+$black: #000000;
+$neutral-black: #221E1F;
+$off-black: #221E1F;
+$white: #ffffff;
+
+$dk-gray: #505153;
+$gray: #898a8d;
+$lt-gray: #CDCED0;
+
+$dk-blue: #235268;
+$blue: #5BBDEB;
+$lt-blue: #BCE4F8;
+
+$dk-green: #3B6127;
+$green: #7DC358;
+$lt-green: #C6EDB2;
+
+$dk-lime: #7F870A;
+$lime: #D5DF3D;
+$lt-lime: #F0F59B;
+
+$dk-orange: #cf8204;
+$orange: #fbaf33;
+$lt-orange: #fedda8;
+
+$dk-red: #a3230c;
+$red: #f05133;
+$lt-red: #f98671;
+
+$brown: #975C57;
+
+

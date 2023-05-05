@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_reusable_components_meta_tags",
+  "info": {
+    "displayName": "metaTags",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "tags": {
+      "type": "component",
+      "repeatable": true,
+      "component": "reusable-components.tag"
+    }
+  }
+}

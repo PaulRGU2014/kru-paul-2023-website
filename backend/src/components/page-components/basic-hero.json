@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_page_components_basic_heroes",
+  "info": {
+    "displayName": "BasicHero",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "desc": {
+      "type": "richtext"
+    }
+  }
+}

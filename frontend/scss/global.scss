@@ -1,0 +1,111 @@
+@import './helpers/import';
+@import './helpers/reset';
+@import './siblings';
+@import "~slick-carousel/slick/slick.css"; 
+@import "~slick-carousel/slick/slick-theme.css";
+@import url('https://fonts.googleapis.com/css2?family=Kulim+Park:ital,wght@0,200;0,300;0,600;0,700;1,200;1,300;1,400;1,600;1,700&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Urbanist:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import './richtext.scss';
+
+
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  @include font-smooth();
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2 {
+  font-family: 'Kulim Park', sans-serif;  
+  font-style: normal;
+  font-weight: 400;
+}
+
+ h3, h4, h5, h6{
+  font-family: 'Kulim Park', sans-serif;  
+  font-style: normal;
+  font-weight: 500;
+}
+
+h1{
+  font-size: 150px;
+  line-height: 100%;
+}
+
+h2{
+  font-size: 100px;
+  line-height: 114%;
+}
+
+h3{
+  font-size: 50px;
+  line-height: 142%;
+}
+
+
+h4{
+  font-size: 40px;
+  line-height: 142%;
+}
+
+h5{
+  font-size: 35px;
+  line-height: 117%;
+
+}
+
+h6{
+  font-size: 24px;
+  line-height: 117%;
+}
+
+
+p{
+  font-family: 'Urbanist', sans-serif;  
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 138%;
+}
+
+
+strong{
+  font-family: 'Urbanist', sans-serif;  
+  font-style: normal;
+  font-weight: bolder;
+  font-size: 16px;
+  line-height: 138%;
+}
+
+ul, ol, li{
+  font-family: 'Urbanist', sans-serif;  
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 138%;
+}
+
+ul{
+  padding-left: 30px;
+}
+
+a, button{
+  font-family: 'Urbanist', sans-serif;  
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 117%;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+button, button:focus{
+  outline: none;
+  border: none;
+}

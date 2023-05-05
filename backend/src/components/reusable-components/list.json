@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_reusable_components_lists",
+  "info": {
+    "displayName": "list",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "text"
+    },
+    "desc": {
+      "type": "richtext"
+    }
+  }
+}

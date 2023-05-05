@@ -1,0 +1,97 @@
+@import '../../../scss/helpers/import';
+
+.component{
+    display: flex;
+    flex-direction: column;
+    min-height: 470px;
+    position: relative;
+    &::before{
+        content: "";
+        display: block;
+        position: absolute;
+        bottom: 0;
+        width: 338px;
+        height: 173px;
+        background-image: url("data:image/svg+xml,%3Csvg width='338' height='173' viewBox='0 0 338 173' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M275.762 172.157C275.762 111.201 226.166 61.606 165.21 61.606V0C260.138 0 337.368 77.2297 337.368 172.157H275.762Z' fill='%235BBDEB'/%3E%3Cpath d='M165.157 61.606C104.201 61.606 54.606 111.201 54.606 172.157H-7C-7 77.2297 70.2297 0 165.157 0V61.606Z' fill='%23BBBDBF'/%3E%3C/svg%3E");
+        z-index: -5;
+        @include scroll-animation($anim: fromLeft, $speed: 1000ms );
+    }
+    &::after{
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 172px;
+        height: 345px;
+        background-image: url("data:image/svg+xml,%3Csvg width='172' height='345' viewBox='0 0 172 345' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M172.157 61.6058C111.201 61.6058 61.606 111.201 61.606 172.157L0 172.157C-4.14942e-06 77.2295 77.2297 -0.000247516 172.157 -0.000251666L172.157 61.6058Z' fill='%23F05133'/%3E%3Cpath d='M61.606 172.21C61.606 233.166 111.201 282.762 172.157 282.762L172.157 344.368C77.2297 344.368 -3.37582e-06 267.138 -7.52524e-06 172.21L61.606 172.21Z' fill='%23BBBDBF'/%3E%3C/svg%3E");
+        z-index: -5;
+        @include scroll-animation($anim: fromBottom, $speed: 1000ms );
+    }
+    @include responsive (sm) {
+        min-height: auto;
+        &::before, &::after{
+            display: none;
+        }
+    }
+}
+
+.wrapper{
+    @include centered($max-width);
+    margin: {
+        top: $standard-vertical-spacing;
+        bottom: $standard-vertical-spacing;
+    };
+}
+
+.inner{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 60px;
+    h4{
+        font-weight: 400;
+        background-color: rgba($color: $white, $alpha: 0.5);
+        color: $red;
+        margin: 0;
+        padding: 0 20px;
+        border-radius: 12px;
+        @include scroll-animation($anim: fromBottom, $speed: 1000ms );
+    }
+    p{
+        @include scroll-animation($anim: fromBottom, $speed: 600ms );
+    }
+    a{
+        @include scroll-animation($anim: fromTop, $speed: 1000ms );
+        display: inline-flex;
+        align-items: center;
+        min-width: 215px;
+        font-family: 'Urbanist';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 26px;
+        line-height: 120%;
+        background-color: $red;
+        color: $white;
+        padding: 20px 40px;
+        border: 3px solid $red;
+        border-radius: 12px;
+        margin-top: 20px;
+    }
+    @include responsive (sm) {
+        margin-top: 0;
+        h4{
+            padding: 0;
+        }
+        a{
+            width: 100%;
+            justify-content: center;
+            font-size: 16px;
+        }
+    }
+}
+
+.richtext{
+    max-width: 800px;
+    color: $dk-gray;
+}

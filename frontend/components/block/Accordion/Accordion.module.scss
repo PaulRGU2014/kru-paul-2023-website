@@ -1,0 +1,128 @@
+@import '../../../scss/helpers/import';
+
+.component{}
+.wrapper{
+    @include centered($max-width);
+    margin: {
+        top: $standard-vertical-spacing;
+        bottom: $standard-vertical-spacing;
+    };
+    h3{
+        line-height: 120%;
+        @include scroll-animation($anim: fromTop, $speed: 1000ms );
+    }
+    @include responsive (md) {
+        h3{
+            font-size: 40px;
+        }  
+        h6{
+            font-size: 20px;
+        }      
+    }
+}
+
+.toggle{
+    position: relative;
+    min-width: 30px;
+    width: 30px;
+    min-width: 30px;
+    height: 30px;
+    margin-right: 20px;
+    overflow: hidden;
+    transform-origin: center;
+    transition: all 0.5s $ease-out-quint;   
+    cursor: pointer;
+    &_open{
+        @extend .toggle;
+        transform: rotateZ(90deg);
+        &::after{
+            content: "|";
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            font-family: 'Urbanist';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 48px;
+            color: #F05133;   
+        }     
+    }
+    &_close{
+        @extend .toggle;
+        transform: rotateZ(0deg);
+        &::after{
+            content: "+"; 
+            display: flex;
+            align-items: center;
+            width: 30px;
+            height: 30px;
+            font-family: 'Urbanist';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 48px;
+            color: #F05133;             
+        }       
+    }
+}
+
+.accordion{
+    &_list{
+        display: flex;
+        background-color: $white;
+        z-index: 5;
+        position: relative;
+        h6{
+            margin: 0;
+        }
+    }
+    &_collapsible{
+        // position: relative;
+        overflow: hidden;
+        margin: 70px 0;
+        &::after{
+            content: "";
+            width: 100%;
+            height: 1px;
+            background-color: $black;
+            position: absolute;
+            margin-top: 35px;
+            left: 0;
+        }
+        &:last-of-type{
+            &::after{
+                display: none;
+            }
+        }
+    }
+    &_wrapper{
+        @include scroll-animation($anim: fromTop, $sequence: 60ms, $speed: 1000ms );
+    }
+}
+
+.richtext{
+    margin-left: 50px;
+    overflow: hidden;
+    &_expanded{
+        transform-origin: top;
+        overflow: hidden;
+    }
+    &_shrink{
+        overflow: hidden;
+        max-height: 0;
+    }
+}
+
+.open{
+    transform: translateY(0%);
+    transform-origin: bottom;
+    transition: all 0.5s $ease-out-quint;   
+}
+
+.close{
+    transform: translateY(-100%);
+    overflow: hidden;
+    transform-origin: bottom;
+    transition: all 0.5s $ease-out-quint;   
+}

@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_page_components_portfolios",
+  "info": {
+    "displayName": "Portfolio",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "portfolio": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::portfolio.portfolio"
+    },
+    "title": {
+      "type": "text"
+    }
+  }
+}

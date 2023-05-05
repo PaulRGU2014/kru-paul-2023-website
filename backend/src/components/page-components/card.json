@@ -1,0 +1,37 @@
+{
+  "collectionName": "components_page_components_cards",
+  "info": {
+    "displayName": "Card",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "string"
+    },
+    "logo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "tab": {
+      "type": "component",
+      "repeatable": true,
+      "component": "page-components.tabs"
+    },
+    "link": {
+      "type": "component",
+      "repeatable": false,
+      "component": "reusable-components.link-component"
+    }
+  }
+}
