@@ -60,10 +60,11 @@
 }
 .icon{
     position: relative;
-    width: 119px;
-    height: 119px;
+    width: 120px;
+    height: 120px;
     border-radius: 100%;
     box-shadow: 0px 0px 0px 11px $yellow;
+    background-color: $yellow;
     animation: iconGrow 800ms 200ms $ease-out-back both;
 }
 .iconCut{

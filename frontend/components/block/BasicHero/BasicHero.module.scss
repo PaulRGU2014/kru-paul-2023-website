@@ -100,7 +100,7 @@
 
 .image{
     display: block;
-    height: 270px;
+    height: 400px;
     position: absolute;
     bottom: 0px;
     right: 0;
@@ -117,5 +117,9 @@
     }
     &_wrapper{
         @include scroll-animation($anim: fromBottom, $sequence: 60ms, $speed: 1000ms );
+    }
+    &_inner{
+        width: 400px;
+        height: 400px;
     }
 }

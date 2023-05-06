@@ -3,7 +3,7 @@ import styles from "./Header.module.scss";
 import LinkWrapper from "../../util/LinkWrapper/LinkWrapper";
 import { getStrapiMedia } from "../../../pages/lib/media";
 import Image from "../../../imageloader";
-// import Logo from "../../../public/Logo_1080.png"
+
 
 export default function Header({ isDark = false }) {
   return (
@@ -24,16 +24,16 @@ function Logo({isDark}) {
   return (
     <div className={styles.logo}>
       <div className={styles.icon}>
-        {/* <Image
-          src="/Logo_1080.png"
+        <Image
+          src="/Logo.svg"
           layout="fill"
-          objectFit='contain'
+          objectFit='cover'
           objectPosition="center"
           style={{
-            width: "100%",
-            height: "auto"
+            width: "122px",
+            height: "122px"
           }}          
-        /> */}
+        />
       </div>
       <h4 className={styles.logoText}>
         Paul Thanataweenont's <br/> Official Website
