@@ -23,9 +23,9 @@ export default function Header({ isDark = false }) {
 function Logo({isDark}) {
   return (
     <div className={styles.logo}>
-      <h4 className={styles.logoText}>
-        Paul Thanataweenont's <br/> Official Website
-      </h4>      
+      <h5 className={styles.logoText}>
+        Paul Thanataweenont
+      </h5>      
       <div className={styles.icon}>
         <Image
           src="/Logo.svg"

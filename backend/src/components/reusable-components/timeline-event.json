@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_reusable_components_timeline_events",
+  "info": {
+    "displayName": "TimelineEvent"
+  },
+  "options": {},
+  "attributes": {
+    "dateStart": {
+      "type": "date"
+    },
+    "dateEnd": {
+      "type": "date"
+    },
+    "title": {
+      "type": "string"
+    },
+    "desc": {
+      "type": "richtext"
+    }
+  }
+}
