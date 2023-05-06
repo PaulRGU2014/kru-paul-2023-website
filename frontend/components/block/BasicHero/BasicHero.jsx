@@ -53,16 +53,16 @@ export default function BasicHero({content}) {
           <div className={styles.image_wrapper}>
             <Tween
               to={{
-                y: '-200px',
+                x: '400px',
                 scrollTrigger,
-                rotation: 180
+                rotation: 0
               }}
               duration={1}
             >
               <div className={styles.image}>
                 <div className={styles.image_inner}>
                   <Image
-                    src="/Logo_1080.png"
+                    src={getStrapiMedia(content.img.data?.attributes?.url)}
                     layout="fill"
                     objectFit='contain'
                     objectPosition="center"

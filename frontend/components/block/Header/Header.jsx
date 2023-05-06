@@ -12,10 +12,10 @@ export default function Header({ isDark = false }) {
       style={{backgroundColor: `${!!isDark ? '#221E1F' : '#FFF'}`}}
     >
       <div className={styles.wrapper}>
+        <MenuBurger />
         <LinkWrapper href={"/"} className={isDark = true ? styles.homelink : styles.homelink_light}>
           <Logo isDark={isDark}/>
         </LinkWrapper>
-        <MenuBurger />
       </div>
     </div>
   );
@@ -23,6 +23,9 @@ export default function Header({ isDark = false }) {
 function Logo({isDark}) {
   return (
     <div className={styles.logo}>
+      <h4 className={styles.logoText}>
+        Paul Thanataweenont's <br/> Official Website
+      </h4>      
       <div className={styles.icon}>
         <Image
           src="/Logo.svg"
@@ -35,9 +38,6 @@ function Logo({isDark}) {
           }}          
         />
       </div>
-      <h4 className={styles.logoText}>
-        Paul Thanataweenont's <br/> Official Website
-      </h4>
     </div>
   );
 }
