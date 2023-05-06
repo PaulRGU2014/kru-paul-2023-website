@@ -78,15 +78,18 @@ export default function BasicHero({content}) {
 
   let replacedAlphabets;
 
-  replacedAlphabets = reactStringReplace(`${content.title}`, "m", (match, i) => (
-    <div key={match +i} style={{color:"#F05133"}}>M</div>
+  // replacedAlphabets = reactStringReplace(`${content.title}`, "m", (match, i) => (
+  //   <div key={match +i} style={{color:"#FFD75B"}}>M</div>
+  // ))
+  replacedAlphabets = reactStringReplace(`${content.title}`, "o", (match, i) => (
+    <div key={match +i} style={{color:"#FFD75B"}}>O</div>
   ))
-  replacedAlphabets = reactStringReplace(replacedAlphabets, ".", (match, i) => (
-    <div key={match +i} style={{color:"#F05133"}}>.</div>
-  ))
-  replacedAlphabets = reactStringReplace(replacedAlphabets, "o", (match, i) => (
-    <DecorO key={match +i} />
-  ))
+  // replacedAlphabets = reactStringReplace(replacedAlphabets, ".", (match, i) => (
+  //   <div key={match +i} style={{color:"#F05133"}}>.</div>
+  // ))
+  // replacedAlphabets = reactStringReplace(replacedAlphabets, "o", (match, i) => (
+  //   <DecorO key={match +i} />
+  // ))
   
 
 
