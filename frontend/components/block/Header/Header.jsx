@@ -9,7 +9,7 @@ export default function Header({ isDark = false }) {
   return (
     <div 
       className={styles.component}
-      style={{backgroundColor: `${!!isDark ? '#221E1F' : '#FFF'}`}}
+      style={{backgroundColor: `${!!isDark ? '#000000' : '#FFF'}`}}
     >
       <div className={styles.wrapper}>
         <MenuBurger />

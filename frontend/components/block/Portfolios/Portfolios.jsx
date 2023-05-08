@@ -7,8 +7,6 @@ import { BsChevronLeft, BsChevronRight } from 'react-icons/bs';
 import { getStrapiMedia } from "../../../pages/lib/media";
 
 
-
-
 // Change Image source to '../../util/Img/Img' + imageObject when integrated into backend
 import Image from "../../../imageloader";
 

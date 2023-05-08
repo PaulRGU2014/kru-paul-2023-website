@@ -1,6 +1,6 @@
 import React from "react";
 //importHere
-
+import MediaGallery from './block/MediaGallery/MediaGallery';
 import ErrorBoundary from "./util/ErrorBoundry/ErrorBoundry";
 import Example from './block/Example/Example';
 import Accordion from "./block/Accordion/Accordion";
@@ -18,7 +18,8 @@ const componentMap = {
   'page-components.portfolio': Portfolios,
   'page-components.recent-project': RecentProjects,
   'reusable-components.rich-text': RichText,
-  'page-components.your-project': YourProject
+  'page-components.your-project': YourProject,
+  'page-components.media-gallery': MediaGallery
 
 };
 

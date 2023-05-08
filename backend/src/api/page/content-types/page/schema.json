@@ -34,7 +34,9 @@
         "reusable-components.rich-text",
         "page-components.your-project",
         "page-components.recent-project",
-        "page-components.portfolio"
+        "page-components.portfolio",
+        "page-components.timeline",
+        "page-components.media-gallery"
       ]
     },
     "isDark": {

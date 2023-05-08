@@ -53,7 +53,7 @@ export default function BasicHero({content}) {
           <div className={styles.image_wrapper}>
             <Tween
               to={{
-                x: '400px',
+                x: '-400px',
                 scrollTrigger,
                 rotation: 0
               }}
