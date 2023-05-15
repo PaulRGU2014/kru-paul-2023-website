@@ -207,6 +207,7 @@ export default function Portfolios({content}) {
                   className={`${styles.card_outer} ${expandedIndex === index ? styles.hide : styles.show}`}
                   onClick={() => {setExpandedIndex (index), setSlideIndex (0)}}
                 >
+                  
                   <div 
                     className={`${styles.card_image}`}
                   >
