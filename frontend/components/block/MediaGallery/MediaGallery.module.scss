@@ -31,6 +31,14 @@
     width: 70%;
 }
 
+.fadeinLeft{
+    @include scroll-animation($anim: fromLeft, $sequence: 60ms, $speed: 1000ms );
+}
+
+.fadeinRight{
+    @include scroll-animation($anim: fromRight, $sequence: 60ms, $speed: 1000ms );
+}
+
 .sliderWrapper{
     position: relative;
     width: 30%;

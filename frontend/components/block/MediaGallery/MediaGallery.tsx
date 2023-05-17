@@ -21,9 +21,10 @@ export default function MediaGallery({content}:any) {
     <div className={styles.component}>
       <div className={styles.wrapper}>
         <div className={styles.inner}>
-          <ScrollAnim>
+          
             {content.cards?.map((card: { id: React.Key; desc: any; media: any; isMediaLeft: boolean}) => {
               return (
+                <ScrollAnim>
                 <div 
                   className={styles.card}
                   style={{flexDirection:`${card.isMediaLeft === false ? "row-reverse" : "row"}`}}
@@ -36,7 +37,7 @@ export default function MediaGallery({content}:any) {
                       attributes: any; media: { data: { attributes: { url: any; }; }[]; }; })=>{
                       return(
                         <div 
-                        className={`${styles.media}`}
+                        className={`${styles.media}  ${card.isMediaLeft === true ? styles.fadeinLeft : styles.fadeinRight }`}
                         >
                           <Image 
                             src={getStrapiMedia(item.attributes?.url)}
@@ -57,7 +58,7 @@ export default function MediaGallery({content}:any) {
                     attributes: any; media: { data: { attributes: { url: any; }; }[]; }; })=>{
                     return(
                       <div 
-                      className={`${styles.media}`}
+                      className={`${styles.media}  ${card.isMediaLeft === true ? styles.fadeinLeft : styles.fadeinRight }`}
                       >
                         <Image 
                           src={getStrapiMedia(item.attributes?.url)}
@@ -72,11 +73,12 @@ export default function MediaGallery({content}:any) {
                     )
                   })                
                   }
-                  <RichText className={styles.richtext} html={card.desc} children={null}/>
+                  <RichText className={`${styles.richtext} ${card.isMediaLeft === false ? styles.fadeinLeft : styles.fadeinRight }`} html={card.desc} children={null}/>
                 </div>
+                </ScrollAnim>
               )
             })}
-          </ScrollAnim>
+          
         </div>
       </div>
     </div>
