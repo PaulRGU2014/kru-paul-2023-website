@@ -53,7 +53,9 @@
     text-decoration: none;
     color:$white;
     height: 120px;
+    cursor: pointer;
     &_light{
+        @extend .homelink;
         color: $black;
     }
 }

@@ -1,4 +1,4 @@
-import React, {useState,useEffect} from "react";
+import React, { useState , useEffect } from "react";
 import styles from "./Header.module.scss";
 import { getStrapiMedia } from "../../../pages/lib/media";
 import Image from "../../../imageloader";
@@ -18,6 +18,7 @@ type scrollTriggerType ={
 
 export default function Header({ isDark = false }) {
   const [scrollTrigger, setScrollTrigger] = useState<scrollTriggerType>();
+  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false)
 
   useEffect(() => {
       gsap.registerPlugin(ScrollTrigger);
@@ -31,7 +32,6 @@ export default function Header({ isDark = false }) {
 
     if (!scrollTrigger) return false;
 
-
   return (
     <Tween
     to={{
@@ -44,16 +44,17 @@ export default function Header({ isDark = false }) {
   >
     <div 
       className={styles.component}
-      style={{backgroundColor: `${!!isDark ? '#000000' : '#FFF'}`}}
+      style={{backgroundColor: `${isDark === true ? '#000000' : '#FFF'}`}}
     >
       <div className={styles.wrapper}>
-        <MenuBurger />
+        <MenuBurger isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen}/>
         <Logo isDark={isDark} scrollTrigger={scrollTrigger}/>
       </div>
    </div>
 </Tween>
   );
 }
+
 function Logo({isDark, scrollTrigger}) {
   const router = useRouter()
   return (
@@ -66,9 +67,9 @@ function Logo({isDark, scrollTrigger}) {
         x:120
       }}
     >
-    <div onClick={()=>router.push('/')} className={isDark = true ? styles.homelink : styles.homelink_light}>
+    <div onClick={()=>router.push('/')} className={isDark === true ? styles.homelink : styles.homelink_light}>
       <div className={styles.logo}>
-        <h5 className={styles.logoText} style={{color: `${!!isDark ? '#000000' : '#FFF'}`}}>
+        <h5 className={styles.logoText}>
           Paul Thanataweenont
         </h5>      
         <div className={styles.icon}>
@@ -88,12 +89,22 @@ function Logo({isDark, scrollTrigger}) {
     </Tween>
   );
 }
-function MenuBurger() {
-  return (
-    <div className={styles.menuBurger}>
-      <div />
-      <div />
-      <div />
-    </div>
-  );
+
+function MenuBurger({isMenuOpen, setIsMenuOpen}) {
+  if (isMenuOpen === false){
+    return (
+      <div className={styles.menuBurger} onClick={()=>setIsMenuOpen(true)}>
+        <div />
+        <div />
+        <div />
+      </div>
+    );  
+  } else if (isMenuOpen === true) {
+    return(
+      <div className={styles.menuBurger} onClick={()=>setIsMenuOpen(false)}>
+        <div />
+        <div />
+      </div>              
+    )
+  }
 }
