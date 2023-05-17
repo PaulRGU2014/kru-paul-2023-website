@@ -68,7 +68,7 @@ function Logo({isDark, scrollTrigger}) {
     >
     <div onClick={()=>router.push('/')} className={isDark = true ? styles.homelink : styles.homelink_light}>
       <div className={styles.logo}>
-        <h5 className={styles.logoText}>
+        <h5 className={styles.logoText} style={{color: `${!!isDark ? '#000000' : '#FFF'}`}}>
           Paul Thanataweenont
         </h5>      
         <div className={styles.icon}>

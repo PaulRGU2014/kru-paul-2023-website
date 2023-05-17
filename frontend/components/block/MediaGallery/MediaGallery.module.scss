@@ -30,3 +30,14 @@
 .richtext{
     width: 70%;
 }
+
+.sliderWrapper{
+    position: relative;
+    width: 30%;
+    height: 200px;
+    visibility: visible;
+    opacity: 1;
+    transition: all 0.5s $ease-out-quint;
+    border-radius: 5px;
+    overflow: hidden;
+}
