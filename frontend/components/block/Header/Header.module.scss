@@ -1,12 +1,14 @@
 @import '../../../scss/helpers/import';
 
 .component{
+    height: auto;
     width: 100%;
-    position: relative;
+    position: sticky;
     top: 0;
     left: 0;
-    padding: 40px 0;
-    background-color: $white;
+    padding: 30px 0;
+    background-color: $black;
+    z-index: 99;
 }
 .logo{
     position: relative;
@@ -14,6 +16,7 @@
     flex-direction: row;
     align-items: center;
     gap: 30px;
+    height: 100%;
 }
 
 @keyframes iconGrow{
@@ -49,6 +52,7 @@
 .homelink{
     text-decoration: none;
     color:$white;
+    height: 120px;
     &_light{
         color: $black;
     }
@@ -62,11 +66,16 @@
 .icon{
     position: relative;
     width: 120px;
-    height: 120px;
+    height: 100%;
     border-radius: 100%;
     box-shadow: 0px 0px 0px 11px $yellow;
     background-color: $yellow;
     animation: iconGrow 800ms 200ms $ease-out-back both;
+    &_shrink{
+        @extend .icon;
+        width: 60px;
+        height: 60px;
+    }
 }
 .iconCut{
     position: relative;
@@ -81,6 +90,7 @@
     @include centered($max-width);
     display: flex;
     align-items: center;
+    height: 100%;
 }
 @keyframes burgIn {
     0%{

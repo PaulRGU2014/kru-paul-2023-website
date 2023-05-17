@@ -1,6 +1,6 @@
 import Head from "next/head";
 import ComponentLoader from "../components/ComponentLoader";
-import Header from "../components/block/Header/Header";
+import Header from "../components/block/Header/Header.tsx";
 import Footer from "../components/block/Footer/Footer";
 
 let DATA_URL = process.env.DATA_URL;

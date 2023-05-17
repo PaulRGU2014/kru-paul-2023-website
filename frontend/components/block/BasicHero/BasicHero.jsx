@@ -40,9 +40,6 @@ export default function BasicHero({content}) {
       <div className={styles.component}  ref={el}>
         <div className={styles.wrapper}>
           <div className={styles.inner}>
-            {/* <div className={styles.logo}>
-              <ChronosLogo />
-            </div> */}
             <div className={styles.heading}>
               {
                 replacedAlphabets
