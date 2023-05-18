@@ -101,9 +101,9 @@ function MenuBurger({isMenuOpen, setIsMenuOpen}) {
     );  
   } else if (isMenuOpen === true) {
     return(
-      <div className={styles.menuBurger} onClick={()=>setIsMenuOpen(false)}>
-        <div />
-        <div />
+      <div className={styles.menuBurger_close} onClick={()=>setIsMenuOpen(false)}>
+        <div style={{rotate:"45deg"}}/>
+        <div style={{rotate:"-45deg"}}/>
       </div>              
     )
   }
