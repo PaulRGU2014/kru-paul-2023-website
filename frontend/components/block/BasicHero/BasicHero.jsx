@@ -47,31 +47,33 @@ export default function BasicHero({content}) {
             </div>
             <RichText className={styles.richtext} html={content.desc}/>
           </div>
-          <div className={styles.image_wrapper}>
-            <Tween
-              to={{
-                x: '-400px',
-                scrollTrigger,
-                rotation: 0
-              }}
-              duration={1}
-            >
-              <div className={styles.image}>
-                <div className={styles.image_inner}>
-                  <Image
-                    src={getStrapiMedia(content.img.data?.attributes?.url)}
-                    layout="fill"
-                    objectFit='contain'
-                    objectPosition="center"
-                    style={{
-                      width: "100%",
-                      height: "auto"
-                    }}          
-                  />
+          {content.img.data &&
+            <div className={styles.image_wrapper}>
+              <Tween
+                to={{
+                  x: '-400px',
+                  scrollTrigger,
+                  rotation: 0
+                }}
+                duration={1}
+              >
+                <div className={styles.image}>
+                  <div className={styles.image_inner}>
+                    <Image
+                      src={getStrapiMedia(content.img.data?.attributes?.url)}
+                      layout="fill"
+                      objectFit='contain'
+                      objectPosition="center"
+                      style={{
+                        width: "100%",
+                        height: "auto"
+                      }}          
+                    />
+                  </div>
                 </div>
-              </div>
-            </Tween>
-          </div>          
+              </Tween>
+            </div>  
+          }
         </div>
       </div>
     </ScrollAnim>

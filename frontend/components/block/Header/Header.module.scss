@@ -107,22 +107,31 @@
 .menuBurger{
     margin-right: auto;
     width: 44px;
+    height: 44px;
     cursor: pointer;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
+    rotate: 0deg;
+    transition: all 0.5s $ease-out-quint;
+    z-index: 99;
     > div{
         width: 100%;
         height: 6px;
         border-radius: 3px;
         background-color: $yellow;
-        margin-bottom: 8px;
         animation: burgIn 800ms $ease-out-quint both;
         @include animation-sequence(60ms, 4);
     }
     &_close{
         @extend .menuBurger;
+        rotate: 45deg;
+        transition: all 0.5s $ease-out-quint;
         > div {
             position: absolute;
+            top: 21px;
         }
-
     }
 }
