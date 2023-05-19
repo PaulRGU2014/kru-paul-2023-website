@@ -115,7 +115,7 @@
     justify-content: center;
     gap: 8px;
     rotate: 0deg;
-    transition: all 0.5s $ease-out-quint;
+    transition: all 0.75s $ease-out-quint;
     z-index: 99;
     > div{
         width: 100%;
@@ -128,10 +128,50 @@
     &_close{
         @extend .menuBurger;
         rotate: 45deg;
-        transition: all 0.5s $ease-out-quint;
+        transition: all 0.75s $ease-out-quint;
         > div {
             position: absolute;
             top: 21px;
         }
+    }
+}
+
+.menu_wrapper{
+    display: flex;
+    flex-direction: row;
+    background-color: $neutral-black;
+    position: absolute;
+    min-width: 360px;
+    width: calc(30% + ((100% - $max-width) / 2));
+    height: 100vh;
+    top: 0;
+    left:0;
+    &::before{
+        content: "";
+        display: block;
+        background-color: $neutral-black;
+        width: calc((100vw - $max-width) / 2);
+        height: 100%;
+    }
+    @include responsive ($max-width){
+        width: 30%;
+        &::before{
+            width: 0;
+        }
+    }
+}
+
+.menu{
+    width: auto;
+    height: 100%;
+    &Open{
+        opacity: 1;
+        transform: translateY(0);
+        transition: all 0.75s $ease-out-quint;
+    }
+    &Close{
+        opacity: 0;
+        transform: translateY(-100vh);
+        transition: all 0.75s $ease-out-quint;
     }
 }

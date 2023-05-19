@@ -11,7 +11,7 @@ export default function Footer({content}) {
     <ScrollAnim><div className={styles.component}>
       <div className={styles.wrapper}>
         <div className={styles.inner}>
-          <div className={styles.chronos}>
+          <div className={styles.logo_wrapper}>
             <div className={styles.logo}>
               <Image
                 src="/Logo_1080.png"

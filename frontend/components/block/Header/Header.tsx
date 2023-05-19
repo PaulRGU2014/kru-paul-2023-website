@@ -50,6 +50,7 @@ export default function Header({ isDark = false }) {
         <MenuBurger isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen}/>
         <Logo isDark={isDark} scrollTrigger={scrollTrigger}/>
       </div>
+      <MenuPopup isMenuOpen={isMenuOpen} />
    </div>
 </Tween>
   );
@@ -108,4 +109,14 @@ function MenuBurger({isMenuOpen, setIsMenuOpen}) {
       </div>              
     )
   }
+}
+
+function MenuPopup({menuData, isMenuOpen}) {
+  return(
+    <div className={`${styles.menu_wrapper} ${isMenuOpen === true ? styles.menuOpen : styles.menuClose}`}>
+      <div className={styles.menu}>
+        These are menu content
+      </div>
+    </div>
+  )
 }
