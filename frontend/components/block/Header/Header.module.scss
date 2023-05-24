@@ -139,17 +139,17 @@
 .menu_wrapper{
     display: flex;
     flex-direction: row;
-    background-color: $neutral-black;
+    background: rgba($color: $neutral-black, $alpha: 1);
     position: absolute;
     min-width: 360px;
-    width: calc(30% + ((100% - $max-width) / 2));
+    width: calc(10vw + ((100% - $max-width) / 2));
     height: 100vh;
     top: 0;
     left:0;
     &::before{
         content: "";
         display: block;
-        background-color: $neutral-black;
+        background: none;
         width: calc((100vw - $max-width) / 2);
         height: 100%;
     }
@@ -162,6 +162,8 @@
 }
 
 .menu{
+    padding: 150px 0 0 30px;
+    color: $white;
     width: auto;
     height: 100%;
     &Open{
@@ -173,5 +175,18 @@
         opacity: 0;
         transform: translateY(-100vh);
         transition: all 0.75s $ease-out-quint;
+    }
+    &_list{
+    text-transform: uppercase;
+    color: #ffffff;
+    font-family: "Kulim Park";
+    font-size: 20px;
+    line-height: 130%;
+    font-size: 20px;
+    line-height: 130%;
+    text-align: left;
+    text-decoration: none;
+    cursor: pointer;
+    margin-bottom: 30px;
     }
 }

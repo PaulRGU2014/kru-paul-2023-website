@@ -10,7 +10,7 @@ if(!DATA_URL){
 console.log('USING DATA URL:', DATA_URL);
 
 export default function Page ({content, footerData }){
-  console.log(content)
+  console.log(footerData)
   return(
     <>
       <Head>
@@ -19,7 +19,7 @@ export default function Page ({content, footerData }){
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true"/>
         <link href="https://fonts.googleapis.com/css2?family=Kulim+Park:ital,wght@0,200;0,300;0,600;0,700;1,200;1,300;1,400;1,600;1,700&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Urbanist:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet"/>
       </Head>
-      <Header isDark={content.isDark}/>
+      <Header isDark={content.isDark} menuData={footerData}/>
       <ComponentLoader  key={Math.random()} components={content.components} />
       <Footer content={footerData}/>
     </>

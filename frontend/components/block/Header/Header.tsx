@@ -16,7 +16,7 @@ type scrollTriggerType ={
   scrub: boolean
 }
 
-export default function Header({ isDark = false }) {
+export default function Header({ isDark = false , menuData}) {
   const [scrollTrigger, setScrollTrigger] = useState<scrollTriggerType>();
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false)
 
@@ -50,7 +50,7 @@ export default function Header({ isDark = false }) {
         <MenuBurger isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen}/>
         <Logo isDark={isDark} scrollTrigger={scrollTrigger}/>
       </div>
-      <MenuPopup isMenuOpen={isMenuOpen} />
+      <MenuPopup isMenuOpen={isMenuOpen} menuData={menuData}/>
    </div>
 </Tween>
   );
@@ -112,10 +112,15 @@ function MenuBurger({isMenuOpen, setIsMenuOpen}) {
 }
 
 function MenuPopup({menuData, isMenuOpen}) {
+  const router = useRouter()
   return(
     <div className={`${styles.menu_wrapper} ${isMenuOpen === true ? styles.menuOpen : styles.menuClose}`}>
       <div className={styles.menu}>
-        These are menu content
+        {menuData.links.map((link: { id: React.Key; url: any; title: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | React.ReactPortal; }) => {
+          return(
+            <div key={link.id} className={styles.menu_list} onClick={()=>router.push(`${link.url}`)}>{link.title}</div>
+          )
+        })}
       </div>
     </div>
   )
