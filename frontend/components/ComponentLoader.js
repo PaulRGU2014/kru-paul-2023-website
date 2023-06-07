@@ -1,5 +1,6 @@
 import React from "react";
 //importHere
+import Timeline from './block/Timeline/Timeline';
 import MediaGallery from './block/MediaGallery/MediaGallery';
 import ErrorBoundary from "./util/ErrorBoundry/ErrorBoundry";
 import Example from './block/Example/Example';

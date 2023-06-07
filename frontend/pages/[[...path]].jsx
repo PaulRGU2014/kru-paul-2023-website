@@ -10,7 +10,7 @@ if(!DATA_URL){
 console.log('USING DATA URL:', DATA_URL);
 
 export default function Page ({content, footerData }){
-  console.log(footerData)
+  console.log(content)
   return(
     <>
       <Head>
