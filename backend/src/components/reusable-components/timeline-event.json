@@ -1,7 +1,8 @@
 {
   "collectionName": "components_reusable_components_timeline_events",
   "info": {
-    "displayName": "TimelineEvent"
+    "displayName": "TimelineEvent",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -16,6 +17,9 @@
     },
     "desc": {
       "type": "richtext"
+    },
+    "subtitle": {
+      "type": "string"
     }
   }
 }
