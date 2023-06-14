@@ -188,5 +188,8 @@
     text-decoration: none;
     cursor: pointer;
     margin-bottom: 30px;
+    &:hover{
+        color: $yellow;
+    }
     }
 }

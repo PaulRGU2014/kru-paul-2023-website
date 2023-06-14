@@ -1,6 +1,5 @@
 import React from "react";
 //importHere
-import Timeline from './block/Timeline/Timeline';
 import MediaGallery from './block/MediaGallery/MediaGallery';
 import ErrorBoundary from "./util/ErrorBoundry/ErrorBoundry";
 import Example from './block/Example/Example';
@@ -9,6 +8,7 @@ import BasicHero from "./block/BasicHero/BasicHero";
 import Portfolios from "./block/Portfolios/Portfolios";
 import RecentProjects from "./block/RecentProjects/RecentProjects";
 import RichText from "./block/RichText/RichText";
+import Timeline from "./block/Timeline/Timeline";
 import YourProject from "./block/YourProject/YourProject";
 
 
@@ -20,7 +20,8 @@ const componentMap = {
   'page-components.recent-project': RecentProjects,
   'reusable-components.rich-text': RichText,
   'page-components.your-project': YourProject,
-  'page-components.media-gallery': MediaGallery
+  'page-components.media-gallery': MediaGallery,
+  'page-components.timeline': Timeline
 
 };
 

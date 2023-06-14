@@ -5,7 +5,16 @@ export default function Timeline({content}) {
   return(
     <div className={styles.component}>
       <div className={styles.wrapper}>
-        <h1>Timeline</h1>
+        <h4>{content.title}</h4>
+        <div className={styles.inner}>
+          {content.Events.map((card, index)=>{
+            return (
+              <div className={styles.card_left}>
+                Test card
+              </div>
+            )
+          })}
+        </div>
       </div>
     </div>
   );

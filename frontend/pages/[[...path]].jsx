@@ -46,7 +46,6 @@ export async function getStaticProps({ params }) {
     //  fetch(`${DATA_URL}/navigation?populate=*`),
     //  fetch(`${DATA_URL}/site-setting?populate=*`),
     fetch(`${DATA_URL}/footer?populate=deep,6`),
-
   ]);
   const [content, footerData ] = await Promise.all(responses.map(r => r.json()));
   console.log(path)
