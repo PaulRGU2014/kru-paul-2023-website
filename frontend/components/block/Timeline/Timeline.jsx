@@ -11,11 +11,13 @@ export default function Timeline({content}) {
             return (
               <div className={styles.card}>
                 <div className={styles.card_left}>
-                  Test card
+                  {card.dateStart} - {card.dateEnd}
                 </div>
                 <div className={styles.line}/>
                 <div className={styles.card_right}>
-                  Test card
+                  <h5>{card.title}</h5>
+                  <h6>{card.subtitle}</h6>
+                  <div>{card.desc}</div>
                 </div>
               </div>
             )

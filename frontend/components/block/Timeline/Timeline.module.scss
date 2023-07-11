@@ -25,19 +25,35 @@
 
 .line{
     width: 10px;
-    height: 100%;
+    height: auto;
     background-color: $black;
-    border-radius: 5px 5px 0 0;
+    border-radius: 0;
 }
 
 .card{
     display: flex;
-    gap: 10px;
-    width: 500px;
-    height: 250px;
+    gap: 20px;
+    width: 100%;
+    max-width: 768px;
+    @extend %body-lg;
+    h5, h6{
+        margin: 10px 0;
+    }
     &_left, &_right{
         @extend .card;
+        gap: 0;
+        width: 50%;
         flex-direction: column;
+        justify-content: center;
+        padding: 20px 0;
+    }
+    &_left{
+        align-items: flex-end;
+    }
+    &:first-of-type{
+        .line{
+            border-radius: 5px 5px 0 0;
+        }
     }
     &:last-of-type{
         .line{
