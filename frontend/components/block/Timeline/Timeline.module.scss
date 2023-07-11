@@ -1,17 +1,17 @@
 @import '../../../scss/helpers/import';
 
 .component{
-    background-color: $black;
+    background-color: $white;
 }
 
 .wrapper{
     @include centered($max-width);
     margin: {
-        top: 0;
-        bottom: 0;
+        top: $standard-vertical-spacing;
+        bottom: $standard-vertical-spacing;
     };
     h4{
-        color: $white;
+        color: $black;
         margin: 0;
         text-align: center;
     }
@@ -23,11 +23,26 @@
     align-items: center;
 }
 
+.line{
+    width: 10px;
+    height: 100%;
+    background-color: $black;
+    border-radius: 5px 5px 0 0;
+}
+
 .card{
+    display: flex;
+    gap: 10px;
     width: 500px;
     height: 250px;
-    &_left{
+    &_left, &_right{
         @extend .card;
-        border-right: 5px dashed #FFFFFF;
+        flex-direction: column;
+    }
+    &:last-of-type{
+        .line{
+            border-radius: 0 0 5px 5px;
+        }
     }
 }
+

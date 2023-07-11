@@ -9,8 +9,14 @@ export default function Timeline({content}) {
         <div className={styles.inner}>
           {content.Events.map((card, index)=>{
             return (
-              <div className={styles.card_left}>
-                Test card
+              <div className={styles.card}>
+                <div className={styles.card_left}>
+                  Test card
+                </div>
+                <div className={styles.line}/>
+                <div className={styles.card_right}>
+                  Test card
+                </div>
               </div>
             )
           })}
