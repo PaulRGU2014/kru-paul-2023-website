@@ -1,4 +1,5 @@
 import React from 'react';
+import RichText from '../../util/RichText/RichText'
 import styles from './Timeline.module.scss';
 
 export default function Timeline({content}) {
@@ -17,7 +18,7 @@ export default function Timeline({content}) {
                 <div className={styles.card_right}>
                   <h5>{card.title}</h5>
                   <h6>{card.subtitle}</h6>
-                  <div>{card.desc}</div>
+                  <RichText html={card.desc} className={styles.richtext}/>
                 </div>
               </div>
             )

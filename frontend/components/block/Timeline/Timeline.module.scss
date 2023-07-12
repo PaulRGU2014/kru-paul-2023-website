@@ -24,7 +24,7 @@
 }
 
 .line{
-    width: 10px;
+    min-width: 10px;
     height: auto;
     background-color: $black;
     border-radius: 0;
@@ -42,7 +42,7 @@
     &_left, &_right{
         @extend .card;
         gap: 0;
-        width: 50%;
+        min-width: calc(50% - 50px);
         flex-direction: column;
         justify-content: center;
         padding: 20px 0;
@@ -60,5 +60,9 @@
             border-radius: 0 0 5px 5px;
         }
     }
+}
+
+.richtext{
+    word-break: break-word;
 }
 
