@@ -1,7 +1,0 @@
-.page{
-    position: relative;
-    z-index:1;
-    & + *{
-        margin-top: 0;
-    }
-}
