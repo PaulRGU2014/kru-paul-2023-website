@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <main >
+    <main className={styles.component}>
       <p>
         Thank you for visiting my website. I am a software engineer with a passion for web development.
       </p>

@@ -1,0 +1,13 @@
+@import 'normalize.css';
+
+body{
+    background-color: #131011;
+    .content-area {
+        max-width: 1200px;
+        margin: 0 auto;
+        background-color: #fff;
+        & > * {
+            padding: 20px;
+        }
+    }
+}
