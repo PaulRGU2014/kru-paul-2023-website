@@ -1,14 +1,15 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Metadata } from 'next'
+import styles from "./page.module.scss";
  
 export const metadata: Metadata = {
-  title: 'Next.js',
+  title: 'Paul Thanataweenont',
 }
 
 export default function Home() {
   return (
-    <main>
+    <main >
       <p>
         Thank you for visiting my website. I am a software engineer with a passion for web development.
       </p>

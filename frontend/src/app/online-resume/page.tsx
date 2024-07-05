@@ -1,4 +1,10 @@
 import styles from "./page.module.scss";
+import { Metadata } from 'next'
+
+
+export const metadata: Metadata = {
+  title: 'Paul Thanataweenont - Online Resume',
+}
 
 export default function Resume() {
     return (
