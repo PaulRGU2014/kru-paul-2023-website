@@ -11,11 +11,11 @@ body{
         max-width: 1200px;
         margin: 10px auto;
         border: #403d39;
-        overflow: hidden;
         & > * {
             margin: 20px 0;
             padding: 40px 60px;
             border-radius: 20px;
+            overflow: hidden;
         }
     }
 }
