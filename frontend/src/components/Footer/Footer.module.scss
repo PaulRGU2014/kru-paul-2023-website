@@ -1,5 +1,18 @@
+
+.component{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #000;
+    color: #fff;
+}
+
 .link_wrapper {
     display: flex;
     flex-direction: column;
     gap: 15px;
+    a{
+        text-align: right;
+        color: #fff;
+    }
 }

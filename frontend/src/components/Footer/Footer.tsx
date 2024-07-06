@@ -4,6 +4,9 @@
 export default function Footer() {
     return (
         <footer className={styles.component}>
+            <p className={styles.disclaimer}>
+                This page was hard-coded with Next.js, TypeScript and SCSS, by Paul Thanataweenont
+            </p>            
             <div className={styles.link_wrapper}>
                 <Link href="/">Home</Link>
                 <Link href="/about-me">About Me</Link>
@@ -12,9 +15,6 @@ export default function Footer() {
                 <Link href="/contact">Contact Me</Link>
                 <Link href="/online-resume">My Online Résumé</Link>
             </div>
-            <p className={styles.disclaimer}>
-                This page was hard-coded with Next.js, TypeScript and SCSS, by Paul Thanataweenont
-            </p>
         </footer>
     )
 }
