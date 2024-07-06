@@ -4,7 +4,7 @@ import styles from "./Hero.module.scss"
 export default function Hero({image}: {image: any}) {
     return (
         <div className={styles.component}>
-            <div className={styles.gradient}></div>
+            {/* <div className={styles.gradient}></div> */}
             <Image
                 src={image}
                 alt="Paul's photo"

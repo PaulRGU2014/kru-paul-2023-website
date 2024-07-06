@@ -15,9 +15,16 @@ body{
             margin: 20px 0;
             padding: 40px 60px;
             border-radius: 20px;
-            overflow: hidden;
+            overflow: visible;
         }
     }
+}
+
+h1, h2, h3, h4, h5, h6{
+    font-family: "Sarabun", sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #000;
 }
 
 a{
