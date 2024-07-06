@@ -10,9 +10,11 @@ body{
     .content-area {
         max-width: 1200px;
         margin: 0 auto;
-        background-color: #fff;
+        border: #131011;
+        border-radius: 0 0 20px 20px;
+        overflow: hidden;
         & > * {
-            padding: 20px;
+            padding: 40px 60px;
         }
     }
 }
