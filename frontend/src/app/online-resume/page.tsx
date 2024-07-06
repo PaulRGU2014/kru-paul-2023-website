@@ -2,7 +2,7 @@
 
 import {useState, useEffect, useRef} from "react";
 import styles from "./page.module.scss";
-
+import content from "./content.json";
 
 export default function Resume() {
     // get the height of .component everytime the window is resized
