@@ -9,12 +9,12 @@ body{
     background-color: #131011;
     .content-area {
         max-width: 1200px;
-        margin: 0 auto;
+        margin: 10px auto;
         border: #131011;
-        border-radius: 0 0 20px 20px;
         overflow: hidden;
         & > * {
-            padding: 40px 60px;
+            // padding: 40px 60px;
+            border-radius: 20px;
         }
     }
 }
