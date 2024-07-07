@@ -169,9 +169,16 @@
         {
             "company": "Chronos Interactive Inc.",
             "position": "Website Developer (Full-Stack)",
-            "start_date": "",
-            "end_date": "",
-            "description": ""
+            "start_date": "Jan 2022",
+            "end_date": "Present",
+            "description": "<p>Working on assigned front-end projects based on the following frameworks:</p><ul><li>NextJS</li><li>React</li><li>Typescript</li><li>Twig</li><li>Drupal</li><li>Strapi</li></ul><p>GitHub usage</p><ul><li>Branching projects</li><li>Make pull requests once the projects are ready to be reviewed</li><li>Peer code reviews once each components are completed</li></ul>"
+        },
+        {
+            "company": "Freelance",
+            "position": "Website Developer (Full-Stack)",
+            "start_date": "June 2021",
+            "end_date": "Jan 2022",
+            "description": "<p>Working with clients on projects related to ReactJS, NextJS and Typescript framework. This includes HTML5, CSS and Vanilla Javascript</p>"
         },
         {
             "company": "",
@@ -181,18 +188,11 @@
             "description": ""
         },
         {
-            "company": "",
-            "position": "",
+            "company": "KPIS International School, Bangkok, Thailand",
+            "position": "Science Laboratory Technician",
             "start_date": "",
             "end_date": "",
-            "description": ""
-        },
-        {
-            "company": "",
-            "position": "",
-            "start_date": "",
-            "end_date": "",
-            "description": ""
+            "description": "<ul><li>Setting up and performing science experiments for students.</li><li>Communicating between teachers and administrators relating to science experiments</li><li>Creating online inventories for all equipment</li><li>Develop the laboratory procedures including health and safety</li><li>Standardize all measurement tools to ensure their efficiencies</li><li>Procure the laboratory the equipment required</li><li>Maintain the condition of the laboratory and equipment</li></ul>"
         }
     ]
 }

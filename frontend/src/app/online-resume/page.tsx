@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import styles from "./page.module.scss";
+import RichText from "@/utils/RichText/RichText";
 import content from "./content.json";
 
 export default function Resume() {
@@ -43,110 +44,25 @@ export default function Resume() {
           ElectronJS, Drupal, Stapi, SanityIO and Contentful
         </p>
         <h2>CAREER EXPERIENCE</h2>
-        <div>
-          <h3>Full Stack Developer• 01/2024 – Present</h3>
-          <h3>CorporateAlliance</h3>
-          <ul>
-            <li>
-              esigned and developed a secure, scalable e-commerce platform that
-              increased online sales by 40% within the first six months of
-              launch.
-            </li>
-            <li>
-              Implemented a continuous integration/continuous deployment (CI/CD)
-              pipeline, reducing the code deployment time by 50% and increasing
-              the development team's productivity.
-            </li>
-            <li>
-              Collaborated with the UX/UI team to create intuitive and
-              responsive web interfaces, improving the website's bounce rate by
-              20%.
-            </li>
-            <li>
-              Developed a real-time analytics tool that provided valuable
-              insights into customer behavior, leading to a 15% increase in
-              marketing campaign effectiveness.
-            </li>
-          </ul>
-        </div>
-        <div>
-          <h3>Full Stack Developer• 01/2024 – Present</h3>
-          <h3>CorporateAlliance</h3>
-          <ul>
-            <li>
-              esigned and developed a secure, scalable e-commerce platform that
-              increased online sales by 40% within the first six months of
-              launch.
-            </li>
-            <li>
-              Implemented a continuous integration/continuous deployment (CI/CD)
-              pipeline, reducing the code deployment time by 50% and increasing
-              the development team's productivity.
-            </li>
-            <li>
-              Collaborated with the UX/UI team to create intuitive and
-              responsive web interfaces, improving the website's bounce rate by
-              20%.
-            </li>
-            <li>
-              Developed a real-time analytics tool that provided valuable
-              insights into customer behavior, leading to a 15% increase in
-              marketing campaign effectiveness.
-            </li>
-          </ul>
-        </div>
-        <div>
-          <h3>Full Stack Developer• 01/2024 – Present</h3>
-          <h3>CorporateAlliance</h3>
-          <ul>
-            <li>
-              esigned and developed a secure, scalable e-commerce platform that
-              increased online sales by 40% within the first six months of
-              launch.
-            </li>
-            <li>
-              Implemented a continuous integration/continuous deployment (CI/CD)
-              pipeline, reducing the code deployment time by 50% and increasing
-              the development team's productivity.
-            </li>
-            <li>
-              Collaborated with the UX/UI team to create intuitive and
-              responsive web interfaces, improving the website's bounce rate by
-              20%.
-            </li>
-            <li>
-              Developed a real-time analytics tool that provided valuable
-              insights into customer behavior, leading to a 15% increase in
-              marketing campaign effectiveness.
-            </li>
-          </ul>
-        </div>
-        <div>
-          <h3>Full Stack Developer• 01/2024 – Present</h3>
-          <h3>CorporateAlliance</h3>
-          <ul>
-            <li>
-              esigned and developed a secure, scalable e-commerce platform that
-              increased online sales by 40% within the first six months of
-              launch.
-            </li>
-            <li>
-              Implemented a continuous integration/continuous deployment (CI/CD)
-              pipeline, reducing the code deployment time by 50% and increasing
-              the development team's productivity.
-            </li>
-            <li>
-              Collaborated with the UX/UI team to create intuitive and
-              responsive web interfaces, improving the website's bounce rate by
-              20%.
-            </li>
-            <li>
-              Developed a real-time analytics tool that provided valuable
-              insights into customer behavior, leading to a 15% increase in
-              marketing campaign effectiveness.
-            </li>
-          </ul>
-        </div>
+            {content.career.map(
+              (
+                career: {
+                  company: string;
+                  position: string;
+                  start_date: string;
+                  end_date: string;
+                  description: string;
+                },
+                index: number
+              ) => (
+                <div key={index}>
+                  <h3>{career.position}</h3>
+                  <h3>{career.start_date} - {career.end_date}</h3>
+                  <h3>{career.company}</h3>
+                  <RichText children={null} html={career.description}/>
+                </div>
+              )
+            )}
       </section>
       <section className={styles.floatBox_wrapper}>
         <div className={styles.floatBox}>
