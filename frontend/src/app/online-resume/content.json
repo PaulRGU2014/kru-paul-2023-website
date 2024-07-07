@@ -1,3 +1,199 @@
 {
-    "hero_title": "Paul Thanataweenont's Online Resume"
+    "hero_title": "Paul Thanataweenont's Online Resume",
+    "skills": [
+        {
+            "name": "Figma (Software)",
+            "level": 6,
+            "is_featured": true
+        },
+        {
+            "name": "TypeScript",
+            "level": 5,
+            "is_featured": true
+        },
+        {
+            "name": "HTML",
+            "level": 10
+        },
+        {
+            "name": "Computer Science",
+            "level": 10
+        },
+        {
+            "name": "Google Analytics",
+            "level": 8
+        },
+        {
+            "name": "Written Communication",
+            "level": 9
+        },
+        {
+            "name": "Analytical Skills",
+            "level": 10
+        },
+        {
+            "name": "PostgreSQL",
+            "level": 6,
+            "is_featured": true
+        },
+        {
+            "name": "Google Ads",
+            "level": 7
+        },
+        {
+            "name": "React.js",
+            "level": 9
+        },
+        {
+            "name": "Front-End Development",
+            "level": 10
+        },
+        {
+            "name": "SASS",
+            "level": 10
+        },
+        {
+            "name": "Software Design",
+            "level": 7
+        },
+        {
+            "name": "Linux",
+            "level": 8
+        },
+        {
+            "name": "Drupal",
+            "level": 6,
+            "is_featured": true
+        },
+        {
+            "name": "Adobe Illustrator",
+            "level": 8
+        },
+        {
+            "name": "Amazon Web Services (AWS)",
+            "level": 6
+        },
+        {
+            "name": "Stack",
+            "level": 8
+        },
+        {
+            "name": "Full-Stack Development",
+            "level": "10",
+            "is_featured": true
+        },
+        {
+            "name": "Cross-browser Compatibility",
+            "level": 8
+        },
+        {
+            "name": "Twig",
+            "level": ""
+        },
+        {
+            "name": "Next.js",
+            "is_featured": true,
+            "level": 10
+        },
+        {
+            "name": "MongoDB",
+            "level": ""
+        },
+        {
+            "name": "Git",
+            "level": ""
+        },
+        {
+            "name": "Miro",
+            "level": ""
+        },
+        {
+            "name": "Google Workspace",
+            "level": ""
+        },
+        {
+            "name": "JavaScript",
+            "level": ""
+        },
+        {
+            "name": "Google Tag Manager",
+            "level": ""
+        },
+        {
+            "name": "Adobe Photoshop",
+            "level": ""
+        },
+        {
+            "name": "Contentful",
+            "level": ""
+        },
+        {
+            "name": "User Experience (UX)",
+            "level": ""
+        },
+        {
+            "name": "Adobe Premiere Pro",
+            "level": ""
+        },
+        {
+            "name": "Electron.js",
+            "level": ""
+        },
+        {
+            "name": "Adobe Flash",
+            "level": ""
+        },
+        {
+            "name": "Critical Thinking",
+            "level": ""
+        },
+        {
+            "name": "Strapi.js",
+            "is_featured": true,
+            "level": 10
+        }
+    ],
+    "education": [
+        {
+            "school": "Robert Gordon University, Abberdeen, Scotland",
+            "degree": "Master of Science in Oil and Gas Engineering",
+            "graduation_date": "June 2016"
+        },
+        {
+            "school": "Silpakorn University, Nakhon Pathom, Thailand",
+            "degree": "Bachelor of Engineering in Petrochemical and Polymeric Science",
+            "graduation_date": "March 2012"
+        }
+    ],
+    "career": [
+        {
+            "company": "Chronos Interactive Inc.",
+            "position": "Website Developer (Full-Stack)",
+            "start_date": "",
+            "end_date": "",
+            "description": ""
+        },
+        {
+            "company": "",
+            "position": "",
+            "start_date": "",
+            "end_date": "",
+            "description": ""
+        },
+        {
+            "company": "",
+            "position": "",
+            "start_date": "",
+            "end_date": "",
+            "description": ""
+        },
+        {
+            "company": "",
+            "position": "",
+            "start_date": "",
+            "end_date": "",
+            "description": ""
+        }
+    ]
 }
+
