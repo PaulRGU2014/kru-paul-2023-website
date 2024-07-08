@@ -9,25 +9,24 @@ export default function Resume() {
   // get the height of .component everytime the window is resized
   const [height, setHeight] = useState<any>("auto");
   const componentRef = useRef<HTMLDivElement>(null);
+  const baseRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
     const handleResize = () => {
-      if (componentRef.current) {
+      if ((componentRef.current && baseRef.current) && (componentRef.current.clientHeight > baseRef.current.clientHeight)) {
         setHeight(componentRef.current.clientHeight);
+      } else {
+        setHeight("auto");
       }
     };
-    window.addEventListener("resize", handleResize);
+    window.addEventListener("load resize", handleResize);
     handleResize();
     return () => {
-      window.removeEventListener("resize", handleResize);
+      window.removeEventListener("load resize", handleResize);
     };
-  }, [componentRef]);
+  }, []);
 
   return (
-    <div
-      className={styles.component}
-      ref={componentRef}
-      style={{ height: height }}
-    >
+    <div className={styles.component}>
       <div className={styles.headers}>
         <h1>Paul Thanataweenont</h1>
         <ul>
@@ -36,7 +35,7 @@ export default function Resume() {
           <li>linkedin.com/in/paulrgu2014/</li>
         </ul>
       </div>
-      <section className={styles.desc}>
+      <section className={styles.desc} ref={baseRef}>
         {/* this section is scrollable */}
         <p>
           Website developer with over 2 years of experience. My current projects
@@ -44,27 +43,33 @@ export default function Resume() {
           ElectronJS, Drupal, Stapi, SanityIO and Contentful
         </p>
         <h2>CAREER EXPERIENCE</h2>
-            {content.career.map(
-              (
-                career: {
-                  company: string;
-                  position: string;
-                  start_date: string;
-                  end_date: string;
-                  description: string;
-                },
-                index: number
-              ) => (
-                <div key={index}>
-                  <h3>{career.position}</h3>
-                  <h3>{career.start_date} - {career.end_date}</h3>
-                  <h3>{career.company}</h3>
-                  <RichText children={null} html={career.description}/>
-                </div>
-              )
-            )}
+        {content.career.map(
+          (
+            career: {
+              company: string;
+              position: string;
+              start_date: string;
+              end_date: string;
+              description: string;
+            },
+            index: number
+          ) => (
+            <div key={index}>
+              <h3>{career.position}</h3>
+              <h3>
+                {career.start_date} - {career.end_date}
+              </h3>
+              <h3>{career.company}</h3>
+              <RichText children={null} html={career.description} />
+            </div>
+          )
+        )}
       </section>
-      <section className={styles.floatBox_wrapper}>
+      <section
+        className={styles.floatBox_wrapper}
+        ref={componentRef}
+        style={{ height: height }}
+      >
         <div className={styles.floatBox}>
           <h2>Skills</h2>
           <ul>
