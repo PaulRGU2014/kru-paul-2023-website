@@ -6,19 +6,15 @@ type HeroProps = {
   content: string;
 };
 
-export default function Hero({ image, content }: HeroProps) {
+export default function Hero() {
   return (
     <div className={styles.component}>
-      <h1 className={styles.title}>{content}</h1>
-      <Image
-        src={image}
-        alt="Paul's photo"
-        sizes="100vw"
-        style={{
-          width: "100%",
-          height: "auto",
-        }}
-      />
+      <div className={styles.inner}>
+        <div className={styles.content}>
+          <h1>Paul Thanataweenont</h1>
+          <h6>www.krupaul.com</h6>
+        </div>  
+      </div>
     </div>
   );
 }

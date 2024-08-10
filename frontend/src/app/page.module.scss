@@ -1,3 +1,13 @@
 .component {
     display: block;
 }
+
+.linkWrapper{
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    a{
+        display: block;
+        padding: 30px;
+    }
+}

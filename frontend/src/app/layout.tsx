@@ -1,14 +1,8 @@
 import Head from "next/head"
-import { Sarabun } from 'next/font/google'
 import '../scss/global.scss'
+import Hero from "./../components/Hero/Hero"
 import Footer from '../components/Footer/Footer'
 
-const sarabun = Sarabun({
-  subsets: ['latin', 'latin-ext', 'thai'],
-  style: ['normal', 'italic'],
-  display: 'swap',
-  weight: ['100', '300', '400', '500', '700', '800']
-})
 
 export default function RootLayout({
   children,
@@ -16,11 +10,12 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={sarabun.className}>
+    <html lang="en">
       <Head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
       </Head>
       <body>
+        <Hero />
         <div className="content-area">
           {children}
         </div>
