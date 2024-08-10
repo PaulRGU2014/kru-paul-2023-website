@@ -1,6 +1,6 @@
 import Head from "next/head"
 import { Sarabun } from 'next/font/google'
-import './global.scss'
+import '../scss/global.scss'
 import Footer from '../components/Footer/Footer'
 
 const sarabun = Sarabun({

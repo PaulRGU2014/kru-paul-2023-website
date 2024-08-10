@@ -1,0 +1,136 @@
+@mixin box-sizing(){
+  box-sizing: border-box;
+  * {
+    box-sizing: border-box;
+  }
+}
+
+@mixin centered($width, $padding: 30px){
+  width: 100%;
+  max-width: $width;
+  margin: 0 auto;
+  @media(max-width: ($width + $padding*2)){
+    width: calc(100% - $padding*2);
+    margin-left: $padding;
+    margin-right: $padding;
+  }
+}
+
+//-----------
+
+@mixin responsive($_size, $range: false, $min: false) {
+  @if(type-of($_size) == number){
+    @if($min == true){
+      @media (min-width: $_size) { @content; }
+    }
+    @else {
+      @media (max-width: $_size) { @content; }
+    }
+  }
+  @else {
+    @if(map-has-key($breakpoints, $_size)){
+      $_bp: map-get($breakpoints, $_size);
+      @if(type-of($_bp) == number){
+        @media (max-width: $_bp) { @content; }
+      }
+      @else if(map-has-key($_bp, min) and map-has-key($_bp, max) and $range == true){
+        @media (min-width: map-get($_bp, min)) and (max-width: map-get($_bp, max)) { @content; }
+      }
+      @else if(map-has-key($_bp, max)){
+        @media (max-width: map-get($_bp, max)) { @content; }
+      }
+      @else if(map-has-key($_bp, min)){
+        @media (min-width: map-get($_bp, min)) { @content; }
+      } @else {
+        @error "RESPONSIVE: $breakpoint value for '#{$_size}' is of an unsupported type."
+      }
+    }
+    @else {
+      @error "RESPONSIVE: '#{$_size}' is not defined within $breakpoints. Currently defined breakpoints: '#{map-keys($breakpoints)}'";
+    }
+  }
+}
+
+@mixin clearfix {
+  &:before,
+  &:after {
+    content: "";
+    display: table;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+@mixin nth-range($_start, $_end){
+  @for $_i from $_start to $_end{
+    &:nth-child(#{$_i}){
+      @content;
+    }
+  }
+}
+
+@mixin transition-sequence($_timing-gap, $_elCount, $_initial-delay: 0){
+  @for $_i from 1 to $_elCount{
+    &:nth-child(#{$_i}){
+      transition-delay: 0ms + $_initial-delay + ($_timing-gap * $_i);
+    }
+  }
+}
+@mixin animation-sequence($_timing-gap, $_elCount, $_initial-delay: 0){
+  @for $_i from 1 to $_elCount{
+    &:nth-child(#{$_i}){
+      animation-delay: 0ms + $_initial-delay + ($_timing-gap * $_i);
+    }
+  }
+}
+
+@mixin ghost-center( $_child: '.ghost-center__child' ) {
+  &:before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    margin-right: -0.28em;
+  }
+  #{$_child} {
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+
+@mixin text-ellipsis($_nowrap: true) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  @if ( $_nowrap ) {
+    white-space: nowrap;
+  }
+}
+
+@mixin font-smooth($_smooth: true) {
+  @if $_smooth {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  @else {
+    -webkit-font-smoothing: subpixel-antialiased;
+    -moz-osx-font-smoothing: none;
+  }
+}
+
+@mixin ellipsis(){
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin setup-perspective($depth: $perspective-depth, $origin: center center){
+  perspective: $depth;
+  perspective-origin: $origin;
+  transform-style: preserve-3d;
+}
+
+@mixin anchor-fill($z-index: z-layer(base, +1)){
+  @include fill-parent();
+  z-index: $z-index;
+}

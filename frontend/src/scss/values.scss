@@ -1,0 +1,36 @@
+$max-width: 1240px;
+$desktop-width: 1440px;
+$standard-vertical-spacing: 60px;
+
+$breakpoints: (
+  xxl: (min: 1101px ),
+  xl: ( min: 921px, max: 1100px ),
+  lg: ( min:769px, max:920px ),
+  md: ( min: 481px, max:768px ),
+  sm: ( min: 361px, max:480px ),
+  xs: ( max:360px )
+); // min widths are only used when 'true' is passed as second param to the responsive() mixin
+          
+//colors
+$black: #000000;
+$white: #ffffff;
+
+$yellow: #fbf8cc;
+$porcelain: #fde4cf;
+$rose: #ffcfd2;
+
+$purple: #f1c0e8;
+$dk-purple: #cfbaf0;
+$blue-purple: #a3c4f3;
+
+$dk-blue: #90dbf4;
+$blue: #8eecf5;
+
+$green-blue: #98f5e1;
+$green: #b9fbc0;
+
+
+
+
+
+

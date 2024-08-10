@@ -1,12 +1,12 @@
+@import '../../scss/helpers/import';
 
 .component{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    background-color: #252422;
-    color: #fff;
+    background-color: $blue-purple;
+    // color: $black;
     padding: 40px 60px;
-    box-shadow: 0px 0px 40px rgba($color: #252422, $alpha: 1);
 }
 
 .link_wrapper {
@@ -15,7 +15,7 @@
     gap: 15px;
     a{
         text-align: right;
-        color: #fff;
+        // color: #fff;
     }
 }
 

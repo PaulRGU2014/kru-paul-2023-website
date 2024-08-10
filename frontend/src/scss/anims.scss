@@ -1,0 +1,20 @@
+@mixin scroll-animation($anim, $delay: 0ms, $sequence: false, $amount: 50px, $speed: 600ms, $trigger: '[data-in-view=true]'){
+    opacity: 0;
+    transition: all $speed $ease-out-quint;
+    @if $sequence {
+        @include transition-sequence($sequence, 20, $delay);
+    } @else {
+        transition-delay: $delay;
+    }
+    @if $anim == fromRight { transform: translate3d($amount, 0, 0) } 
+    @else if $anim == fromLeft { transform: translate3d(-#{$amount}, 0, 0) } 
+    @else if $anim == fromTop { transform: translate3d(0, -#{$amount}, 0) } 
+    @else if $anim == fromBottom { transform: translate3d(0, $amount, 0) } 
+    @else if $anim == popUp {transform: scale(1.2)}
+
+    #{$trigger} &{
+        opacity: 1;
+        transform: translate3d(0,0,0);
+        transform: scale(1)
+    }
+}
