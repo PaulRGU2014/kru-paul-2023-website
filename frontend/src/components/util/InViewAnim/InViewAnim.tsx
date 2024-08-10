@@ -3,14 +3,14 @@ import _ from "lodash";
 
 const IN_VIEW_THRESHOLD = 200;
 
-export default function ScrollAnim({ children }) {
-  const elementRef = useRef();
-  const [isInView, setIsInView] = useState();
+export default function ScrollAnim({ children }: { children: React.ReactNode }) {
+  const elementRef = useRef<HTMLDivElement>(null);
+  const [isInView, setIsInView] = useState(false);
 
   useEffect(() => {
     const scrollCallBack = _.throttle(() => {
       const scrollPos = window.scrollY + window.innerHeight - IN_VIEW_THRESHOLD;
-      if (elementRef.current?.offsetTop < scrollPos) {
+      if (elementRef.current && elementRef.current.offsetTop < scrollPos) {
         setIsInView(true);
       } else {
         setIsInView(false);
