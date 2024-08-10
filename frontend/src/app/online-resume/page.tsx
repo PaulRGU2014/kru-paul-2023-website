@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, Children } from "react";
 import styles from "./page.module.scss";
 import RichText from "@/utils/RichText/RichText";
 import content from "./content.json";
@@ -60,7 +60,7 @@ export default function Resume() {
                 {career.start_date} - {career.end_date}
               </h3>
               <h3>{career.company}</h3>
-              <RichText html={career.description} />
+              <RichText html={career.description}/>
             </div>
           )
         )}

@@ -3,9 +3,8 @@
 import {useRef} from 'react';
 import styles from './RichText.module.scss';
 
-import { ReactNode } from 'react';
 
-export default function RichText({html, className = ""}: { html: string, className?: string }) {
+export default function RichText({html, className = "" , children }: { html: string, className?: string, children?: React.ReactNode }) {
   //TODO: next/router handling for internal links
   const containerRef = useRef<HTMLDivElement>(null);
   if(html){
@@ -13,6 +12,8 @@ export default function RichText({html, className = ""}: { html: string, classNa
       <div className={`${styles.component} ${className}`} dangerouslySetInnerHTML={{__html: html}} ref={containerRef} />
     );
   } else {
-    return
+    return (
+      <div className={`${styles.component} ${className}`} ref={containerRef}>{children}</div>
+    )
   }
 }
