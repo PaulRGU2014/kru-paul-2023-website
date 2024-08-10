@@ -10,16 +10,10 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <main className={styles.component}>
-      <p>
-        Thank you for visiting my website. I am a software engineer with a passion for web development.
-      </p>
-      <div>
-        <Link href="/about-me">About Me</Link>
-        <Link href="/skills">My Skills</Link>
-        <Link href="/projects">My Projects</Link>
-        <Link href="/contact">Contact Me</Link>
-        <Link href="/online-resume">My Online Résumé</Link>
-      </div>
+      <h1>Thank you for Visiting my website</h1>
+      <h3>It is under maintenance right now</h3>
+      <h4>I will see you soon</h4>
+      <h6 style={{textAlign: "right"}}>Paul Thanataweenont</h6>
     </main>
   );
 }
