@@ -8,16 +8,22 @@
 
 .inner{
     @include centered ($max-width);
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    justify-content: center;
+    min-height: 100%;
 }
 
 .content{
     display: flex;
     flex-direction: column;
     width: 100%;
-    max-width: 770px;
-    h1{
+    max-width: 860px;
+    h1, h6{
         color: $lt-black;
+        text-align: center;
+        letter-spacing: 5px;
     }
 }
-
 
