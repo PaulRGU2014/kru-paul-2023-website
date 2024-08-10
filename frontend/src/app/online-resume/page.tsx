@@ -60,7 +60,7 @@ export default function Resume() {
                 {career.start_date} - {career.end_date}
               </h3>
               <h3>{career.company}</h3>
-              <RichText html={career.description} children={null} />
+              <RichText html={career.description} />
             </div>
           )
         )}

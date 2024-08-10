@@ -5,7 +5,7 @@ import styles from './RichText.module.scss';
 
 import { ReactNode } from 'react';
 
-export default function RichText({html, className = ""}: { children: ReactNode, html: string, className?: string }) {
+export default function RichText({html, className = ""}: { html: string, className?: string }) {
   //TODO: next/router handling for internal links
   const containerRef = useRef<HTMLDivElement>(null);
   if(html){
