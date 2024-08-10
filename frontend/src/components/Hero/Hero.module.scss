@@ -1,20 +1,59 @@
+@import "../../scss/helpers/import.scss";
+
 .component {
+    background-color: $lt-yellow;
     position: relative;
+}
+
+.wrapper{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
     width: 100%;
-    height: 500px;
-    padding: 0 !important;
-    background-color: #FFF;
-    overflow: hidden !important;
-    box-shadow: 0px 0px 40px rgba($color: #FFF, $alpha: 1);
-
+    height: 100%;
+    min-height: 350px;
+    overflow: hidden;
 }
 
-.title {
+.bricks{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
     position: absolute;
-    top: 40%;
-    left: 35%;
-    transform: translate(-50%, -50%);
-    color: #000;
-    text-align: center;
-    z-index: 1;
+    right: 80%;
+    top: -66px;
+    width: 545px;
+    min-height: 350px;
+    height: 100%;
+    row-gap: 40px;
+    &_each{
+        width: 200px;
+        height: 100px;
+        transform: rotate(-45deg);
+        margin: 0 -30px;
+    }
 }
+
+.inner{
+    @include centered ($max-width);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 50px 0;
+    position: relative;
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+    width: 75%;
+    max-width: 860px;
+    h1, h6{
+        color: $lt-black;
+        text-align: center;
+        letter-spacing: 5px;
+    }
+}
+

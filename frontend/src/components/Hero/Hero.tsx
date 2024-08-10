@@ -6,19 +6,27 @@ type HeroProps = {
   content: string;
 };
 
-export default function Hero({ image, content }: HeroProps) {
+const colorArray = ["#CAE4DA","#E4C8A2", "#EDD6D6" ,"#B0CDC2","#E6D0B2", "#E8C4C4" ,"#8EB8A8","#EBDAC4","#DBA6A6"]
+
+export default function Hero() {
   return (
     <div className={styles.component}>
-      <h1 className={styles.title}>{content}</h1>
-      <Image
-        src={image}
-        alt="Paul's photo"
-        sizes="100vw"
-        style={{
-          width: "100%",
-          height: "auto",
-        }}
-      />
+      <div className={styles.wrapper}>
+        <div className={styles.inner}>
+          <div className={styles.bricks}>
+            {colorArray.map((item, index)=>(
+              <div className={styles.bricks_each}
+                key={index}
+                style={{backgroundColor:item}}
+              ></div>
+            ))}
+          </div>          
+          <div className={styles.content}>
+            <h1>Paul Thanataweenont</h1>
+            <h6>www.krupaul.com</h6>
+          </div>  
+        </div>
+      </div>
     </div>
   );
 }
