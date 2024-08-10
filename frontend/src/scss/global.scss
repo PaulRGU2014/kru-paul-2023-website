@@ -33,6 +33,10 @@ h1 {
     font-weight: 700;
     text-transform: uppercase;
     line-height: normal;
+    word-break: break-word;
+    @include responsive(lg) {
+        font-size: 48px !important;
+    }
 }
 
 h6 {

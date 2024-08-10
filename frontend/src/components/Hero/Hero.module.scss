@@ -23,7 +23,6 @@
     position: absolute;
     right: 80%;
     top: -66px;
-    // rotate: -45deg;
     width: 545px;
     min-height: 350px;
     height: 100%;
@@ -49,7 +48,7 @@
 .content{
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: 75%;
     max-width: 860px;
     h1, h6{
         color: $lt-black;

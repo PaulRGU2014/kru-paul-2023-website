@@ -6,7 +6,7 @@ type HeroProps = {
   content: string;
 };
 
-const colorArray = ["#CAE4DA","#E4C8A2", "#EDD6D6" ,"#B0CDC2","#E6D0B2", "#E8C4C4" ,"#8EB8A8","#E6D0B2",,"#E8C4C4"]
+const colorArray = ["#CAE4DA","#E4C8A2", "#EDD6D6" ,"#B0CDC2","#E6D0B2", "#E8C4C4" ,"#8EB8A8","#EBDAC4","#DBA6A6"]
 
 export default function Hero() {
   return (
