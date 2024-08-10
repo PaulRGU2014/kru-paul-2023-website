@@ -9,6 +9,10 @@
     padding: 40px 60px;
 }
 
+.inner{
+    @include centered ($max-width)
+}
+
 .link_wrapper {
     display: flex;
     flex-direction: column;

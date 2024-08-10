@@ -23,8 +23,8 @@ export default function RootLayout({
       <body>
         <div className="content-area">
           {children}
-        <Footer />
         </div>
+        <Footer />
       </body>
     </html>
   )

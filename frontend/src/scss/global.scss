@@ -10,9 +10,13 @@ html{
 
 body{
     background-color: rgba($color: $green-blue, $alpha: 0.1);
-    .content-area {
-        max-width: 1200px;
-        margin: 10px auto;
+    .content-area{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        width: 100%;
+        max-width: $max-width;
+        margin: 0 auto;
     }
 }
 
