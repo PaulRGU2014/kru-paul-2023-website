@@ -1,6 +1,7 @@
 @import "../../scss/helpers/import.scss";
 
 .component {
+    @include scroll-animation($anim: fromBottom, $speed: 1000ms );
     background-color: $lt-yellow;
     position: relative;
 }
@@ -31,7 +32,12 @@
         width: 200px;
         height: 100px;
         transform: rotate(-45deg);
-        margin: 0 -30px;
+        margin: 0 -30px;;
+        opacity: 0;
+        [data-in-view=true] &{
+            opacity: 1;
+            transition: all 1s $ease-out-quint;
+        }
     }
 }
 
@@ -50,10 +56,20 @@
     flex-direction: column;
     width: 75%;
     max-width: 860px;
+    @include scroll-animation($anim: fromLeft, $speed: 1000ms, $delay: 500ms );
     h1, h6{
         color: $lt-black;
         text-align: center;
         letter-spacing: 5px;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
     }
 }
 

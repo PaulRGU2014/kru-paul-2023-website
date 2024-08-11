@@ -17,7 +17,10 @@ export default function Hero() {
             {colorArray.map((item, index)=>(
               <div className={styles.bricks_each}
                 key={index}
-                style={{backgroundColor:item}}
+                style={{
+                  backgroundColor:item,
+                  transitionDelay: `${Math.random() * 300 + 500}ms`                
+                }}
               ></div>
             ))}
           </div>          
