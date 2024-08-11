@@ -7,13 +7,13 @@ import { usePathname } from 'next/navigation';
 
 
 type HeroProps = {
-  image: any;
-  content: string;
+  title: string;
+  subtitle: string;
 };
 
 const colorArray = ["#CAE4DA","#E4C8A2", "#EDD6D6" ,"#B0CDC2","#E6D0B2", "#E8C4C4" ,"#8EB8A8","#EBDAC4","#DBA6A6"]
 
-export default function Hero() {
+export default function Hero({ title, subtitle }: HeroProps) {
   const [isInView, setIsInView] = useState(false);
   
   const pathname = usePathname()
@@ -32,9 +32,6 @@ export default function Hero() {
     setTimeout(() => {
       setIsInView(true)
     }, 1100);
-    // return (()=>{
-    //   setIsInView(false)
-    // })
   }, [pathname])
 
   return (
@@ -54,8 +51,8 @@ export default function Hero() {
             ))}
           </div>          
           <div className={styles.content}>
-            <h2>Paul Thanataweenont</h2>
-            <h6>www.krupaul.com</h6>
+            <h2>{title}</h2>
+            <h6>{subtitle}</h6>
           </div>  
         </div>
       </div>
