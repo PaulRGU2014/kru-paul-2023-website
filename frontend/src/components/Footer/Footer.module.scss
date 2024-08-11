@@ -6,11 +6,22 @@
     justify-content: space-between;
     background-color: $blue-purple;
     // color: $black;
-    padding: 40px 60px;
+}
+
+.wrapper{
+    width: 100%;
+    height: auto;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center
 }
 
 .inner{
-    @include centered ($max-width)
+    @include centered ($max-width);
+    position: relative;
+    overflow: hidden;
+    padding: 40px 60px;
 }
 
 .link_wrapper {
@@ -18,8 +29,31 @@
     flex-direction: column;
     gap: 15px;
     a{
-        text-align: right;
+        text-align: left;
         // color: #fff;
+    }
+}
+
+.bricks{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    position: absolute;
+    right: 0;
+    width: 545px;
+    min-height: 350px;
+    height: 100%;
+    row-gap: 40px;
+    &_each{
+        width: 200px;
+        height: 100px;
+        transform: rotate(-45deg);
+        margin: 0 -30px;;
+        opacity: 0;
+        [data-in-view=true] &{
+            opacity: 1;
+            transition: all 1s $ease-out-quint;
+        }
     }
 }
 
