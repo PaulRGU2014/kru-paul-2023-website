@@ -1,11 +1,12 @@
 import Link from 'next/link';
 import styles from './Footer.module.scss';
+import InViewAnim from './../../utils/InViewAnim/InViewAnim'
 
 const colorArray = ["#CAE4DA", "#E4C8A2", "#EDD6D6", "#B0CDC2", "#E6D0B2", "#E8C4C4", "#8EB8A8", "#EBDAC4", "#DBA6A6"]
 
 export default function Footer() {
     return (
-        <footer className={styles.component}>
+        <InViewAnim><footer className={styles.component}>
             <div className={styles.wrapper}>
                 <div className={styles.bricks}>
                     {colorArray.map((item, index) => (
@@ -32,6 +33,6 @@ export default function Footer() {
                     </p>
                 </div>
             </div>
-        </footer>
+        </footer></InViewAnim>
     )
 }

@@ -16,15 +16,11 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" sizes="any" />
       </Head>
       <body>
-        <InViewAnim>
           <Hero />
           <div className="content-area">
-            <InViewAnim>
               {children}
-            </InViewAnim>  
           </div>
           <Footer />
-        </InViewAnim>
       </body>
     </html>
   )

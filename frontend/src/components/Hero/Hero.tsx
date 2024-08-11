@@ -1,5 +1,10 @@
+"use client"
+
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import styles from "./Hero.module.scss";
+import { usePathname } from 'next/navigation';
+
 
 type HeroProps = {
   image: any;
@@ -9,7 +14,31 @@ type HeroProps = {
 const colorArray = ["#CAE4DA","#E4C8A2", "#EDD6D6" ,"#B0CDC2","#E6D0B2", "#E8C4C4" ,"#8EB8A8","#EBDAC4","#DBA6A6"]
 
 export default function Hero() {
+  const [isInView, setIsInView] = useState(false);
+  
+  const pathname = usePathname()
+
+  useEffect(()=>{
+    setTimeout(() => {
+      setIsInView(true)
+    }, 200);
+    return (()=>{
+      setIsInView(false)
+    })
+  },[])
+
+  useEffect(() => {
+    setIsInView(false);
+    setTimeout(() => {
+      setIsInView(true)
+    }, 1100);
+    // return (()=>{
+    //   setIsInView(false)
+    // })
+  }, [pathname])
+
   return (
+    <div  data-in-view={isInView}>
     <div className={styles.component}>
       <div className={styles.wrapper}>
         <div className={styles.inner}>
@@ -30,6 +59,7 @@ export default function Hero() {
           </div>  
         </div>
       </div>
+    </div>
     </div>
   );
 }
