@@ -16,20 +16,32 @@
     position: relative;
     overflow: hidden;
     display: flex;
-    align-items: center
+    align-items: center;
+    justify-content: flex-start
 }
 
 .inner{
     @include centered ($max-width);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 30px;
     position: relative;
     overflow: hidden;
     padding: 40px 60px;
 }
 
 .link_wrapper {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+
+    display: block;
+    margin: 0;
+    padding: 0;
+    column-gap: 30px;
+    column-count: 2;
+    & > li{
+        padding: 10px 0;
+    }
+
     a{
         text-align: left;
         // color: #fff;
@@ -39,14 +51,15 @@
 .bricks{
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-end;
+    justify-content: flex-start;
     position: absolute;
     right: 0;
-    width: 545px;
+    width: 460px;
     min-height: 350px;
     height: 100%;
     row-gap: 40px;
-    margin-top: -35px;
+    margin-top: 0px;
+    align-content: center;
     &_each{
         width: 200px;
         height: 100px;
@@ -61,7 +74,7 @@
 }
 
 .disclaimer{
-    align-self: flex-end;
-    width: 50%;
+    width: 60%;
     height: auto;
+    color: $dk-navy;
 }

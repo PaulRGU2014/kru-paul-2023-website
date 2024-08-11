@@ -46,8 +46,27 @@ h2 {
     }
 }
 
-h6 {
+
+h5 {
     font-family: "Sarabun", sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: normal;
+    margin: 0 0 20px 0;
+    word-break: break-word;
+    @include responsive(lg) {
+        font-size: 20px;
+    }
+    @include responsive(md) {
+        font-size: 18px;
+    }
+    @include responsive(sm) {
+        font-size: 16px;
+    }
+}
+
+h6 {
+    font-family: "Roboto", sans-serif;
     font-size: 24px;
     line-height: normal;
     margin: 0 0 20px 0;
@@ -73,4 +92,8 @@ a{
         text-underline-offset: 2px;
 
     }
+}
+
+ul{
+    list-style: none;
 }

@@ -1,4 +1,7 @@
+@import "../scss/helpers/import.scss";
+
 .component {
+    @include centered ($max-width);
     display: block;
 }
 

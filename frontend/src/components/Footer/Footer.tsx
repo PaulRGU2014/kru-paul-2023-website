@@ -20,17 +20,17 @@ export default function Footer() {
                     ))}
                 </div>
                 <div className={styles.inner}>
-                    <div className={styles.link_wrapper}>
-                        <Link href="/">Home</Link>
-                        <Link href="/about-me">About Me</Link>
-                        <Link href="/skills">My Skills</Link>
-                        <Link href="/projects">My Projects</Link>
-                        <Link href="/contact">Contact Me</Link>
-                        <Link href="/online-resume">My Online Résumé</Link>
-                    </div>
-                    <p className={styles.disclaimer}>
+                    <ul className={styles.link_wrapper}>
+                        <li><Link href="/">Home</Link></li>
+                        <li><Link href="/about-me">About Me</Link></li>
+                        <li><Link href="/skills">My Skills</Link></li>
+                        <li><Link href="/projects">My Projects</Link></li>
+                        <li><Link href="/contact">Contact Me</Link></li>
+                        <li><Link href="/online-resume">My Online Résumé</Link></li>
+                    </ul>
+                    <h5 className={styles.disclaimer}>
                         This page was hard-coded with Next.js, TypeScript and SCSS, by Paul Thanataweenont
-                    </p>
+                    </h5>
                 </div>
             </div>
         </footer></InViewAnim>
