@@ -25,7 +25,7 @@ export default function Hero() {
             ))}
           </div>          
           <div className={styles.content}>
-            <h1>Paul Thanataweenont</h1>
+            <h2>Paul Thanataweenont</h2>
             <h6>www.krupaul.com</h6>
           </div>  
         </div>

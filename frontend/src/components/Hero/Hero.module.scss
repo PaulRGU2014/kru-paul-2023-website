@@ -1,7 +1,7 @@
 @import "../../scss/helpers/import.scss";
 
 .component {
-    @include scroll-animation($anim: fromBottom, $speed: 1000ms );
+    @include scroll-animation($anim: fromTop, $speed: 1000ms );
     background-color: $lt-yellow;
     position: relative;
 }
@@ -57,10 +57,20 @@
     width: 75%;
     max-width: 860px;
     @include scroll-animation($anim: fromLeft, $speed: 1000ms, $delay: 500ms );
-    h1, h6{
+    h2, h6{
         color: $lt-black;
         text-align: center;
         letter-spacing: 5px;
+    }
+    h2{
+        display: inline-flex;
+        justify-content: center;
+        column-gap: 20px;
+        row-gap: 10px;
+        flex-wrap: wrap;
+    }
+    @include responsive(md){
+        width: 60%;
     }
 }
 
