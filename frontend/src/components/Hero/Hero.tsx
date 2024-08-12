@@ -38,7 +38,7 @@ export default function Hero({ title, subtitle }: HeroProps) {
   }, [pathname])
 
   return (
-    <div  data-in-view={isInView}>
+    <div data-in-view={isInView}>
     <div className={styles.component}>
       <div className={styles.wrapper}>
         <div className={styles.inner}>
