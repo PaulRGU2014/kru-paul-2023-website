@@ -27,7 +27,7 @@
 .linkWrapper{
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: stretch;
     gap: 20px;
     width: 100%;
@@ -35,14 +35,14 @@
         display: block;
         padding: 30px;
         text-align: center;
-        background-color: $lt-yellow;
+        background-color: transparent;
         text-decoration: none;
         text-transform: uppercase;
         font-weight: 700;
-        border-radius: 10px;
+        // border-radius: 10px;
         border: none;
         width: 250px;
-        box-shadow: 0px 0px 10px $dk-navy;
+        // box-shadow: 0px 0px 10px $dk-navy;
         transition: all 0.3s $ease-out-quint;
         &:hover{
             background-color: $blue-purple;
