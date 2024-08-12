@@ -5,16 +5,15 @@
     flex-direction: row;
     justify-content: space-between;
     background-color: $blue-purple;
-    // color: $black;
     min-height: 350px;
-    // @include scroll-animation($anim: fromBottom, $speed: 1000ms );
+    @include scroll-animation($anim: fromTop, $speed: 1000ms, $delay: 250ms );
+    position: relative;
 }
 
 .wrapper{
     width: 100%;
     height: auto;
     position: relative;
-    overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: flex-start
@@ -60,6 +59,7 @@
     row-gap: 40px;
     margin-top: 0px;
     align-content: center;
+    bottom: 72px;
     &_each{
         width: 200px;
         height: 100px;

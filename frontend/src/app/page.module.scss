@@ -2,6 +2,7 @@
 
 .component {
     // @include centered ($max-width);
+    @include scroll-animation($anim: fromTop, $speed: 1000ms, $delay: 250ms );
     display: block;
     background: linear-gradient(-180deg, $lt-yellow 0%, $blue-purple 100%);
 }

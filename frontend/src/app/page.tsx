@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Metadata } from 'next'
 import styles from "./page.module.scss";
 import Hero from "./../components/Hero/Hero"
+import InViewAnim from './../utils/InViewAnim/InViewAnim'
 
 
  
@@ -12,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (<>
-    <Hero title="Paul Thanataweenont" subtitle="www.krupaul.com"/>
+    <InViewAnim><Hero title="Paul Thanataweenont" subtitle="www.krupaul.com"/>
     <main className={styles.component}>
       <div className={styles.wrapper}>
         <div className={styles.linkWrapper}>
@@ -23,7 +24,7 @@ export default function Home() {
           <Link href="/online-resume">My Online Résumé</Link>
         </div>
       </div>
-    </main>
+    </main></InViewAnim>
     </>
   );
 }

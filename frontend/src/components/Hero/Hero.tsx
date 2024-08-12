@@ -15,15 +15,18 @@ const colorArray = ["#CAE4DA","#E4C8A2", "#EDD6D6" ,"#B0CDC2","#E6D0B2", "#E8C4C
 
 export default function Hero({ title, subtitle }: HeroProps) {
   const [isInView, setIsInView] = useState(false);
+  const [isClient, setIsClient] = useState(false)
   
   const pathname = usePathname()
 
   useEffect(()=>{
+    setIsClient(typeof window !== 'undefined')
     setTimeout(() => {
       setIsInView(true)
     }, 200);
     return (()=>{
       setIsInView(false)
+      setIsClient(false)
     })
   },[])
 
@@ -45,7 +48,7 @@ export default function Hero({ title, subtitle }: HeroProps) {
                 key={index}
                 style={{
                   backgroundColor:item,
-                  transitionDelay: `${Math.random() * 300 + 500}ms`                
+                  transitionDelay: isClient ? `${Math.random() * 300 + 500}ms` : '0s'        
                 }}
               ></div>
             ))}

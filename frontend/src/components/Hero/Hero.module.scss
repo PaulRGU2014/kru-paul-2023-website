@@ -4,6 +4,7 @@
     @include scroll-animation($anim: fromTop, $speed: 1000ms );
     background-color: $lt-yellow;
     position: relative;
+    z-index: 1;
 }
 
 .wrapper{
@@ -14,7 +15,7 @@
     width: 100%;
     height: 100%;
     min-height: 350px;
-    overflow: hidden;
+    // overflow: hidden;
 }
 
 .bricks{
