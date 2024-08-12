@@ -3,3 +3,15 @@
 .wrapper{
   @include centered ($max-width);
 }
+
+.inner{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+}
+
+.image{
+  position: relative;
+  width: 100%;
+  min-height: 300px;
+}

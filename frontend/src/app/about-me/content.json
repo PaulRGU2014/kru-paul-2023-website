@@ -4,8 +4,32 @@
       "title": "",
       "content": "",
       "image": {
-        "url": "",
-        "alt": ""
+        "url": "/story/Hiking.webp",
+        "alt": "hinking"
+      }
+    },
+    {
+      "title": "",
+      "content": "",
+      "image": {
+        "url": "/story/ChinaWall.webp",
+        "alt": "hinking"
+      }
+    },
+    {
+      "title": "",
+      "content": "",
+      "image": {
+        "url": "/story/Sukhothai.webp",
+        "alt": "hinking"
+      }
+    },
+    {
+      "title": "",
+      "content": "",
+      "image": {
+        "url": "/story/Museum.webp",
+        "alt": "hinking"
       }
     }
   ]
