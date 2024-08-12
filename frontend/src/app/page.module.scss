@@ -36,8 +36,19 @@
         padding: 30px;
         text-align: center;
         background-color: $lt-yellow;
-        border-radius: 50px;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-weight: 700;
+        border-radius: 10px;
+        border: none;
         width: 250px;
+        box-shadow: 0px 0px 10px $dk-navy;
+        transition: all 0.3s $ease-out-quint;
+        &:hover{
+            background-color: $blue-purple;
+            color: $lt-yellow;
+            transition: all 0.3s $ease-out-quint;
+        }
     }
 }
 
