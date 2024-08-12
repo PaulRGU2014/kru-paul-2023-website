@@ -13,6 +13,9 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 20px;
+  @include responsive(md) {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 .image{
