@@ -32,7 +32,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
       </Head>
       <body suppressHydrationWarning={true}>
           {children}
-          <Footer isHomePage={isHomePage} />
+          <Footer/>
       </body>
     </html>
   )
