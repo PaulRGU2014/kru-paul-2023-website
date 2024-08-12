@@ -1,11 +1,15 @@
+import styles from './about-me.module.scss';
+
+
 
 export default function AboutMe() {
-    return (
-        <div>
-            <h1>About Me</h1>
-            <p>
-                I am a software engineer with a passion for web development. I have experience in front-end and back-end development, and I am always looking to learn new technologies.
-            </p>
-        </div>
-    );
+	return (
+		<div className={styles.components}>
+			<div className={styles.wrapper}>
+				<div className={styles.inner}>
+
+				</div>
+			</div>
+		</div>
+	);
 }
