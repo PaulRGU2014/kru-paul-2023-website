@@ -8,6 +8,7 @@
     min-height: 350px;
     @include scroll-animation($anim: fromTop, $speed: 1000ms, $delay: 250ms );
     position: relative;
+    overflow-x: clip;
     &::after{
         content: '';
         position: absolute;
@@ -36,24 +37,29 @@
     gap: 30px;
     position: relative;
     overflow: hidden;
-    padding: 40px 60px;
+    padding: 40px 0px;
+    @include responsive(md){
+        padding: 20px 0px;
+    }
 }
 
 .link_wrapper {
-
     display: block;
     margin: 0;
     padding: 0;
     column-gap: 30px;
     column-count: 2;
-    & > li{
-        padding: 10px 0;
+    @include responsive(md){
+        column-count: 1;
     }
 }
 
 .link{
+    display: block;
     text-align: left;
     text-decoration: none;
+    text-transform: uppercase;
+    padding: 10px 0;
 }
 
 .bricks{
@@ -86,4 +92,8 @@
     width: 60%;
     height: auto;
     color: $navy;
+    @include responsive(md){
+        width: 80%;
+    }
 }
+
