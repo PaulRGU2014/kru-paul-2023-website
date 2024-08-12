@@ -7,7 +7,7 @@
     background-color: $blue-purple;
     // color: $black;
     min-height: 350px;
-    @include scroll-animation($anim: fromBottom, $speed: 1000ms );
+    // @include scroll-animation($anim: fromBottom, $speed: 1000ms );
 }
 
 .wrapper{
@@ -76,5 +76,5 @@
 .disclaimer{
     width: 60%;
     height: auto;
-    color: $dk-navy;
+    color: $navy;
 }

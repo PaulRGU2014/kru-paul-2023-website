@@ -1,14 +1,21 @@
 @import "../scss/helpers/import.scss";
 
 .component {
-    @include centered ($max-width);
+    // @include centered ($max-width);
     display: block;
+    background: linear-gradient(-180deg, $lt-yellow 0%, $blue-purple 100%);
+}
+
+.wrapper{
+    @include centered ($max-width);
+    padding:90px 0;
 }
 
 .linkWrapper{
     display: flex;
     flex-direction: column;
-    width: 200px;
+    align-items: center;
+    width: 100%;
     a{
         display: block;
         padding: 30px;

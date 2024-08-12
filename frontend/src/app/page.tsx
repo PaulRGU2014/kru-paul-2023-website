@@ -14,12 +14,14 @@ export default function Home() {
   return (<>
     <Hero title="Paul Thanataweenont" subtitle="www.krupaul.com"/>
     <main className={styles.component}>
-      <div className={styles.linkWrapper}>
-        <Link href="/about-me">My Story</Link>
-        <Link href="/skills">My Skills</Link>
-        <Link href="/projects">My Projects</Link>
-        <Link href="/contact">My Contact</Link>
-        <Link href="/online-resume">My Online Résumé</Link>
+      <div className={styles.wrapper}>
+        <div className={styles.linkWrapper}>
+          <Link href="/about-me">My Story</Link>
+          <Link href="/skills">My Skills</Link>
+          <Link href="/projects">My Projects</Link>
+          <Link href="/contact">My Contact</Link>
+          <Link href="/online-resume">My Online Résumé</Link>
+        </div>
       </div>
     </main>
     </>
