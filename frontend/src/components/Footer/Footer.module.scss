@@ -8,6 +8,15 @@
     min-height: 350px;
     @include scroll-animation($anim: fromTop, $speed: 1000ms, $delay: 250ms );
     position: relative;
+    &::after{
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 72px;
+        top: 100%;
+        background-color: $blue-purple;
+        z-index: -1;
+    }
 }
 
 .wrapper{
@@ -59,7 +68,7 @@
     row-gap: 40px;
     margin-top: 0px;
     align-content: center;
-    bottom: 72px;
+    bottom: 0;
     &_each{
         width: 200px;
         height: 100px;
