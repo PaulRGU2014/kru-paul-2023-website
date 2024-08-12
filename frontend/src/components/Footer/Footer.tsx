@@ -54,12 +54,12 @@ export default function Footer() {
                 <div className={styles.inner}>
                     {!isHomePage &&
                     <ul className={styles.link_wrapper}>
-                        <li><Link href="/">Home</Link></li>
-                        <li><Link href="/about-me">About Me</Link></li>
-                        <li><Link href="/skills">My Skills</Link></li>
-                        <li><Link href="/projects">My Projects</Link></li>
-                        <li><Link href="/contact">Contact Me</Link></li>
-                        <li><Link href="/online-resume">My Online Résumé</Link></li>
+                        <li><Link className={styles.link} href="/">Home</Link></li>
+                        <li><Link className={styles.link} href="/about-me">About Me</Link></li>
+                        <li><Link className={styles.link} href="/skills">My Skills</Link></li>
+                        <li><Link className={styles.link} href="/projects">My Projects</Link></li>
+                        <li><Link className={styles.link} href="/contact">Contact Me</Link></li>
+                        <li><Link className={styles.link} href="/online-resume">My Online Résumé</Link></li>
                     </ul>}
                     <h5 className={styles.disclaimer}>
                         This page was hard-coded with Next.js, TypeScript and SCSS, by Paul Thanataweenont

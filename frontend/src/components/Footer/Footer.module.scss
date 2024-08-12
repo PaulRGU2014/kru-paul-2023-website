@@ -49,11 +49,11 @@
     & > li{
         padding: 10px 0;
     }
+}
 
-    a{
-        text-align: left;
-        // color: #fff;
-    }
+.link{
+    text-align: left;
+    text-decoration: none;
 }
 
 .bricks{
@@ -61,7 +61,7 @@
     flex-wrap: wrap;
     justify-content: flex-start;
     position: absolute;
-    right: 0;
+    left: calc(75%);
     width: 460px;
     min-height: 350px;
     height: 100%;
