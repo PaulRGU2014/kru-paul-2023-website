@@ -1,5 +1,10 @@
 @import '../../scss/helpers/import.scss';
 
+
+.component{
+  padding: 120px 0;
+}
+
 .wrapper{
   @include centered ($max-width);
 }
@@ -13,5 +18,5 @@
 .image{
   position: relative;
   width: 100%;
-  min-height: 300px;
+  padding-top: 100%;
 }
