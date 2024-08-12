@@ -91,7 +91,7 @@
 .disclaimer{
     width: 60%;
     height: auto;
-    color: $navy;
+    color: $lt-black;
     @include responsive(md){
         width: 80%;
     }
