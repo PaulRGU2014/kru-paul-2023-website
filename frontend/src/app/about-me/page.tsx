@@ -25,8 +25,8 @@ export default function AboutMe() {
 						<ImageLoader className={styles.image} 
 							key={index} 	
 							style={{
-								// if isPortrait is true, then the height will be 2fr, else 1fr
-								gridRow: item.isPortrait ? 'span 2' : 'span 1',
+								gridRow: item.isPortrait===true ? 'span 2' : 'span 1',
+								paddingTop: item.isPortrait===true ? '200%' : '100%',
 								transitionDelay: isClient ? `${Math.random() * 300 + 1000}ms` : '0s'        
 							}}
 							src={item.image.url} 
