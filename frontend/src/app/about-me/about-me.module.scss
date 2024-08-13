@@ -1,5 +1,33 @@
 @import '../../scss/helpers/import.scss';
 
+
+.component{
+  padding: 120px 0;
+}
+
 .wrapper{
   @include centered ($max-width);
+}
+
+.inner{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+  @include responsive(md) {
+    gap: 10px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(1fr);
+  }
+}
+
+.image{
+  position: relative;
+  width: 100%;
+  // padding-top: 100%;
+  opacity: 0;
+  transition: all 1s $ease-out-quint;
+  [data-in-view=true] &{
+      opacity: 1;
+      transition: all 1s $ease-out-quint;
+  }
 }

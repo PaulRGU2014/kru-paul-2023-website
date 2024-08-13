@@ -3,9 +3,46 @@
     {
       "title": "",
       "content": "",
+      "isPortrait": true,
       "image": {
-        "url": "",
-        "alt": ""
+        "url": "/story/Hiking.webp",
+        "alt": "hinking"
+      }
+    },
+    {
+      "title": "",
+      "content": "",
+      "isPortrait": false,
+      "image": {
+        "url": "/story/ChinaWall.webp",
+        "alt": "hinking"
+      }
+    },
+    {
+      "title": "",
+      "content": "",
+      "isPortrait": true,
+      "image": {
+        "url": "/story/Museum.webp",
+        "alt": "hinking"
+      }
+    },    
+    {
+      "title": "",
+      "content": "",
+      "isPortrait": false,
+      "image": {
+        "url": "/story/Sukhothai.webp",
+        "alt": "hinking"
+      }
+    },
+    {
+      "title": "",
+      "content": "",
+      "isPortrait": false,
+      "image": {
+        "url": "/story/ColoradoSpring.webp",
+        "alt": "hinking"
       }
     }
   ]
