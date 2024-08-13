@@ -23,6 +23,7 @@ export default function Home() {
             <Link className={styles.link} href="/projects">My Projects</Link>
             <Link className={styles.link} href="/contact">My Contact</Link>
             <Link className={styles.link} href="/online-resume">My Online Résumé</Link>
+            <li><Link className={styles.link} href="/">My Tech Blog</Link></li>
           </div>
         </div>
       </div>
