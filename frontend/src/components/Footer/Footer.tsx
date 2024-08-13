@@ -55,10 +55,10 @@ export default function Footer() {
                     {!isHomePage &&
                     <ul className={styles.link_wrapper}>
                         <li><Link className={styles.link} href="/">Home</Link></li>
-                        <li><Link className={styles.link} href="/about-me">About Me</Link></li>
+                        <li><Link className={styles.link} href="/about-me">My Story</Link></li>
                         <li><Link className={styles.link} href="/skills">My Skills</Link></li>
                         <li><Link className={styles.link} href="/projects">My Projects</Link></li>
-                        <li><Link className={styles.link} href="/contact">Contact Me</Link></li>
+                        <li><Link className={styles.link} href="/contact">My Contact</Link></li>
                         <li><Link className={styles.link} href="/online-resume">My Online Résumé</Link></li>
                     </ul>}
                     <h5 className={styles.disclaimer}>
