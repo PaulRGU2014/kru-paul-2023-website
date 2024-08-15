@@ -26,7 +26,7 @@
         "url": "/story/Museum.webp",
         "alt": "hinking"
       }
-    },    
+    },
     {
       "title": "",
       "content": "",
@@ -44,6 +44,43 @@
         "url": "/story/ColoradoSpring.webp",
         "alt": "hinking"
       }
+    },
+    {
+      "title": "",
+      "content": "",
+      "isPortrait": true,
+      "image": {
+        "url": "/story/Hiking.webp",
+        "alt": "hinking"
+      }
+    },
+    {
+      "title": "",
+      "content": "",
+      "isPortrait": false,
+      "image": {
+        "url": "/story/Sukhothai.webp",
+        "alt": "hinking"
+      }
+    },
+    {
+      "title": "",
+      "content": "",
+      "isPortrait": false,
+      "image": {
+        "url": "/story/ColoradoSpring.webp",
+        "alt": "hinking"
+      }
+    },
+    {
+      "title": "",
+      "content": "",
+      "isPortrait": false,
+      "image": {
+        "url": "/story/ChinaWall.webp",
+        "alt": "hinking"
+      }
     }
+    
   ]
 }
