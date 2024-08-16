@@ -11,6 +11,8 @@ import { useState, useEffect, useRef } from 'react';
 export default function AboutMe() {
   const [isClient, setIsClient] = useState(false)
 	const [modalOpen, setModalOpen] = useState(false);
+	const [currentImageIndex, setCurrentImageIndex] = useState<number | undefined>();
+	console.log('currentImageIndex', currentImageIndex);
 
 	useEffect(()=>{
     setIsClient(typeof window !== 'undefined');
@@ -38,7 +40,10 @@ export default function AboutMe() {
 							}}
 							src={item.image.url} 
 							alt={item.image.alt}
-							onClick={()=>setModalOpen(true)}
+							onClick={()=>{
+								setModalOpen(true);
+								setCurrentImageIndex(index)
+							}}
 						/>
 					))}
 				</div>
