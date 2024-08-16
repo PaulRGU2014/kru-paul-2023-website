@@ -4,21 +4,28 @@ import styles from './about-me.module.scss';
 import ImageLoader from '@/utils/ImageLoader/ImageLoader';
 import content from "./content.json";
 import InViewAnim from '@/utils/InViewAnim/InViewAnim';
-import { useState, useEffect } from 'react';
+import Modal from '@/components/Modal/Modal';
+import { useState, useEffect, useRef } from 'react';
 
 
 export default function AboutMe() {
   const [isClient, setIsClient] = useState(false)
+	const [modalOpen, setModalOpen] = useState(false);
 
 	useEffect(()=>{
-    setIsClient(typeof window !== 'undefined')
+    setIsClient(typeof window !== 'undefined');
     return (()=>{
       setIsClient(false)
     })
   },[])
 
 	return (
-		<InViewAnim><div className={styles.component}>
+		<InViewAnim>
+			<Modal isOpen={modalOpen} onClose={()=>setModalOpen(false)}>
+				<h1>Modal Content</h1>
+				<p>This is a modal</p>
+			</Modal>
+			<div className={styles.component}>
 			<div className={styles.wrapper}>
 				<div className={styles.inner}>
 					{content.story.map((item, index) => (
@@ -30,7 +37,8 @@ export default function AboutMe() {
 								transitionDelay: isClient ? `${Math.random() * 300 + 1000}ms` : '0s'        
 							}}
 							src={item.image.url} 
-							alt={item.image.alt} 
+							alt={item.image.alt}
+							onClick={()=>setModalOpen(true)}
 						/>
 					))}
 				</div>
