@@ -35,6 +35,39 @@
   }
 }
 
+.modal_inner{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 100%;
+  gap: 20px;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  @include responsive(md){
+    gap: 10px;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
+}
+
+.modal_content{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+  width: 100%;
+  height: 100%;
+  h6{
+    margin: 0;
+  }
+  p{
+    margin: 0 0 16px 0;
+  }
+}
+
 .modalImage{
   position: relative;
+  width: 100%;
+  min-height: 250px;
 }

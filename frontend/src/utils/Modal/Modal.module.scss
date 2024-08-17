@@ -17,8 +17,9 @@
 }
 
 .modal__content{
+  display: flex;
   width: 50%;
-  height: 50vh;
+  min-height: 50vh;
   background-color: $white;
   padding: 30px;
   position: relative;

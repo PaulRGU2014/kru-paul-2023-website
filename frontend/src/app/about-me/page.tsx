@@ -5,14 +5,14 @@ import ImageLoader from '@/utils/ImageLoader/ImageLoader';
 import content from "./content.json";
 import RichText from '@/utils/RichText/RichText';
 import InViewAnim from '@/utils/InViewAnim/InViewAnim';
-import Modal from '@/components/Modal/Modal';
+import Modal from '@/utils/Modal/Modal';
 import { useState, useEffect, useRef } from 'react';
 
 
 export default function AboutMe() {
   const [isClient, setIsClient] = useState(false)
 	const [modalOpen, setModalOpen] = useState(false);
-	const [currentImageIndex, setCurrentImageIndex] = useState<number | undefined>();
+	const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
 	console.log('currentImageIndex', currentImageIndex);
 
 	useEffect(()=>{
@@ -26,13 +26,20 @@ export default function AboutMe() {
 		<InViewAnim>
 			<Modal isOpen={modalOpen} onClose={()=>setModalOpen(false)}>
 				<div className={styles.modal_inner}>
-					{/* <ImageLoader 
+					{ currentImageIndex >=0 && <ImageLoader 
 						className={styles.modalImage}	
 						src={currentImageIndex !== undefined ? content.story[currentImageIndex].image.url : ''} 
 						alt={currentImageIndex !== undefined ? content.story[currentImageIndex].image.alt : ''}
-					/> */}
-					<h6>{currentImageIndex !== undefined && content.story[currentImageIndex].title }</h6>
-					<RichText html={currentImageIndex !== undefined ? content.story[currentImageIndex].content : ''} />
+						objectFit="contain"
+						objectPosition='center'
+						style={{
+							// paddingTop: content.story[currentImageIndex].isPortrait===true ? '200%' : '100%',
+						}}
+					/>}
+					<div className={styles.modal_content}>
+						{!!content.story[currentImageIndex].title && <h6>{content.story[currentImageIndex].title }</h6>}
+						{!!content.story[currentImageIndex].content && <RichText html={content.story[currentImageIndex].content} />}
+					</div>
 				</div>
 			</Modal>
 			<div className={styles.component}>
