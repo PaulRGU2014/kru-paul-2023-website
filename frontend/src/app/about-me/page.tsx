@@ -3,6 +3,7 @@
 import styles from './about-me.module.scss';
 import ImageLoader from '@/utils/ImageLoader/ImageLoader';
 import content from "./content.json";
+import RichText from '@/utils/RichText/RichText';
 import InViewAnim from '@/utils/InViewAnim/InViewAnim';
 import Modal from '@/components/Modal/Modal';
 import { useState, useEffect, useRef } from 'react';
@@ -24,8 +25,15 @@ export default function AboutMe() {
 	return (
 		<InViewAnim>
 			<Modal isOpen={modalOpen} onClose={()=>setModalOpen(false)}>
-				<h1>Modal Content</h1>
-				<p>This is a modal</p>
+				<div className={styles.modal_inner}>
+					{/* <ImageLoader 
+						className={styles.modalImage}	
+						src={currentImageIndex !== undefined ? content.story[currentImageIndex].image.url : ''} 
+						alt={currentImageIndex !== undefined ? content.story[currentImageIndex].image.alt : ''}
+					/> */}
+					<h6>{currentImageIndex !== undefined && content.story[currentImageIndex].title }</h6>
+					<RichText html={currentImageIndex !== undefined ? content.story[currentImageIndex].content : ''} />
+				</div>
 			</Modal>
 			<div className={styles.component}>
 			<div className={styles.wrapper}>

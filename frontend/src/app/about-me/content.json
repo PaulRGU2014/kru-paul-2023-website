@@ -1,8 +1,8 @@
 {
   "story": [
     {
-      "title": "",
-      "content": "",
+      "title": "Test",
+      "content": "<p>Test</p>",
       "isPortrait": true,
       "image": {
         "url": "/story/Hiking.webp",
@@ -10,8 +10,8 @@
       }
     },
     {
-      "title": "",
-      "content": "",
+      "title": "Test2",
+      "content": "<p>Test2</p>",
       "isPortrait": false,
       "image": {
         "url": "/story/ChinaWall.webp",
