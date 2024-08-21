@@ -46,6 +46,22 @@ h2 {
     }
 }
 
+h4{
+    font-family: "Roboto", sans-serif;
+    font-size: 24px;
+    line-height: normal;
+    margin: 0 0 20px 0;
+    word-break: break-word;
+    @include responsive(lg) {
+        font-size: 20px;
+    }
+    @include responsive(md) {
+        font-size: 18px;
+    }
+    @include responsive(sm) {
+        font-size: 16px;
+    }
+}
 
 h5 {
     font-family: "Sarabun", sans-serif;
@@ -67,7 +83,7 @@ h5 {
 
 h6 {
     font-family: "Roboto", sans-serif;
-    font-size: 24px;
+    font-size: 22px;
     line-height: normal;
     margin: 0 0 20px 0;
     word-break: break-word;
@@ -87,13 +103,11 @@ a{
     text-decoration: none;
     color: #000; 
     &:hover{
-        // text-decoration: underline;
-        // text-decoration-thickness: 2px ;
-        // text-underline-offset: 2px;
         color: $white;
     }
 }
 
 ul{
     list-style: none;
+    padding: 0;
 }
