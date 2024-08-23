@@ -3,14 +3,11 @@
 import React, {useState, useRef} from 'react';
 import styles from './Accordion.module.scss';
 import RichText from '../RichText/RichText';
-import InViewAnim from '../InViewAnim/InViewAnim';
 
 export default function Accordion({content}: {content: any}) {
   const [expandedIndex, setExpandedIndex] = useState<number | undefined>(undefined);
   const [isToggle, setIsToggle] = useState (false);
   const accordionCollapsible = useRef<HTMLDivElement>(null);
-
-
 
 
   function toggleAccordion ({index}: {index: number}) {

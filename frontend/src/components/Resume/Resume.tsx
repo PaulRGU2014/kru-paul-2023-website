@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef, Children } from "react";
 import styles from "./Resume.module.scss";
 import RichText from "@/utils/RichText/RichText";
+import Accordion from "@/utils/Accordion/Acccordion";
 
 export default function Resume({ content }: { content: any }) {
   // get the height of .component everytime the window is resized
