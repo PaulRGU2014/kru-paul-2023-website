@@ -28,7 +28,7 @@ export default function Resume({ content }: { content: any }) {
   const baseRef = useRef<HTMLDivElement>(null);
   const skillsAccordionRef = useRef<HTMLUListElement>(null);
   const educationAccordionRef = useRef<HTMLUListElement>(null);
-  // const careerAccordionRef = useRef<HTMLDivElement>(null);
+  const careerAccordionRefs = useRef<HTMLDivElement>(null);
 
   const toggleAccordion = (section: string) => {
     setAccordionState((prevState) => ({
@@ -39,15 +39,16 @@ export default function Resume({ content }: { content: any }) {
 
   const updateMaxHeight = () => {
     const newMaxHeightState: MaxHeightState = {};
-    careerAccordionRefs.current.forEach((ref, index) => {
-      if (ref) {
-        newMaxHeightState[`career-${index}`] = ref.scrollHeight + 'px';
-      }
-    });
+    if (careerAccordionRefs.current) {
+      Array.from(careerAccordionRefs.current.children).forEach((ref, index) => {
+        if (ref instanceof HTMLUListElement) {
+          newMaxHeightState[`career-${index}`] = ref.scrollHeight + 'px';
+        }
+      });
+    }
     setMaxHeightState(newMaxHeightState);
   };
   
-  const careerAccordionRefs = useRef<Array<HTMLDivElement | null>>([]); // Add this line to define the type of careerAccordionRefs
 
   useEffect(() => {
     const handleResize = () => {
@@ -103,7 +104,7 @@ export default function Resume({ content }: { content: any }) {
               </div>
               {/* {accordionState[`career-${index}`] && ( */}
               <div className={styles.career_desc}
-                ref={(el) => (careerAccordionRefs.current[index] = el)}
+                ref={careerAccordionRefs}
                 style={{
                   maxHeight: accordionState[`career-${index}`] ? maxHeightState[`career-${index}`] : '0px',
                 }}          
