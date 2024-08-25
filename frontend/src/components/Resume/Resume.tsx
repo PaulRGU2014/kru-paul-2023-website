@@ -1,23 +1,34 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
-import styles from "./Resume.module.scss";
-import RichText from "@/utils/RichText/RichText";
-import styled from "styled-components";
+import React, { useState, useRef, useEffect } from 'react';
+import styles from './Resume.module.scss';
+import RichText from '../../utils/RichText/RichText';
+
+type AccordionState = {
+  [key: string]: boolean;
+};
+
+type MaxHeightState = {
+  [key: string]: string;
+};
+
 
 export default function Resume({ content }: { content: any }) {
   // get the height of .component everytime the window is resized
   const [height, setHeight] = useState<any>("auto");
 
-  const [accordionState, setAccordionState] = useState({
+  const [accordionState, setAccordionState] = useState<AccordionState>({
     skills: false,
-    education: false,
+    career: false,
   });
+
+  const [maxHeightState, setMaxHeightState] = useState<MaxHeightState>({});
 
   const componentRef = useRef<HTMLDivElement>(null);
   const baseRef = useRef<HTMLDivElement>(null);
   const skillsAccordionRef = useRef<HTMLUListElement>(null);
   const educationAccordionRef = useRef<HTMLUListElement>(null);
+  // const careerAccordionRef = useRef<HTMLDivElement>(null);
 
   const toggleAccordion = (section: string) => {
     setAccordionState((prevState) => ({
@@ -25,6 +36,18 @@ export default function Resume({ content }: { content: any }) {
       [section]: !prevState[section],
     }));
   };
+
+  const updateMaxHeight = () => {
+    const newMaxHeightState: MaxHeightState = {};
+    careerAccordionRefs.current.forEach((ref, index) => {
+      if (ref) {
+        newMaxHeightState[`career-${index}`] = ref.scrollHeight + 'px';
+      }
+    });
+    setMaxHeightState(newMaxHeightState);
+  };
+  
+  const careerAccordionRefs = useRef<Array<HTMLDivElement | null>>([]); // Add this line to define the type of careerAccordionRefs
 
   useEffect(() => {
     const handleResize = () => {
@@ -40,6 +63,10 @@ export default function Resume({ content }: { content: any }) {
       window.removeEventListener("load resize", handleResize);
     };
   }, []);
+
+  useEffect(() => {
+    updateMaxHeight();
+  }, [accordionState]);
 
   return (
     <div className={styles.component}>
@@ -74,7 +101,24 @@ export default function Resume({ content }: { content: any }) {
                 <h6>{career.company}</h6>
                 <p>{career.start_date} - {career.end_date}</p>
               </div>
-              {!!career.description && <RichText html={career.description} />}
+              {/* {accordionState[`career-${index}`] && ( */}
+              <div className={styles.career_desc}
+                ref={(el) => (careerAccordionRefs.current[index] = el)}
+                style={{
+                  maxHeight: accordionState[`career-${index}`] ? maxHeightState[`career-${index}`] : '0px',
+                }}          
+              >
+                <RichText 
+                  html={career.description} 
+                />
+              </div> 
+              {/* )} */}
+              {!!career.description && <div className={styles.career_toggle}
+                  onClick={() => toggleAccordion(`career-${index}`)}
+                  style={{ cursor: 'pointer', color: 'blue', textDecoration: 'underline' }}
+                >
+                  {accordionState[`career-${index}`] ? 'Hide Details' : 'Show Details'}
+              </div>}
             </div>
           )
         )}
@@ -144,7 +188,7 @@ export default function Resume({ content }: { content: any }) {
             <ul>
               <li>CompTIA Security+</li>
               <li>CompTIA Network+</li>
-              <li>CompTIA A+</li>
+              <li>CompTIA A+</</li>
             </ul>
           </div> */}
         </div>

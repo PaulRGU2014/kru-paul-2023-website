@@ -76,4 +76,9 @@
             margin-bottom: 10px;
         }        
     }
+    &_desc{
+        display: block;
+        overflow: hidden;
+        transition: all 1s $ease-out-quint;
+    }
 }
