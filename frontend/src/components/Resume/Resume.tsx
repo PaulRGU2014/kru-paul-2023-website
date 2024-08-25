@@ -1,15 +1,31 @@
 "use client";
 
-import { useState, useEffect, useRef, Children } from "react";
+import { useState, useEffect, useRef } from "react";
 import styles from "./Resume.module.scss";
 import RichText from "@/utils/RichText/RichText";
-import Accordion from "@/utils/Accordion/Acccordion";
+import styled from "styled-components";
 
 export default function Resume({ content }: { content: any }) {
   // get the height of .component everytime the window is resized
   const [height, setHeight] = useState<any>("auto");
+
+  const [accordionState, setAccordionState] = useState({
+    skills: false,
+    education: false,
+  });
+
   const componentRef = useRef<HTMLDivElement>(null);
   const baseRef = useRef<HTMLDivElement>(null);
+  const skillsAccordionRef = useRef<HTMLUListElement>(null);
+  const educationAccordionRef = useRef<HTMLUListElement>(null);
+
+  const toggleAccordion = (section: string) => {
+    setAccordionState((prevState) => ({
+      ...prevState,
+      [section]: !prevState[section],
+    }));
+  };
+
   useEffect(() => {
     const handleResize = () => {
       if ((componentRef.current && baseRef.current) && (componentRef.current.clientHeight > baseRef.current.clientHeight)) {
@@ -39,8 +55,7 @@ export default function Resume({ content }: { content: any }) {
         <h4>PROFILE</h4>
         <p>{content.profile_desc}</p>
       </div>
-      <section className={styles.desc} ref={baseRef}>
-        {/* this section is scrollable */}
+      <section className={styles.career} ref={baseRef}>
         <h4>CAREER EXPERIENCE</h4>
         {content.career.map(
           (
@@ -54,12 +69,12 @@ export default function Resume({ content }: { content: any }) {
             index: number
           ) => (
             <div key={index}>
-              <h3>{career.position}</h3>
-              <h3>
-                {career.start_date} - {career.end_date}
-              </h3>
-              <h3>{career.company}</h3>
-              <RichText html={career.description}/>
+              <div className={styles.career_heading}>
+                <h5>{career.position}</h5>
+                <h6>{career.company}</h6>
+                <p>{career.start_date} - {career.end_date}</p>
+              </div>
+              {!!career.description && <RichText html={career.description} />}
             </div>
           )
         )}
@@ -70,48 +85,68 @@ export default function Resume({ content }: { content: any }) {
         style={{ height: height }}
       >
         <div className={styles.floatBox}>
-          <h4>SKILLS</h4>
-          <ul>
-            {content.skills.map(
-              (
-                skill: { name: string; level: number | string },
-                index: number
-              ) => (
-                <li key={index}>{skill.name}</li>
-              )
-            )}
-          </ul>
-          <h4>EDUCATION</h4>
-          <ul>
-            {content.education.map(
-              (
-                list: {
-                  school: string;
-                  degree: string;
-                  graduation_date: string;
-                },
-                index: number
-              ) => (
-                <li key={index}>
-                  <h3>{list.school}</h3>
-                  <p>{list.degree}</p>
-                  <p>{list.graduation_date}</p>
-                </li>
-              )
-            )}
-          </ul>
-          <h4>PROJECTS</h4>
-          <ul>
-            <li>Project 1</li>
-            <li>Project 2</li>
-            <li>Project 3</li>
-          </ul>
-          <h4>CERTIFICATIONS</h4>
-          <ul>
-            <li>CompTIA Security+</li>
-            <li>CompTIA Network+</li>
-            <li>CompTIA A+</li>
-          </ul>
+          <div className={styles.floatBox_section}>
+            <h4 onClick={() => toggleAccordion('skills')} style={{ cursor: 'pointer' }}>SKILLS</h4>
+            <ul ref={skillsAccordionRef}
+              style={{
+                maxHeight: accordionState.skills ? skillsAccordionRef.current?.scrollHeight + 'px' : '170px'
+              }}
+              onClick={() => toggleAccordion('skills')}
+            >
+              {content.skills.sort((a: any, b: any) => (b.is_featured ? 1 : 0) - (a.is_featured ? 1 : 0)).map(
+                (
+                  skill: { name: string; level: number | string; is_featured?: boolean },
+                  index: number
+                ) => (
+                  <li key={index}>{skill.name}</li>
+                )
+              )}
+            </ul>
+            <div
+              onClick={() => toggleAccordion('skills')}
+              style={{ 
+                cursor: 'pointer',
+                margin: '10px 0',
+              }}
+            >{accordionState.skills ? '...less' : 'more...'}</div>
+          </div>
+          <div className={styles.floatBox_section}>
+            <h4 onClick={() => toggleAccordion('education')} style={{ cursor: 'pointer' }}>EDUCATION</h4>
+              <ul ref={educationAccordionRef}>
+                {content.education.map(
+                  (
+                    list: {
+                      school: string;
+                      degree: string;
+                      graduation_date: string;
+                      start_date: string;
+                    },
+                    index: number
+                  ) => (
+                    <li key={index}>
+                      <div>{list.school} - {list.degree}</div>
+                      <div>({list.start_date} - {list.graduation_date})</div> 
+                    </li>
+                  )
+                )}
+              </ul>
+          </div>
+          {/* <div className={styles.floatBox_section}>
+            <h4>PROJECTS</h4>
+            <ul>
+              <li>Project 1</li>
+              <li>Project 2</li>
+              <li>Project 3</li>
+            </ul>
+          </div>
+          <div className={styles.floatBox_section}>
+            <h4>CERTIFICATIONS</h4>
+            <ul>
+              <li>CompTIA Security+</li>
+              <li>CompTIA Network+</li>
+              <li>CompTIA A+</li>
+            </ul>
+          </div> */}
         </div>
       </section>
     </div>

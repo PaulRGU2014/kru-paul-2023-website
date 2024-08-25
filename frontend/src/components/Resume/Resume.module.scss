@@ -1,32 +1,17 @@
 @import "../../scss/helpers/import.scss";
 
 .component {
-    // background-color: #fffcf2;
-    background-color: $lt-yellow;
-    box-shadow: 0px 0px 40px rgba($color: #fffcf2, $alpha: 1);
+    @include centered ($max-width);
+    // box-shadow: 0px 0px 40px rgba($color: #fffcf2, $alpha: 1);
     display: grid;
-    grid-template-columns: 1.3fr 0.7fr;
+    grid-template-columns: 60% 40%;
     grid-template-rows: min-content;
     gap: 20px;
     position: relative;
     color: $navy;
-    &::before{
-        content: '';
-        position: absolute;
-        top: 0;
-        right: 100%;
-        width: 100%;
-        height: 100%;
-        background-color: $lt-yellow;
-    }
-    &::after{
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 100%;
-        width: 100%;
-        height: 100%;
-        background-color: $lt-yellow;
+    @include responsive(md) {
+        display: flex;
+        flex-direction: column;
     }
 }
 
@@ -35,13 +20,18 @@
     flex-direction: column;
     grid-column-start: 2;
     grid-column-end: 3;
-    & > h4 {
-        margin: 0;
-        padding: 0 0 16px 0;
+    h4 {
+        margin: 0 0 15px 0;
+        padding: 0 0 10px 0;
         border-bottom: 2px solid $lt-navy;
     }
-    & > ul {
-        padding: 0;
+    @include responsive(md) {
+        h4{
+            width: 100%;
+            border: none;
+            padding: 0;
+            margin: 0 0 10px 0;
+        }
     }
 }
 
@@ -53,11 +43,37 @@
 .floatBox{
     position: sticky;
     top: 50px;
+    gap: 20px;
     margin: 0 0 10px 10px;
+    display: flex;
+    flex-direction: column;
     &_wrapper{
         position: relative;
         // width: calc((100% - 140px) / 2);
         height: 100%;
         right: 0;
+    }
+    &_section{
+        display: flex;
+        flex-direction: column;
+        ul {
+            margin: 0 0 10px 0;
+            transition: all 1s $ease-out-quint;
+            overflow: hidden;
+        }
+        li {
+            margin: 0 0 10px 0;
+        }
+    }
+    @include responsive (md) {
+        display: none;
+    }
+}
+
+.career{
+    &_heading{
+        h5, h6{
+            margin-bottom: 10px;
+        }        
     }
 }
