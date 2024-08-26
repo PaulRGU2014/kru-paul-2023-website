@@ -56,11 +56,11 @@ export default function Footer() {
                     <ul className={styles.link_wrapper}>
                         <li><Link className={styles.link} href="/">Home</Link></li>
                         <li><Link className={styles.link} href="/about-me">My Story</Link></li>
-                        <li><Link className={styles.link} href="/skills">My Skills</Link></li>
-                        <li><Link className={styles.link} href="/projects">My Projects</Link></li>
-                        <li><Link className={styles.link} href="/contact">My Contact</Link></li>
+                        {/* <li><Link className={styles.link} href="/skills">My Skills</Link></li> */}
+                        {/* <li><Link className={styles.link} href="/projects">My Projects</Link></li> */}
+                        {/* <li><Link className={styles.link} href="/contact">My Contact</Link></li> */}
                         <li><Link className={styles.link} href="/online-resume">My Online Résumé</Link></li>
-                        <li><Link className={styles.link} href="/">My Tech Blog</Link></li>
+                        {/* <li><Link className={styles.link} href="/">My Tech Blog</Link></li> */}
                     </ul>}
                     <h5 className={styles.disclaimer}>
                         This page was hard-coded with Next.js, TypeScript and SCSS, by Paul Thanataweenont
