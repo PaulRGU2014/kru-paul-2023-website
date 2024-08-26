@@ -17,14 +17,11 @@ export default function Resume({ content }: { content: any }) {
   // get the height of .component everytime the window is resized
   const [height, setHeight] = useState<any>("auto");
   const [currentScreenSize, setCurrentScreenSize] = useState<number>(0);
-
   const [accordionState, setAccordionState] = useState<AccordionState>({
-    skills: false,
-    career: false,
+    skills: true,
+    career: true,
   });
   const [careerAccordionHeights, setCareerAccordionHeights] = useState<MaxHeightState>({});
-
-  console.log('careerAccordionHeights', careerAccordionHeights);
 
   const componentRef = useRef<HTMLDivElement>(null);
   const baseRef = useRef<HTMLDivElement>(null);
@@ -46,21 +43,30 @@ export default function Resume({ content }: { content: any }) {
       setHeight("auto");
     }
   };
+
+  const handleAccodionHeights = () => {
+    const heights: MaxHeightState = {};
+    content.career.forEach((_ : any, index: number) => {
+      if (careerAccordionRefs.current[index]) {
+        heights[`career-${index}`] = `${careerAccordionRefs.current[index]?.scrollHeight}px`;
+      }
+    });   
+    setCareerAccordionHeights(heights); 
+  }
   
 
   useEffect(() => {
     setCurrentScreenSize(window.innerWidth);
-    // get the heights of each career description
-    const heights: MaxHeightState = {};
-    content.career.forEach((_ : any, index: number) => {
-      if (careerAccordionRefs.current[index]) {
-        console.log('careerAccordionRefs.current', careerAccordionRefs.current);
-        heights[`career-${index}`] = `${careerAccordionRefs.current[index]?.clientHeight}px`;
-      }
-    });
-    setCareerAccordionHeights(heights);
-
+    setAccordionState({
+      skills: true,
+      career: true,
+    }),
+    handleAccodionHeights();
     setTimeout(() => {
+      setAccordionState({
+        skills: false,
+        career: false,
+      });
       window.addEventListener("resize", () => {
         setCurrentScreenSize(window.innerWidth);
       });
@@ -69,18 +75,23 @@ export default function Resume({ content }: { content: any }) {
       window.removeEventListener("resize", () => {
         setCurrentScreenSize(window.innerWidth);
       });
+      setAccordionState({
+        skills: true,
+        career: true,
+      });
+      setCareerAccordionHeights({});
     };
   }, []);
 
-
-  useEffect(() =>{
+  // update the careerAccordionHeights everytime the window is is resized
+  useEffect(() => {
     handleResize();
-    setAccordionState({
-      skills: false,
-      career: false,
-    });
+    handleAccodionHeights();
   }, [currentScreenSize]);
 
+
+  console.log('currentScreenSize', currentScreenSize);
+  console.log('careerAccordionHeights', careerAccordionHeights);  
 
   return (
     <div className={styles.component}>
@@ -115,22 +126,21 @@ export default function Resume({ content }: { content: any }) {
                 <h6>{career.company}</h6>
                 <p>{career.start_date} - {career.end_date}</p>
               </div>
-              <div className={styles.career_desc}
+              <div className={`${styles.career_desc} ${accordionState[`career-${index}`] ? '' : styles.hide}`}
                 ref={(el) => {
                   careerAccordionRefs.current[index] = el;
                 }}
                 style={{
-                  // maxHeight: `${careerAccordionHeight}`,
+                  maxHeight: accordionState[`career-${index}`] ? careerAccordionHeights[`career-${index}`] : '0px',
                 }}          
               >
                 <RichText 
                   html={career.description} 
+                  className={styles.career_richtext}
                 />
               </div> 
-              {/* )} */}
               {!!career.description && <div className={styles.career_toggle}
                   onClick={() => toggleAccordion(`career-${index}`)}
-                  style={{ cursor: 'pointer', color: 'blue', textDecoration: 'underline' }}
                 >
                   {accordionState[`career-${index}`] ? 'Hide Details' : 'Show Details'}
               </div>}
