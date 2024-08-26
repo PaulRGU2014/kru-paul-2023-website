@@ -20,7 +20,7 @@ export const pages = defineType({
         {
           type: 'reference',
           to: [
-            {type: 'venue'},
+            {type: 'galleryCollage'},
             {type: 'artist'}
           ]
         }
