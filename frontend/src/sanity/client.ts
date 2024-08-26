@@ -4,8 +4,8 @@ import "server-only";
 import { draftMode } from "next/headers";
 import { createClient, type QueryOptions, type QueryParams } from "next-sanity";
 
-import { apiVersion, dataset, projectId } from "../env";
-import { token } from "./token";
+import { apiVersion, dataset, projectId } from "./env";
+import { token } from "./lib/token";
 
 export const client = createClient({
   projectId,
