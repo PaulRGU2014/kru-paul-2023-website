@@ -16,19 +16,21 @@ type MaxHeightState = {
 export default function Resume({ content }: { content: any }) {
   // get the height of .component everytime the window is resized
   const [height, setHeight] = useState<any>("auto");
+  const [currentScreenSize, setCurrentScreenSize] = useState<number>(0);
 
   const [accordionState, setAccordionState] = useState<AccordionState>({
     skills: false,
     career: false,
   });
+  const [careerAccordionHeights, setCareerAccordionHeights] = useState<MaxHeightState>({});
 
-  const [maxHeightState, setMaxHeightState] = useState<MaxHeightState>({});
+  console.log('careerAccordionHeights', careerAccordionHeights);
 
   const componentRef = useRef<HTMLDivElement>(null);
   const baseRef = useRef<HTMLDivElement>(null);
   const skillsAccordionRef = useRef<HTMLUListElement>(null);
   const educationAccordionRef = useRef<HTMLUListElement>(null);
-  const careerAccordionRefs = useRef<HTMLDivElement>(null);
+  const careerAccordionRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   const toggleAccordion = (section: string) => {
     setAccordionState((prevState) => ({
@@ -37,37 +39,48 @@ export default function Resume({ content }: { content: any }) {
     }));
   };
 
-  const updateMaxHeight = () => {
-    const newMaxHeightState: MaxHeightState = {};
-    if (careerAccordionRefs.current) {
-      Array.from(careerAccordionRefs.current.children).forEach((ref, index) => {
-        if (ref instanceof HTMLUListElement) {
-          newMaxHeightState[`career-${index}`] = ref.scrollHeight + 'px';
-        }
-      });
+  const handleResize = () => {
+    if ((componentRef.current && baseRef.current) && (componentRef.current.clientHeight > baseRef.current.clientHeight)) {
+      setHeight(componentRef.current.clientHeight);
+    } else {
+      setHeight("auto");
     }
-    setMaxHeightState(newMaxHeightState);
   };
   
 
   useEffect(() => {
-    const handleResize = () => {
-      if ((componentRef.current && baseRef.current) && (componentRef.current.clientHeight > baseRef.current.clientHeight)) {
-        setHeight(componentRef.current.clientHeight);
-      } else {
-        setHeight("auto");
+    setCurrentScreenSize(window.innerWidth);
+    // get the heights of each career description
+    const heights: MaxHeightState = {};
+    content.career.forEach((_ : any, index: number) => {
+      if (careerAccordionRefs.current[index]) {
+        console.log('careerAccordionRefs.current', careerAccordionRefs.current);
+        heights[`career-${index}`] = `${careerAccordionRefs.current[index]?.clientHeight}px`;
       }
-    };
-    window.addEventListener("load resize", handleResize);
-    handleResize();
+    });
+    setCareerAccordionHeights(heights);
+
+    setTimeout(() => {
+      window.addEventListener("resize", () => {
+        setCurrentScreenSize(window.innerWidth);
+      });
+    }, 200);
     return () => {
-      window.removeEventListener("load resize", handleResize);
+      window.removeEventListener("resize", () => {
+        setCurrentScreenSize(window.innerWidth);
+      });
     };
   }, []);
 
-  useEffect(() => {
-    updateMaxHeight();
-  }, [accordionState]);
+
+  useEffect(() =>{
+    handleResize();
+    setAccordionState({
+      skills: false,
+      career: false,
+    });
+  }, [currentScreenSize]);
+
 
   return (
     <div className={styles.component}>
@@ -102,11 +115,12 @@ export default function Resume({ content }: { content: any }) {
                 <h6>{career.company}</h6>
                 <p>{career.start_date} - {career.end_date}</p>
               </div>
-              {/* {accordionState[`career-${index}`] && ( */}
               <div className={styles.career_desc}
-                ref={careerAccordionRefs}
+                ref={(el) => {
+                  careerAccordionRefs.current[index] = el;
+                }}
                 style={{
-                  maxHeight: accordionState[`career-${index}`] ? maxHeightState[`career-${index}`] : '0px',
+                  // maxHeight: `${careerAccordionHeight}`,
                 }}          
               >
                 <RichText 
@@ -176,22 +190,6 @@ export default function Resume({ content }: { content: any }) {
                 )}
               </ul>
           </div>
-          {/* <div className={styles.floatBox_section}>
-            <h4>PROJECTS</h4>
-            <ul>
-              <li>Project 1</li>
-              <li>Project 2</li>
-              <li>Project 3</li>
-            </ul>
-          </div>
-          <div className={styles.floatBox_section}>
-            <h4>CERTIFICATIONS</h4>
-            <ul>
-              <li>CompTIA Security+</li>
-              <li>CompTIA Network+</li>
-              <li>CompTIA A+</</li>
-            </ul>
-          </div> */}
         </div>
       </section>
     </div>
