@@ -4,14 +4,50 @@ import { Metadata } from 'next'
 import styles from "./page.module.scss";
 import Hero from "./../components/Hero/Hero"
 import InViewAnim from './../utils/InViewAnim/InViewAnim'
+import client from "../../client"
+// import { createClient } from 'next-sanity';
 
+// const client = createClient({
+//   projectId: 'p0zin5nb',
+//   dataset: 'production',
+//   apiVersion: '2021-03-25',
+//   useCdn: true,
+// });
+
+// export async function getStaticProps() {
+//   const query = `*`;
+//   const data = await client.fetch(query);
+
+//   return {
+//     props: {
+//       data,
+//     },
+//   };
+// }
+
+export async function getStaticProps() {
+  const query = `*`;
+
+  const data = await client.fetch(query);
+  
+  console.log('data', data);
+
+  return {
+    props: {
+      data,
+    },
+  };
+}
 
  
 export const metadata: Metadata = {
   title: 'Paul Thanataweenont',
 }
 
-export default function Home() {
+
+
+export default function Home({ data }: { data: any }) {
+
   return (<>
     <InViewAnim><Hero title="Paul Thanataweenont" subtitle="www.krupaul.com"/>
     <main className={styles.component}>

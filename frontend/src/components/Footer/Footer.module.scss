@@ -41,6 +41,9 @@
     padding: 0;
     column-gap: 30px;
     column-count: 2;
+    li{
+        list-style: none;
+    }
     @include responsive(md){
         column-count: 1;
     }

@@ -17,7 +17,16 @@ export default function ImageLoader({ className, style, src, alt, objectFit="cov
       style={style}
       {...rest}
     >
-      <Image src={src} alt={alt} layout="fill" objectFit={objectFit} objectPosition={objectPosition}/>
+      <Image 
+        src={src} 
+        alt={alt} 
+        fill={true}
+        sizes="100%"
+        style={{
+          objectFit: objectFit as React.CSSProperties['objectFit'],
+          objectPosition: objectPosition as React.CSSProperties['objectPosition']
+        }}
+        />
     </div>
   );
 }
