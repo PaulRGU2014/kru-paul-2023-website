@@ -2,10 +2,22 @@
 
 import Image from "next/image";
 
-export default function ImageLoader({ className, style, src, alt }: { className: string, style?: object, src: string, alt: string }) {
+interface ImageLoaderProps extends React.HTMLProps<HTMLDivElement> {
+  className: string;
+  style?: object;
+  objectFit?: string;
+  objectPosition?: string;
+  src: string;
+  alt: string;
+}
+
+export default function ImageLoader({ className, style, src, alt, objectFit="cover", objectPosition, ...rest }: ImageLoaderProps) {
   return (
-    <div className={className} style={style}>
-      <Image src={src} alt={alt} layout="fill" objectFit="cover" />
+    <div className={className} 
+      style={style}
+      {...rest}
+    >
+      <Image src={src} alt={alt} layout="fill" objectFit={objectFit} objectPosition={objectPosition}/>
     </div>
   );
 }

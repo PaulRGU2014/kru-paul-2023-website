@@ -2,16 +2,34 @@
   "story": [
     {
       "title": "",
-      "content": "",
-      "isPortrait": true,
+      "content": "<p>Hi, my name is Paul Thanataweenont. I am originally from Phuket, Thailand. I currently live in Denver,Colorado with my wife, daughter, dog and cat. I am fluent in English, Thai, and Lao.</p>",
+      "isPortrait": false,
       "image": {
-        "url": "/story/Hiking.webp",
-        "alt": "hinking"
+        "url": "/story/Sukhothai.webp",
+        "alt": "Sukhothai"
       }
     },
     {
       "title": "",
-      "content": "",
+      "content": "<p>I am a freelance software developer. My main areas of expertise are with HTML, CSS, JavaScript, and React. I am currently apprenticing with an experienced software engineer to expand my knowledge and skill level</p>",
+      "isPortrait": true,
+      "image": {
+        "url": "/story/Hiking.webp",
+        "alt": "Hiking"
+      }
+    },
+    {
+      "title": "",
+      "content": "<p>I’ve gone through a number of phases in my career, and each phase has allowed me to develop a unique set of skills. In Thailand, I was the founder and owner of Kru Paul Chemistry Learning Center, Kru meaning teacher. My number one asset is my ability to adapt to any challenge that is thrown my way.</p>",
+      "isPortrait": false,
+      "image": {
+        "url": "/story/ColoradoSpring.webp",
+        "alt": "ColoradoSpring"
+      }
+    },    
+    {
+      "title": "",
+      "content": "<p> I enjoy hiking, exploring nature and watching documentaries. I love taking every opportunity to travel and explore new places and cultures. If you have any questions or want to connect please feel free to reach out <a href='/contact'> here</a>.",
       "isPortrait": false,
       "image": {
         "url": "/story/ChinaWall.webp",
@@ -26,7 +44,25 @@
         "url": "/story/Museum.webp",
         "alt": "hinking"
       }
-    },    
+    },
+    {
+      "title": "",
+      "content": "",
+      "isPortrait": false,
+      "image": {
+        "url": "/story/ColoradoSpring.webp",
+        "alt": "hinking"
+      }
+    },
+    {
+      "title": "",
+      "content": "",
+      "isPortrait": true,
+      "image": {
+        "url": "/story/Hiking.webp",
+        "alt": "hinking"
+      }
+    },
     {
       "title": "",
       "content": "",
@@ -41,9 +77,10 @@
       "content": "",
       "isPortrait": false,
       "image": {
-        "url": "/story/ColoradoSpring.webp",
+        "url": "/story/ChinaWall.webp",
         "alt": "hinking"
       }
     }
+    
   ]
 }

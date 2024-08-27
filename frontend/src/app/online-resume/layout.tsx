@@ -7,7 +7,7 @@ export default function ChildLayout({
 }) {
   return (
     <>
-      <Hero title="My Resumé" subtitle="online"/>
+      <Hero title="My Resumé" subtitle="Paul Thanataweenont"/>
       <div className="content-area">{children}</div>
     </>
   );
