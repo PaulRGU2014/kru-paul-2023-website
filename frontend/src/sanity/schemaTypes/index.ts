@@ -1,10 +1,10 @@
 import { type SchemaTypeDefinition } from 'sanity'
-import {eventType} from './eventType'
-import {artistType} from './artistType'
 import {galleryCollage} from './galleryCollage'
 import {pages} from './pages'
+import {footer} from './footer'
+import {hero} from './hero'
 
 
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [pages, artistType, eventType, galleryCollage],
+  types: [footer, hero, pages, galleryCollage],
 }

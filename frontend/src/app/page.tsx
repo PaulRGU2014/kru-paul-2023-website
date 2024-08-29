@@ -6,28 +6,13 @@ import styles from "./page.module.scss";
 import Hero from "../components/Hero/Hero"
 import InViewAnim from '../utils/InViewAnim/InViewAnim'
 import Footer from '../components/Footer/Footer'
-import client from "../../client"
-import { useState, useEffect } from 'react'
+
+
 
 export default function Home() {
-  // const [data, setData] = useState(null);
-  // useEffect(() => {
-  //   async function fetchData() {
-  //     const query = `*[_type=="pages"]{...,components[]->}`;
-  //     const res = await client.fetch(query);
-  //     setData(res);
-  //   }
-  //   fetchData();
-  // }, []);
-
-  // if (!data) {
-  //   return <div>Loading...</div>;
-  // }
-
-  // console.log('data', data);
 
   return (<>
-    <InViewAnim><Hero title="Paul Thanataweenont" subtitle="www.krupaul.com"/>
+    <InViewAnim><Hero content={{hero_title:"Paul Thanataweenont", hero_subtitle:"www.krupaul.com"}}/>
     <main className={styles.component}>
       <div className={styles.wrapper}>
         <div className={styles.inner}>
@@ -42,7 +27,7 @@ export default function Home() {
         </div>
       </div>
     </main></InViewAnim>
-    <Footer/>
+    <Footer pathname="/" />
     </>
   );
 }

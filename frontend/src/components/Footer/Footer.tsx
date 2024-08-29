@@ -4,16 +4,16 @@ import { useEffect, useState } from "react";
 import Link from 'next/link';
 import styles from './Footer.module.scss';
 import InViewAnim from './../../utils/InViewAnim/InViewAnim'
-import { usePathname } from 'next/navigation';
 
 
 const colorArray = ["#CAE4DA", "#E4C8A2", "#EDD6D6", "#B0CDC2", "#E6D0B2", "#E8C4C4", "#8EB8A8", "#EBDAC4", "#DBA6A6"]
 
+// get the content from sanity and pass it as props
 
-export default function Footer() {
+
+export default function Footer({content, pathname}: {content?: any, pathname: string}) {
     const [isClient, setIsClient] = useState(false)
     const [isHomePage, setIsHomePage] = useState<boolean>()
-    const pathname = usePathname()
 
     useEffect(()=>{
         setIsClient(typeof window !== 'undefined')
@@ -28,14 +28,15 @@ export default function Footer() {
         })
       },[])
 
-      useEffect(()=>{
-        if(pathname === "/"){
-            setIsHomePage(true)
-        } else {
-            setIsHomePage(false)
-        }        
-      },[pathname])
+    useEffect(()=>{
+    if(pathname === "/"){
+        setIsHomePage(true)
+    } else {
+        setIsHomePage(false)
+    }        
+    },[pathname])
 
+    console.log('isHomePage', isHomePage)
 
     return (
         <InViewAnim><footer className={styles.component}>
@@ -54,13 +55,11 @@ export default function Footer() {
                 <div className={styles.inner}>
                     {!isHomePage &&
                     <ul className={styles.link_wrapper}>
-                        <li><Link className={styles.link} href="/">Home</Link></li>
-                        <li><Link className={styles.link} href="/about-me">My Story</Link></li>
-                        {/* <li><Link className={styles.link} href="/skills">My Skills</Link></li> */}
-                        {/* <li><Link className={styles.link} href="/projects">My Projects</Link></li> */}
-                        {/* <li><Link className={styles.link} href="/contact">My Contact</Link></li> */}
-                        <li><Link className={styles.link} href="/online-resume">My Online Résumé</Link></li>
-                        {/* <li><Link className={styles.link} href="/">My Tech Blog</Link></li> */}
+                        {!!content && content.footer_links?.map((item: any, index: number) => (
+                            <li key={index}>
+                                <Link className={styles.link} href={item.link_url}>{item.link_title}</Link>
+                            </li>
+                        ))}
                     </ul>}
                     <h5 className={styles.disclaimer}>
                         This page was hard-coded with Next.js, TypeScript and SCSS, by Paul Thanataweenont

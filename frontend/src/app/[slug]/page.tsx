@@ -4,6 +4,7 @@ import '../../scss/global.scss'
 import client from "../../../client"
 import { useState, useEffect } from 'react'
 import { usePathname } from 'next/navigation'
+import ComponentLoader from '@/components/ComponentLoader'
 
 
 export default function Page({children}: {children: React.ReactNode}) {
@@ -23,11 +24,11 @@ export default function Page({children}: {children: React.ReactNode}) {
     return <div>Loading...</div>;
   }
 
-  console.log('data', data);
+  // console.log('data', data);
 
   return (
-    <>
-      <div>It works</div>
-    </>
-  )
+      <>
+        <ComponentLoader components={(data as any[])[0]?.components} />
+      </>
+    )
 }

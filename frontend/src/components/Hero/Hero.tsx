@@ -7,16 +7,18 @@ import { usePathname } from 'next/navigation';
 
 
 type HeroProps = {
-  title: string;
-  subtitle: string;
+  content: {
+    hero_title?: string;
+    hero_subtitle?: string;
+  };
 };
 
 const colorArray = ["#CAE4DA","#E4C8A2", "#EDD6D6" ,"#B0CDC2","#E6D0B2", "#E8C4C4" ,"#8EB8A8","#EBDAC4","#DBA6A6"]
 
-export default function Hero({ title, subtitle }: HeroProps) {
+export default function Hero({ content }: HeroProps) {
   const [isInView, setIsInView] = useState(false);
   const [isClient, setIsClient] = useState(false)
-  
+  console.log(content)
   const pathname = usePathname()
 
   useEffect(()=>{
@@ -54,8 +56,8 @@ export default function Hero({ title, subtitle }: HeroProps) {
             ))}
           </div>          
           <div className={styles.content}>
-            <h2>{title}</h2>
-            <h6>{subtitle}</h6>
+            <h2>{content.hero_title}</h2>
+            <h6>{content.hero_subtitle}</h6>
           </div>  
         </div>
       </div>

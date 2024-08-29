@@ -21,6 +21,8 @@ export const pages = defineType({
           type: 'reference',
           to: [
             {type: 'galleryCollage'},
+            {type: 'footer'},
+            {type: 'hero'},
           ]
         }
       ],
