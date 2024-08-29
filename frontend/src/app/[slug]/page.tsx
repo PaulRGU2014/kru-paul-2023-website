@@ -24,8 +24,6 @@ export default function Page({children}: {children: React.ReactNode}) {
     return <div>Loading...</div>;
   }
 
-  // console.log('data', data);
-
   return (
       <>
         <ComponentLoader components={(data as any[])[0]?.components} />

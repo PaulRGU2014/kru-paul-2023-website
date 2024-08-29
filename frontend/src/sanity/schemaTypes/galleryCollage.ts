@@ -28,9 +28,14 @@ export const galleryCollage = defineType({
               of: [
                 {
                   type: 'block',
-                }
+                },
               ],
-            }
+            },
+            {
+              name: 'is_portrait',
+              title: 'Is Portrait?',
+              type: 'boolean',
+            },
           ],
         },
       ],

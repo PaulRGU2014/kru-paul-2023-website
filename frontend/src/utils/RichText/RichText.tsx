@@ -1,18 +1,29 @@
 "use client";
 
-
+import React from 'react';
+import { PortableText } from '@portabletext/react';
 import styles from './RichText.module.scss';
 
+interface RichTextProps {
+  children: React.ReactNode;
+  html: any;
+  className?: string;
+  [key: string]: any;
+}
 
-export default function RichText({html, className = "" , children, ref, ...rest }: { html: string, className?: string, children?: React.ReactNode, ref?: React.RefObject<HTMLDivElement>, [key: string]: any }) {
-  //TODO: next/router handling for internal links
-  if(html){
-    return(
-      <div className={`${styles.component} ${className}`} dangerouslySetInnerHTML={{__html: html}} ref={ref} {...rest}/>
+export default function RichText({ children, html, className = "", ...props }: RichTextProps) {
+  console.log(html);
+  if (html) {
+    return (
+      <div className={`${styles.component} ${className}`} {...props}>
+        <PortableText value={html} />
+      </div>
     );
   } else {
     return (
-      <div className={`${styles.component} ${className}`} ref={ref} {...rest}>{children}</div>
-    )
+      <div className={`${styles.component} ${className}`} {...props}>
+        {children}
+      </div>
+    );
   }
 }

@@ -5,11 +5,13 @@ import sanityClient from '../../client';
 import Hero from "./Hero/Hero";
 import Footer from "./Footer/Footer";
 import Resume from "./Resume/Resume";
+import GalleryCollage from "./GalleryCollage/GalleryCollage";
 
 const componentMap: { [key: string]: React.ComponentType<any> } = {
   hero: Hero,
   footer: Footer,
   resume: Resume,
+  galleryCollage: GalleryCollage,
 };
 
 export default function ComponentLoader({ components }: { components: any }) {
@@ -21,7 +23,7 @@ export default function ComponentLoader({ components }: { components: any }) {
         if (!Component) {
           return <div key={index}>Component not found</div>;
         }
-        const componentContent = components.find(d => d._type === component._type); // Match data with component by type
+        const componentContent = components.find((d: any) => d._type === component._type); // Match data with component by type
 
         return <Component key={index} {...component} content={componentContent} />;
       })}

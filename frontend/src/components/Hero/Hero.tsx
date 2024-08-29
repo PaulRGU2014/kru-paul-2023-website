@@ -18,7 +18,6 @@ const colorArray = ["#CAE4DA","#E4C8A2", "#EDD6D6" ,"#B0CDC2","#E6D0B2", "#E8C4C
 export default function Hero({ content }: HeroProps) {
   const [isInView, setIsInView] = useState(false);
   const [isClient, setIsClient] = useState(false)
-  console.log(content)
   const pathname = usePathname()
 
   useEffect(()=>{

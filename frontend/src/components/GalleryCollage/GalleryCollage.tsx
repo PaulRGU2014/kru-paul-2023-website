@@ -9,11 +9,11 @@ import Modal from '@/utils/Modal/Modal';
 import { useState, useEffect, useRef } from 'react';
 
 
-export default function AboutMe({content}) {
+export default function AboutMe({content}: { content: any }) {
   const [isClient, setIsClient] = useState(false)
 	const [modalOpen, setModalOpen] = useState(false);
 	const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
-	console.log('currentImageIndex', currentImageIndex);
+	console.log('gallery collage', content);
 
 	useEffect(()=>{
     setIsClient(typeof window !== 'undefined');
@@ -28,8 +28,8 @@ export default function AboutMe({content}) {
 				<div className={styles.modal_inner}>
 					{ currentImageIndex >=0 && <ImageLoader 
 						className={styles.modalImage}	
-						src={currentImageIndex !== undefined ? content.story[currentImageIndex].image.url : ''} 
-						alt={currentImageIndex !== undefined ? content.story[currentImageIndex].image.alt : ''}
+						src={currentImageIndex !== undefined ? content.images[currentImageIndex].asset._ref : ''} 
+						alt={currentImageIndex !== undefined ? content.images[currentImageIndex].image_title : ''}
 						objectFit="contain"
 						objectPosition='center'
 						style={{
@@ -37,24 +37,24 @@ export default function AboutMe({content}) {
 						}}
 					/>}
 					<div className={styles.modal_content}>
-						{!!content.story[currentImageIndex].title && <h6>{content.story[currentImageIndex].title }</h6>}
-						{!!content.story[currentImageIndex].content && <RichText html={content.story[currentImageIndex].content} />}
+						{/* {!!content.images[currentImageIndex].title && <h6>{content.images[currentImageIndex].title }</h6>} */}
+						{!!content.images[currentImageIndex].image_description && <RichText html={content.images[currentImageIndex].image_description} />}
 					</div>
 				</div>
 			</Modal>
 			<div className={styles.component}>
 			<div className={styles.wrapper}>
 				<div className={styles.inner}>
-					{content.story.map((item, index) => (
+					{content.images.map((item: any, index: number) => (
 						<ImageLoader className={styles.image} 
 							key={index} 	
 							style={{
-								gridRow: item.isPortrait===true ? 'span 2' : 'span 1',
-								paddingTop: item.isPortrait===true ? '200%' : '100%',
+								gridRow: item.is_portrait===true ? 'span 2' : 'span 1',
+								paddingTop: item.is_portrait===true ? '200%' : '100%',
 								transitionDelay: isClient ? `${Math.random() * 300 + 1000}ms` : '0s'        
 							}}
-							src={item.image.url} 
-							alt={item.image.alt}
+							src={item.asset._ref} 
+							alt={item.image_title}
 							onClick={()=>{
 								setModalOpen(true);
 								setCurrentImageIndex(index)
