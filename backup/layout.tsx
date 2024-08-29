@@ -2,6 +2,9 @@
 
 import Head from "next/head"
 import '../scss/global.scss'
+import Footer from '../frontend/src/components/Footer/Footer'
+
+
 
 
 export default function RootLayout({children}: {children: React.ReactNode}) {

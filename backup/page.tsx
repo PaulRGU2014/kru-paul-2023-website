@@ -1,12 +1,11 @@
-// 'use client'
+'use client'
 
 import Link from "next/link";
 // import { Metadata } from 'next'
 import styles from "./page.module.scss";
-import Hero from "../components/Hero/Hero"
-import InViewAnim from '../utils/InViewAnim/InViewAnim'
-import Footer from '../components/Footer/Footer'
-import client from "../../client"
+import Hero from "../frontend/src/components/Hero/Hero"
+import InViewAnim from '../frontend/src/utils/InViewAnim/InViewAnim'
+import client from "../frontend/client"
 import { useState, useEffect } from 'react'
 
 export default function Home() {
@@ -42,7 +41,6 @@ export default function Home() {
         </div>
       </div>
     </main></InViewAnim>
-    <Footer/>
     </>
   );
 }
