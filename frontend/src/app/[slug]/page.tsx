@@ -6,11 +6,11 @@ import { useState, useEffect } from 'react'
 import { usePathname } from 'next/navigation'
 import ComponentLoader from '@/components/ComponentLoader'
 
-
-export default function Page({children}: {children: React.ReactNode}) {
+export default function Page() {
   const [data, setData] = useState(null);
   const pathname = usePathname();
   console.log('pathname', pathname);
+  
   useEffect(() => {
     async function fetchData() {
       const query = `*[_type=="pages"&& page_url.current=="${pathname}"]{...,components[]->}`;
@@ -25,8 +25,8 @@ export default function Page({children}: {children: React.ReactNode}) {
   }
 
   return (
-      <>
-        <ComponentLoader components={(data as any[])[0]?.components} />
-      </>
-    )
+    <>
+      <ComponentLoader components={(data as any[])[0]?.components} />
+    </>
+  );
 }

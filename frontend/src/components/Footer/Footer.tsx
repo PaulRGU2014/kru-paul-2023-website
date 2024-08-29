@@ -26,7 +26,7 @@ export default function Footer({content, pathname}: {content?: any, pathname: st
           setIsClient(false)
           setIsHomePage(false)
         })
-      },[])
+      },[, pathname])
 
     useEffect(()=>{
     if(pathname === "/"){
@@ -34,7 +34,7 @@ export default function Footer({content, pathname}: {content?: any, pathname: st
     } else {
         setIsHomePage(false)
     }        
-    },[pathname])
+    },[, pathname])
 
     console.log('isHomePage', isHomePage)
 

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useCallback } from 'react';
 import styles from './Resume.module.scss';
 import RichText from '../../utils/RichText/RichText';
 
@@ -12,9 +12,7 @@ type MaxHeightState = {
   [key: string]: string;
 };
 
-
 export default function Resume({ content }: { content: any }) {
-  // get the height of .component everytime the window is resized
   const [height, setHeight] = useState<any>("auto");
   const [currentScreenSize, setCurrentScreenSize] = useState<number>(0);
   const [accordionState, setAccordionState] = useState<AccordionState>({
@@ -44,7 +42,7 @@ export default function Resume({ content }: { content: any }) {
     }
   };
 
-  const handleAccodionHeights = () => {
+  const handleAccodionHeights = useCallback(() => {
     const heights: MaxHeightState = {};
     content.career.forEach((_ : any, index: number) => {
       if (careerAccordionRefs.current[index]) {
@@ -52,15 +50,14 @@ export default function Resume({ content }: { content: any }) {
       }
     });   
     setCareerAccordionHeights(heights); 
-  }
-  
+  }, [content.career]);
 
   useEffect(() => {
     setCurrentScreenSize(window.innerWidth);
     setAccordionState({
       skills: true,
       career: true,
-    }),
+    });
     handleAccodionHeights();
     setTimeout(() => {
       setAccordionState({
@@ -81,14 +78,12 @@ export default function Resume({ content }: { content: any }) {
       });
       setCareerAccordionHeights({});
     };
-  }, []);
+  }, [handleAccodionHeights]);
 
-  // update the careerAccordionHeights everytime the window is is resized
   useEffect(() => {
     handleResize();
     handleAccodionHeights();
-  }, [currentScreenSize]);
-
+  }, [currentScreenSize, handleAccodionHeights]);
 
   console.log('currentScreenSize', currentScreenSize);
   console.log('careerAccordionHeights', careerAccordionHeights);  

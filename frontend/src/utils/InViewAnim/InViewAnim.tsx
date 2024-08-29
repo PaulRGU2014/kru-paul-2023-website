@@ -23,7 +23,7 @@ export default function ScrollAnim({ children }: { children: React.ReactNode }) 
     setTimeout(scrollCallBack, 300);
     setTimeout(scrollCallBack, 600);
     return () => window.removeEventListener("scroll", scrollCallBack);
-  }, [elementRef.current]);
+  }, []); // Removed elementRef.current from the dependency array
 
   const classN = [];
   if (isInView) classN.push("is-in-view");

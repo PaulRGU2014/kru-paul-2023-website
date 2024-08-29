@@ -5,7 +5,7 @@ import { PortableText } from '@portabletext/react';
 import styles from './RichText.module.scss';
 
 interface RichTextProps {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   html: any;
   className?: string;
   [key: string]: any;
