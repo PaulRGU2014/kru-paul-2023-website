@@ -90,126 +90,152 @@ export default function Resume({ content }: { content: any }) {
 
   // console.log('currentScreenSize', currentScreenSize);
   // console.log('careerAccordionHeights', careerAccordionHeights);  
-
+  //download resume
+  function transformResumeFilePath(filePath: string): string {
+    const firstDashIndex = filePath.indexOf('-');
+    if (firstDashIndex === -1) return filePath; // Return original if no dash found
+  
+    const substringAfterFirstDash = filePath.substring(firstDashIndex + 1);
+    const lastDashIndex = substringAfterFirstDash.lastIndexOf('-');
+    if (lastDashIndex === -1) return substringAfterFirstDash; // Return substring if no dash found
+  
+    return (
+      substringAfterFirstDash.substring(0, lastDashIndex) +
+      '.' +
+      substringAfterFirstDash.substring(lastDashIndex + 1)
+    );
+  }
+  
+  const getUrlFromID = (id: string) => {
+    return `https://cdn.sanity.io/files/${process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}/${process.env.NEXT_PUBLIC_SANITY_DATASET}/${id}?dl=`;
+  }
+  
   return (
     <div className={styles.component}>
-      <Image
-        className={styles.profile_image}
-        src={content.image.asset._ref}
-        alt={content.image.alt}
-        objectFit="contain"
-        objectPosition="left center"
-      />
-      <div className={styles.headers}>
-        <h4>CONTACT</h4>
-        <ul>
-          <li>Denver, CO</li>
-          <li>(720) 416-0816</li>
-          <li>linkedin.com/in/paulrgu2014/</li>
-        </ul>
-      </div>
-      <div className={styles.profile}>
-        <h4>PROFILE</h4>
-        <p>{content.profile_desc}</p>
-      </div>
-      <section className={styles.career} ref={baseRef}>
-        <h4>CAREER EXPERIENCE</h4>
-        {content.career.map(
-          (
-            career: {
-              company: string;
-              position: string;
-              start_date: string;
-              end_date: string;
-              description: string;
-            },
-            index: number
-          ) => (
-            <div key={index}>
-              <div className={styles.career_heading}>
-                <h5>{career.position}</h5>
-                <h6>{career.company}</h6>
-                <p>{career.start_date} - {career.end_date}</p>
-              </div>
-              <div className={`${styles.career_desc} ${accordionState[`career-${index}`] ? '' : styles.hide}`}
-                ref={(el) => {
-                  careerAccordionRefs.current[index] = el;
-                }}
-                style={{
-                  maxHeight: accordionState[`career-${index}`] ? careerAccordionHeights[`career-${index}`] : '0px',
-                }}          
-              >
-                <RichText 
-                  html={career.description} 
-                  className={styles.career_richtext}
-                />
-              </div> 
-              {!!career.description && <div className={styles.career_toggle}
-                  onClick={() => toggleAccordion(`career-${index}`)}
+      <div className={styles.component_wrapper}>
+        <Image
+          className={styles.profile_image}
+          src={content.image.asset._ref}
+          alt={content.image.alt}
+          objectFit="contain"
+          objectPosition="left center"
+        />
+        <div className={styles.headers}>
+          <h4>CONTACT</h4>
+          <ul>
+            <li>Denver, CO</li>
+            <li>(720) 416-0816</li>
+            <li>linkedin.com/in/paulrgu2014/</li>
+          </ul>
+        </div>
+        <div className={styles.profile}>
+          <h4>PROFILE</h4>
+          <p>{content.profile_desc}</p>
+        </div>
+        <section className={styles.career} ref={baseRef}>
+          <h4>CAREER EXPERIENCE</h4>
+          {content.career.map(
+            (
+              career: {
+                company: string;
+                position: string;
+                start_date: string;
+                end_date: string;
+                description: string;
+              },
+              index: number
+            ) => (
+              <div key={index}>
+                <div className={styles.career_heading}>
+                  <h5>{career.position}</h5>
+                  <h6>{career.company}</h6>
+                  <p>{career.start_date} - {career.end_date}</p>
+                </div>
+                <div className={`${styles.career_desc} ${accordionState[`career-${index}`] ? '' : styles.hide}`}
+                  ref={(el) => {
+                    careerAccordionRefs.current[index] = el;
+                  }}
+                  style={{
+                    maxHeight: accordionState[`career-${index}`] ? careerAccordionHeights[`career-${index}`] : '0px',
+                  }}          
                 >
-                  {accordionState[`career-${index}`] ? 'Hide Details' : 'Show Details'}
-              </div>}
-            </div>
-          )
-        )}
-      </section>
-      <section
-        className={styles.floatBox_wrapper}
-        ref={componentRef}
-        style={{ height: height }}
-      >
-        <div className={styles.floatBox}>
-          <div className={styles.floatBox_section}>
-            <h4 onClick={() => toggleAccordion('skills')} style={{ cursor: 'pointer' }}>SKILLS</h4>
-            <ul ref={skillsAccordionRef}
-              style={{
-                maxHeight: accordionState.skills ? skillsAccordionRef.current?.scrollHeight + 'px' : '440px'
-              }}
-              onClick={() => toggleAccordion('skills')}
-            >
-              {content.skills.sort((a: any, b: any) => (b.is_featured ? 1 : 0) - (a.is_featured ? 1 : 0)).map(
-                (
-                  skill: { skill: string; level: number | string; is_featured?: boolean },
-                  index: number
-                ) => (
-                  <li className={styles.skill_list} key={index}>
-                    <span>{skill.skill}</span>
-                    <SkillBar skill={{ ...skill, level: Number(skill.level) }} />
-                  </li>
-                )
-              )}
-            </ul>
-            <div
-              onClick={() => toggleAccordion('skills')}
-              style={{ 
-                cursor: 'pointer',
-                margin: '10px 0',
-              }}
-            >{accordionState.skills ? '...less' : 'more...'}</div>
-          </div>
-          <div className={styles.floatBox_section}>
-            <h4 onClick={() => toggleAccordion('education')} style={{ cursor: 'pointer' }}>EDUCATION</h4>
-              <ul ref={educationAccordionRef}>
-                {content.education.map(
+                  <RichText 
+                    html={career.description} 
+                    className={styles.career_richtext}
+                  />
+                </div> 
+                {!!career.description && <div className={styles.career_toggle}
+                    onClick={() => toggleAccordion(`career-${index}`)}
+                  >
+                    {accordionState[`career-${index}`] ? 'Hide Details' : 'Show Details'}
+                </div>}
+              </div>
+            )
+          )}
+        </section>
+        <section
+          className={styles.floatBox_wrapper}
+          ref={componentRef}
+          style={{ height: height }}
+        >
+          <div className={styles.floatBox}>
+            <div className={styles.floatBox_section}>
+              <h4 onClick={() => toggleAccordion('skills')} style={{ cursor: 'pointer' }}>SKILLS</h4>
+              <ul ref={skillsAccordionRef}
+                style={{
+                  maxHeight: accordionState.skills ? skillsAccordionRef.current?.scrollHeight + 'px' : '440px'
+                }}
+                onClick={() => toggleAccordion('skills')}
+              >
+                {content.skills.sort((a: any, b: any) => (b.is_featured ? 1 : 0) - (a.is_featured ? 1 : 0)).map(
                   (
-                    list: {
-                      school: string;
-                      degree: string;
-                      graduation_date: string;
-                      start_date: string;
-                    },
+                    skill: { skill: string; level: number | string; is_featured?: boolean },
                     index: number
                   ) => (
-                    <li key={index}>
-                      <div>{list.school} - {list.degree}</div>
-                      <div>({list.start_date} - {list.graduation_date})</div> 
+                    <li className={styles.skill_list} key={index}>
+                      <span>{skill.skill}</span>
+                      <SkillBar skill={{ ...skill, level: Number(skill.level) }} />
                     </li>
                   )
                 )}
               </ul>
+              <div
+                onClick={() => toggleAccordion('skills')}
+                style={{ 
+                  cursor: 'pointer',
+                  margin: '10px 0',
+                }}
+              >{accordionState.skills ? '...less' : 'more...'}</div>
+            </div>
+            <div className={styles.floatBox_section}>
+              <h4 onClick={() => toggleAccordion('education')} style={{ cursor: 'pointer' }}>EDUCATION</h4>
+                <ul ref={educationAccordionRef}>
+                  {content.education.map(
+                    (
+                      list: {
+                        school: string;
+                        degree: string;
+                        graduation_date: string;
+                        start_date: string;
+                      },
+                      index: number
+                    ) => (
+                      <li key={index}>
+                        <div>{list.school} - {list.degree}</div>
+                        <div>({list.start_date} - {list.graduation_date})</div> 
+                      </li>
+                    )
+                  )}
+                </ul>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+        <section className={styles.references}>
+          <a href={getUrlFromID(transformResumeFilePath(content.resume_file.asset._ref))} download className={styles.downloadButton}>
+            Download Resume
+          </a>
+        </section>        
+      </div>
     </div>
   );
 }

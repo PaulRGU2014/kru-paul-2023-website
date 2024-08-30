@@ -114,5 +114,9 @@ export const resume = defineType({
         },
       ],
     }),
+    defineField({
+      name: 'resume_file',
+      type: 'file',
+    }),
   ],
 })

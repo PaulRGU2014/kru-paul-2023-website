@@ -3,17 +3,21 @@
 .component {
     @include centered ($max-width);
     // box-shadow: 0px 0px 40px rgba($color: #fffcf2, $alpha: 1);
-    display: grid;
-    grid-template-columns: 60% 40%;
-    grid-template-rows: min-content;
-    gap: 20px;
-    position: relative;
-    color: $navy;
+
     margin-bottom: 60px;
     padding: 60px 0;
     @include responsive(md) {
         display: flex;
         flex-direction: column;
+    }
+    &_wrapper{
+        width: 100%;
+        display: grid;
+        grid-template-columns: 60% 40%;
+        grid-template-rows: min-content;
+        gap: 20px;
+        position: relative;
+        color: $navy;        
     }
 }
 
@@ -140,4 +144,23 @@
   
   .radioSpan.active {
     background-color: $dk-pink; /* Change this color to represent the skill level */
+  }
+
+  .references {
+    // Your existing styles
+  }
+  
+  .downloadButton {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 20px;
+    background-color: $cv-dk-green; /* Change this color to your preference */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s $ease-out-quint;
+  
+    &:hover {
+      background-color: $cv-green; /* Change this color to your preference */
+    }
   }
