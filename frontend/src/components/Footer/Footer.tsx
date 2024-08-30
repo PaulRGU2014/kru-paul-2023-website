@@ -64,6 +64,17 @@ export default function Footer({content, pathname}: {content?: any, pathname: st
                             </li>
                         ))}
                     </ul>}
+                    <div className={styles.social_wrapper}>
+                        <Link href="https://github.com/PaulRGU2014" className={styles.social} target="_blank">
+                            <img src="/socials/github.svg" alt="Github" />
+                        </Link>
+                        <Link href="https://www.linkedin.com/in/paulrgu2014/" className={styles.social} target="_blank">
+                            <img src="/socials/linkedin.svg" alt="LinkedIn" />
+                        </Link>
+                        <Link href="https://www.youtube.com/c/PaulsChemistryThailand" className={styles.social} target="_blank">
+                            <img src="/socials/youtube.svg" alt="Youtube" />
+                        </Link>
+                    </div>
                     <h5 className={styles.disclaimer}>
                         This page was hard-coded with Next.js, TypeScript and SCSS, by Paul Thanataweenont
                     </h5>
