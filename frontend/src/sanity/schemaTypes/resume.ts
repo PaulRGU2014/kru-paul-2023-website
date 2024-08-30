@@ -4,7 +4,16 @@ export const resume = defineType({
   name: 'resume',
   title: 'Resume',
   type: 'document',
+  preview: {
+    select: {
+      title: 'name',
+    },
+  },
   fields: [
+    defineField({
+      name: 'name',
+      type: 'string',
+    }),
     defineField({
       name: 'profile_desc',
       type: 'text',

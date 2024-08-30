@@ -1,7 +1,5 @@
 "use client"
 
-import React, { useEffect, useState } from 'react';
-import sanityClient from '../../client';
 import Hero from "./Hero/Hero";
 import Footer from "./Footer/Footer";
 import Resume from "./Resume/Resume";
