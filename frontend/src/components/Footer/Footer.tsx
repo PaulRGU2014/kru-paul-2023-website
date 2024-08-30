@@ -76,7 +76,7 @@ export default function Footer({content, pathname}: {content?: any, pathname: st
                         </Link>
                     </div>
                     <h5 className={styles.disclaimer}>
-                        This page was hard-coded with Next.js, TypeScript and SCSS, by Paul Thanataweenont
+                        This page is buit using Next.js, TypeScript and Sanity.io <br/> by Paul Thanataweenont
                     </h5>
                 </div>
             </div>
