@@ -21,7 +21,7 @@ export default function Page() {
   }, [pathname]);
 
   if (!data) {
-    return <div>Loading...</div>;
+    return <div className='loading'>Loading...</div>;
   }
 
   return (
