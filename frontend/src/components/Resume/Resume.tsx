@@ -5,6 +5,7 @@ import styles from './Resume.module.scss';
 import RichText from '../../utils/RichText/RichText';
 import Image from '@/utils/ImageLoader/ImageLoader';
 import SkillBar from './SkillBar'; // Add this line to import the SkillBar component
+import InViewAnim from '@/utils/InViewAnim/InViewAnim';
 
 type AccordionState = {
   [key: string]: boolean;
@@ -116,7 +117,7 @@ export default function Resume({ content }: { content: any }) {
   }
   
   return (
-    <div className={styles.component}>
+    <InViewAnim><div className={styles.component}>
       <div className={styles.component_wrapper}>
         <Image
           className={styles.profile_image}
@@ -241,6 +242,6 @@ export default function Resume({ content }: { content: any }) {
           </a>
         </section>        
       </div>
-    </div>
+    </div></InViewAnim>
   );
 }
