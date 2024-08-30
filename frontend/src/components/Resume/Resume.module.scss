@@ -17,6 +17,16 @@
     }
 }
 
+.profile_image{
+    position: relative;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    width: 250px;
+    height: 250px;
+    border: 7px solid $cv-dk-green;
+}
+
 .headers{
     display: flex;
     flex-direction: column;

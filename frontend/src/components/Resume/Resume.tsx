@@ -3,6 +3,7 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import styles from './Resume.module.scss';
 import RichText from '../../utils/RichText/RichText';
+import Image from '@/utils/ImageLoader/ImageLoader';
 
 type AccordionState = {
   [key: string]: boolean;
@@ -91,6 +92,13 @@ export default function Resume({ content }: { content: any }) {
 
   return (
     <div className={styles.component}>
+      <Image
+        className={styles.profile_image}
+        src={content.image.asset._ref}
+        alt={content.image.alt}
+        objectFit="contain"
+        objectPosition="left center"
+      />
       <div className={styles.headers}>
         <h4>CONTACT</h4>
         <ul>

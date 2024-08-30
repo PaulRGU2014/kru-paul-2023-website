@@ -15,6 +15,16 @@ export const resume = defineType({
       type: 'string',
     }),
     defineField({
+      name: 'image',
+      type: 'image',
+      fields: [
+        {
+          name: 'alt',
+          type: 'string',
+        },
+      ],
+    }),
+    defineField({
       name: 'profile_desc',
       type: 'text',
     }),
