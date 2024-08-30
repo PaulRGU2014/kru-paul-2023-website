@@ -12,7 +12,7 @@ import Footer from '../components/Footer/Footer'
 export default function Home() {
 
   return (<>
-    <InViewAnim><Hero content={{hero_title:"Paul Thanataweenont", hero_subtitle:"www.krupaul.com"}}/>
+    <InViewAnim><Hero content={{hero_title:"Paul", hero_subtitle:"Thanataweenont"}}/>
     <main className={styles.component}>
       <div className={styles.wrapper}>
         <div className={styles.inner}>

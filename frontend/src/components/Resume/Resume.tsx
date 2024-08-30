@@ -30,7 +30,7 @@ export default function Resume({ content }: { content: any }) {
   const skillsAccordionRef = useRef<HTMLUListElement>(null);
   const educationAccordionRef = useRef<HTMLUListElement>(null);
   const careerAccordionRefs = useRef<(HTMLDivElement | null)[]>([]);
-  console.log('content', content);
+  // console.log('content', content);
 
   const toggleAccordion = (section: string) => {
     setAccordionState((prevState) => ({

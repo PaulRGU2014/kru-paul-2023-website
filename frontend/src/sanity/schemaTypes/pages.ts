@@ -28,5 +28,11 @@ export const pages = defineType({
         }
       ],
     }),
+    defineField({
+      name: 'footer',
+      title: 'Footer',
+      type: 'reference',
+      to: [{type: 'footer'}]
+    }),
   ],
 })

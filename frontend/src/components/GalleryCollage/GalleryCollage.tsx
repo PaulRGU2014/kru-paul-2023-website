@@ -13,7 +13,7 @@ export default function AboutMe({content}: { content: any }) {
   const [isClient, setIsClient] = useState(false)
 	const [modalOpen, setModalOpen] = useState(false);
 	const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
-	console.log('gallery collage', content);
+	// console.log('gallery collage', content);
 
 	useEffect(()=>{
     setIsClient(typeof window !== 'undefined');
