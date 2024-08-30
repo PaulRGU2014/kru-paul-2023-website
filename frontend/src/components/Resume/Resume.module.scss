@@ -70,8 +70,9 @@
         flex-direction: column;
         ul {
             margin: 0 0 10px 0;
-            transition: all 1s $ease-out-quint;
+            transition: all 3s $ease-out-quint;
             overflow: hidden;
+            padding: 0;
         }
         li {
             margin: 0 0 10px 0;
@@ -80,6 +81,10 @@
     @include responsive (md) {
         display: none;
     }
+}
+
+.skill_list{
+    display: block;
 }
 
 .career{
@@ -110,3 +115,29 @@
         padding-top: 20px;
     }
 }
+
+.skillBar {
+    display: flex;
+    gap: 5px;
+  }
+  
+  .radioLabel {
+    position: relative;
+  }
+  
+  .radioInput {
+    display: none;
+  }
+  
+  .radioSpan {
+    display: inline-block;
+    width: 14px;
+    height: 7px;
+    background-color: #ccc;
+    border-radius: 3px;
+    transition: background-color 0.3s;
+  }
+  
+  .radioSpan.active {
+    background-color: $dk-pink; /* Change this color to represent the skill level */
+  }

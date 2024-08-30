@@ -4,6 +4,7 @@ import React, { useState, useRef, useEffect, useCallback } from 'react';
 import styles from './Resume.module.scss';
 import RichText from '../../utils/RichText/RichText';
 import Image from '@/utils/ImageLoader/ImageLoader';
+import SkillBar from './SkillBar'; // Add this line to import the SkillBar component
 
 type AccordionState = {
   [key: string]: boolean;
@@ -162,7 +163,7 @@ export default function Resume({ content }: { content: any }) {
             <h4 onClick={() => toggleAccordion('skills')} style={{ cursor: 'pointer' }}>SKILLS</h4>
             <ul ref={skillsAccordionRef}
               style={{
-                maxHeight: accordionState.skills ? skillsAccordionRef.current?.scrollHeight + 'px' : '170px'
+                maxHeight: accordionState.skills ? skillsAccordionRef.current?.scrollHeight + 'px' : '440px'
               }}
               onClick={() => toggleAccordion('skills')}
             >
@@ -171,7 +172,10 @@ export default function Resume({ content }: { content: any }) {
                   skill: { skill: string; level: number | string; is_featured?: boolean },
                   index: number
                 ) => (
-                  <li key={index}>{skill.skill}</li>
+                  <li className={styles.skill_list} key={index}>
+                    <span>{skill.skill}</span>
+                    <SkillBar skill={{ ...skill, level: Number(skill.level) }} />
+                  </li>
                 )
               )}
             </ul>
