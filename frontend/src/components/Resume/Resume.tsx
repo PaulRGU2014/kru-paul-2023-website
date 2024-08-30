@@ -20,6 +20,7 @@ export default function Resume({ content }: { content: any }) {
   const [accordionState, setAccordionState] = useState<AccordionState>({
     skills: true,
     career: true,
+    'career-0': true, // Open the first career accordion on load
   });
   const [careerAccordionHeights, setCareerAccordionHeights] = useState<MaxHeightState>({});
 
@@ -57,16 +58,19 @@ export default function Resume({ content }: { content: any }) {
 
   useEffect(() => {
     setCurrentScreenSize(window.innerWidth);
-    setAccordionState({
+    setAccordionState((prevState) => ({
+      ...prevState,
       skills: true,
       career: true,
-    });
+    }));
     handleAccodionHeights();
     setTimeout(() => {
-      setAccordionState({
+      setAccordionState((prevState) => ({
+        ...prevState,
         skills: false,
         career: false,
-      });
+        'career-0': true, // Ensure the first career accordion remains open
+      }));
       window.addEventListener("resize", () => {
         setCurrentScreenSize(window.innerWidth);
       });
@@ -78,6 +82,7 @@ export default function Resume({ content }: { content: any }) {
       setAccordionState({
         skills: true,
         career: true,
+        'career-0': true, // Ensure the first career accordion remains open
       });
       setCareerAccordionHeights({});
     };

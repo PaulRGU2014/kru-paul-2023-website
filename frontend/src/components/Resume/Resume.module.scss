@@ -19,6 +19,12 @@
         position: relative;
         color: $navy;        
     }
+    @include responsive(md) {
+        &_wrapper{
+            display: flex;
+            flex-direction: column;
+        }
+    }
 }
 
 .profile_image{
@@ -155,7 +161,7 @@
     padding: 10px 20px;
     margin-top: 20px;
     background-color: $cv-dk-green; /* Change this color to your preference */
-    color: white;
+    color: $dk-navy;
     text-decoration: none;
     border-radius: 5px;
     transition: background-color 0.3s $ease-out-quint;
