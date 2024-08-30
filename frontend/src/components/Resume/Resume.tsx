@@ -188,7 +188,7 @@ export default function Resume({ content }: { content: any }) {
               <h4 onClick={() => toggleAccordion('skills')} style={{ cursor: 'pointer' }}>SKILLS</h4>
               <ul ref={skillsAccordionRef}
                 style={{
-                  maxHeight: accordionState.skills ? skillsAccordionRef.current?.scrollHeight + 'px' : '440px'
+                  maxHeight: accordionState.skills ? skillsAccordionRef.current?.scrollHeight + 'px' : '170px'
                 }}
                 onClick={() => toggleAccordion('skills')}
               >

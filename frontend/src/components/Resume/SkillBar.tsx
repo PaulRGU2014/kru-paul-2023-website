@@ -1,4 +1,4 @@
-
+import React, { useEffect, useState, useRef } from 'react';
 import styles from './Resume.module.scss';
 
 interface Skill {
@@ -10,23 +10,42 @@ interface SkillBarProps {
 }
 
 const SkillBar: React.FC<SkillBarProps> = ({ skill }) => {
-  const levels = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  const [width, setWidth] = useState(0);
+  const skillBarRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setTimeout(() => {
+              setWidth(skill.level * 10); // Assuming each level represents 10% width
+            }, 100); // Delay to trigger the animation
+            observer.unobserve(entry.target); // Stop observing after animation starts
+          }
+        });
+      },
+      { threshold: 0.1 } // Trigger when 10% of the element is in view
+    );
+
+    if (skillBarRef.current) {
+      observer.observe(skillBarRef.current);
+    }
+
+    return () => {
+      if (skillBarRef.current) {
+        observer.unobserve(skillBarRef.current);
+      }
+    };
+  }, [skill.level]);
 
   return (
-    <div className={styles.skillBar}>
-      {levels.map(level => (
-        <label key={level} className={styles.radioLabel}>
-          <input
-            type="radio"
-            name="skillLevel"
-            value={level}
-            checked={skill.level === level}
-            readOnly
-            className={styles.radioInput}
-          />
-          <span className={`${styles.radioSpan} ${skill.level >= level ? styles.active : ''}`}></span>
-        </label>
-      ))}
+    <div className={styles.skillBarContainer}>
+      <div
+        className={styles.skillBar}
+        ref={skillBarRef}
+        style={{ width: `${width}%` }}
+      ></div>
     </div>
   );
 };
