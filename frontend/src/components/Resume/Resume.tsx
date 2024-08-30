@@ -26,6 +26,7 @@ export default function Resume({ content }: { content: any }) {
   const skillsAccordionRef = useRef<HTMLUListElement>(null);
   const educationAccordionRef = useRef<HTMLUListElement>(null);
   const careerAccordionRefs = useRef<(HTMLDivElement | null)[]>([]);
+  console.log('content', content);
 
   const toggleAccordion = (section: string) => {
     setAccordionState((prevState) => ({
@@ -85,8 +86,8 @@ export default function Resume({ content }: { content: any }) {
     handleAccodionHeights();
   }, [currentScreenSize, handleAccodionHeights]);
 
-  console.log('currentScreenSize', currentScreenSize);
-  console.log('careerAccordionHeights', careerAccordionHeights);  
+  // console.log('currentScreenSize', currentScreenSize);
+  // console.log('careerAccordionHeights', careerAccordionHeights);  
 
   return (
     <div className={styles.component}>
@@ -159,10 +160,10 @@ export default function Resume({ content }: { content: any }) {
             >
               {content.skills.sort((a: any, b: any) => (b.is_featured ? 1 : 0) - (a.is_featured ? 1 : 0)).map(
                 (
-                  skill: { name: string; level: number | string; is_featured?: boolean },
+                  skill: { skill: string; level: number | string; is_featured?: boolean },
                   index: number
                 ) => (
-                  <li key={index}>{skill.name}</li>
+                  <li key={index}>{skill.skill}</li>
                 )
               )}
             </ul>

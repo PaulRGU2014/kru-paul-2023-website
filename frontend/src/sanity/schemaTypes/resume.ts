@@ -66,7 +66,8 @@ export const resume = defineType({
             },
             {
               name: 'description',
-              type: 'text',
+              type: 'array',
+              of: [{type: 'block'}],
             },
           ],
         },

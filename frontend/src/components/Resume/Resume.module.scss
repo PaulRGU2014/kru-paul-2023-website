@@ -10,6 +10,7 @@
     position: relative;
     color: $navy;
     margin-bottom: 60px;
+    padding: 60px 0;
     @include responsive(md) {
         display: flex;
         flex-direction: column;

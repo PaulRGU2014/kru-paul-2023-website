@@ -12,7 +12,7 @@ interface RichTextProps {
 }
 
 export default function RichText({ children, html, className = "", ...props }: RichTextProps) {
-  console.log(html);
+  // console.log(html);
   if (html) {
     return (
       <div className={`${styles.component} ${className}`} {...props}>
