@@ -21,7 +21,8 @@ const SkillBar: React.FC<SkillBarProps> = ({ skill }) => {
             setTimeout(() => {
               setWidth(skill.level * 10); // Assuming each level represents 10% width
             }, 100); // Delay to trigger the animation
-            observer.unobserve(entry.target); // Stop observing after animation starts
+          } else {
+            setWidth(0); // Reset to 0 when out of view
           }
         });
       },
