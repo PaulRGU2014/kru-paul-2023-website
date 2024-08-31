@@ -4,7 +4,7 @@
     position: fixed;
     // position: absolute; //Leave this in for the time being
     z-index: 888;
-    width: 100%;
+    width: 100vw;
     height: 100vh;
     &_close{
         @extend .component;
@@ -74,7 +74,7 @@
   @include responsive (sm) {
     width: 100%;
     max-width: unset;
-    padding: 75px 50px;
+    padding: 75px 0px;
     li {
       text-align: center;
     }
@@ -84,7 +84,8 @@
 .hamburger{
     &_wrapper{
         position: absolute;
-        right: 0%;
+        right: 15px;
+        top: 15px;
         display: flex;
         flex-direction: column;
         align-items: center;
