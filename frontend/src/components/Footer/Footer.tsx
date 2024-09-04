@@ -15,6 +15,8 @@ export default function Footer({content, pathname}: {content?: any, pathname: st
     const [isClient, setIsClient] = useState(false)
     const [isHomePage, setIsHomePage] = useState<boolean>()
 
+    const currentYear = new Date().getFullYear()
+
     useEffect(()=>{
         setIsClient(typeof window !== 'undefined')
         if(pathname === "/"){
@@ -78,6 +80,7 @@ export default function Footer({content, pathname}: {content?: any, pathname: st
                     <h5 className={styles.disclaimer}>
                         This page is buit using Next.js, TypeScript and Sanity.io <br/> by Paul Thanataweenont
                     </h5>
+                    <p>© {currentYear} Paul Thanataweenont. All rights reserved.</p>
                 </div>
             </div>
         </footer></InViewAnim>
