@@ -39,16 +39,13 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 100%;
-  gap: 20px;
+  gap: 0px;
   width: 100%;
   height: auto;
   overflow: hidden;
   @include responsive(md){
-    gap: 10px;
     display: flex;
     flex-direction: column;
-    // grid-template-columns: 1fr;
-    // grid-template-rows: 1fr 1fr;
   }
 }
 
