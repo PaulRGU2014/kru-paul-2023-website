@@ -4,13 +4,16 @@ import styles from './Menus.module.scss';
 import React, { useState, useEffect, useRef } from "react";
 import Link from 'next/link';
 
-function Hamburger({ isMenuOpen, setIsMenuOpen }: { isMenuOpen: boolean, setIsMenuOpen: (isOpen: boolean) => void }) {
+function Hamburger({ isMenuOpen, setIsMenuOpen, hamburgerRef }: { isMenuOpen: boolean, setIsMenuOpen: (isOpen: boolean) => void, hamburgerRef: React.RefObject<HTMLDivElement> }) {
   return (
     <div
+      ref={hamburgerRef}
       className={isMenuOpen ? styles.hamburger_wrapper_open : styles.hamburger_wrapper}
       onClick={() => {
         console.log("Hamburger clicked");
-        setIsMenuOpen(!isMenuOpen);
+        setTimeout(() => {
+          setIsMenuOpen(!isMenuOpen);
+        }, 100);
       }}
     >
       <div className={styles.hamburger_first} />
@@ -24,13 +27,31 @@ export default function MenuNav({ content }: { content: any }) {
   console.log("MenuContent", content);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuRef = useRef<HTMLUListElement>(null);
+  const hamburgerRef = useRef<HTMLDivElement>(null);
   console.log('isMenuOpen', isMenuOpen);
 
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (
+        menuRef.current &&
+        !menuRef.current.contains(event.target as Node) &&
+        hamburgerRef.current &&
+        !hamburgerRef.current.contains(event.target as Node)
+      ) {
+        setIsMenuOpen(false);
+        console.log("Fire");
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [menuRef, hamburgerRef]);
 
   return (
     <div className={isMenuOpen ? styles.component : styles.component_close}>
       <div className={`${styles.wrapper} ${isMenuOpen ? styles.open : ""}`}>
-        <Hamburger {...{isMenuOpen, setIsMenuOpen}} />
+        <Hamburger {...{isMenuOpen, setIsMenuOpen, hamburgerRef}} />
         <div className={isMenuOpen ? styles.inner : styles.inner_close}>
           <ul className={styles.content} ref={menuRef}>
             <li>
