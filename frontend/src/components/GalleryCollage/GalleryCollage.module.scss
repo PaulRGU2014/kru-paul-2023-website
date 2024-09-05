@@ -45,8 +45,10 @@
   overflow: hidden;
   @include responsive(md){
     gap: 10px;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr;
+    display: flex;
+    flex-direction: column;
+    // grid-template-columns: 1fr;
+    // grid-template-rows: 1fr 1fr;
   }
 }
 
@@ -63,6 +65,16 @@
   }
   p{
     margin: 0 0 16px 0;
+  }
+  @include responsive(md){
+    justify-content: flex-start;
+    max-height: 450px;
+    overflow-y: scroll;
+    // get rid of visible scrollbar
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
 }
 

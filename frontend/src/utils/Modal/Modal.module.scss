@@ -20,9 +20,13 @@
   display: flex;
   width: 50%;
   min-height: 50vh;
+  max-height: 80vh;
   background-color: $white;
   padding: 30px;
   position: relative;
+  @include responsive (lg) {
+    width: 70%;
+  }
 }
 
 .modal__close{
