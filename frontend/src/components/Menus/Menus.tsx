@@ -28,7 +28,6 @@ export default function MenuNav({ content }: { content: any }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuRef = useRef<HTMLUListElement>(null);
   const hamburgerRef = useRef<HTMLDivElement>(null);
-  console.log('isMenuOpen', isMenuOpen);
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
@@ -39,7 +38,6 @@ export default function MenuNav({ content }: { content: any }) {
         !hamburgerRef.current.contains(event.target as Node)
       ) {
         setIsMenuOpen(false);
-        console.log("Fire");
       }
     }
     document.addEventListener("mousedown", handleClickOutside);
