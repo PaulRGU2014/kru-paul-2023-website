@@ -7,6 +7,13 @@
     background: linear-gradient(-180deg, $lt-yellow 0%, $blue-purple 100%);
 }
 
+.menuBurger{
+    display: none;
+    @include responsive (md){
+        display: block;
+    }
+}
+
 .wrapper{
     @include centered ($max-width);
     padding:90px 0;
