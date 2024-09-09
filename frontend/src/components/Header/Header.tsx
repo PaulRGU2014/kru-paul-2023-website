@@ -8,19 +8,20 @@ const Header = () => {
     <header className={styles.header}>
       <div className={styles.logo}>
         <Link href="/">
-          <Image src="/logo.png" alt="Logo" width={150} height={50} />
+          <Image src="/Logo_big.svg" alt="Logo" width={70} height={70} />
         </Link>
+        <h4>Paul Thanataweenont</h4>
       </div>
       <nav className={styles.nav}>
         <ul>
-          <li>
+          {/* <li>
             <Link href="/">Home</Link>
+          </li> */}
+          <li>
+            <Link href="/about-me">About</Link>
           </li>
           <li>
-            <Link href="/about">About</Link>
-          </li>
-          <li>
-            <Link href="/services">Services</Link>
+            <Link href="/services">Showcase</Link>
           </li>
           <li>
             <Link href="/contact">Contact</Link>

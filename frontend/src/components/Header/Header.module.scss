@@ -12,6 +12,14 @@
 .logo {
   display: flex;
   align-items: center;
+  gap: 20px;
+  a{
+    display: flex;
+    margin: 0;
+  }
+  h4{
+    margin: 0;
+  }
 }
 
 .nav ul {
