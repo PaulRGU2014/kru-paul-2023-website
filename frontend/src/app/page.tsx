@@ -6,13 +6,15 @@ import styles from "./page.module.scss";
 import Hero from "../components/Hero/Hero"
 import InViewAnim from '../utils/InViewAnim/InViewAnim'
 import Footer from '../components/Footer/Footer'
+import Header from "@/components/Header/Header";
 
 
 
 export default function Home() {
 
   return (<>
-    <InViewAnim><Hero content={{hero_title:"Paul", hero_subtitle:"Thanataweenont"}}/>
+    <InViewAnim><Header />
+    <Hero content={{hero_title:"Paul", hero_subtitle:"Thanataweenont"}}/>
     <main className={styles.component}>
       <div className={styles.wrapper}>
         <div className={styles.inner}>
