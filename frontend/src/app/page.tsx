@@ -8,6 +8,8 @@ import { headers } from 'next/headers'
 import Header from '@/components/Header/Header'
 import InViewAnim from '@/utils/InViewAnim/InViewAnim'
 import Link from 'next/link'
+import ScrollSync from '@/utils/ScrollSync/ScrollSync'
+import HomeScroll from '@/components/HomeScroll/HomeScroll'
 
 export default async function Page() {
   const headersList = headers();
@@ -23,25 +25,11 @@ export default async function Page() {
   }
 
   return (
-    <InViewAnim>
+    <div>
       <div className={styles.menuBurger}><MenuNav content={(footerData as any)[0]} /></div>
       <Header />
-      <ComponentLoader components={(data as any[])[0]?.components} />
-      <main className={styles.component}>
-        <div className={styles.wrapper}>
-          <div className={styles.inner}>
-            <div className={styles.linkWrapper}>
-              <Link className={styles.link} href="/about-me">My Story</Link>
-              {/* <Link className={styles.link} href="/skills">My Skills</Link> */}
-              {/* <Link className={styles.link} href="/projects">My Projects</Link> */}
-              {/* <Link className={styles.link} href="/contact">My Contact</Link> */}
-              <Link className={styles.link} href="/online-resume">My Online Résumé</Link>
-              {/* <Link className={styles.link} href="/">My Tech Blog</Link> */}
-            </div>
-          </div>
-        </div>
-      </main>      
+      <HomeScroll />
       <Footer content={(footerData as any)[0]} pathname={pathname} />
-    </InViewAnim>
+    </div>
   );
 }

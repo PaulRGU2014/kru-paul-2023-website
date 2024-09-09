@@ -1,0 +1,27 @@
+@import "../../scss/helpers/import.scss";
+
+.scrollContainer {
+  height: 100vh;
+  overflow-y: scroll;
+  position: relative;
+  // hide scrollbar
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.child {
+  height: 100vh;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: opacity 0.3s ease-in-out;
+  opacity: 0;
+  pointer-events: none; // Prevent interaction with non-active children
+}
+
+.child.active {
+  opacity: 1;
+  pointer-events: auto; // Allow interaction with the active child
+}
