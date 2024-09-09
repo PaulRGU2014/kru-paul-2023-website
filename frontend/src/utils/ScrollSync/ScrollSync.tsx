@@ -9,68 +9,22 @@ interface ScrollSyncProps {
 
 const ScrollSync: React.FC<ScrollSyncProps> = ({ children }) => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [activeIndex, setActiveIndex] = useState(0);
   const [opacities, setOpacities] = useState<number[]>([]);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (containerRef.current) {
-        const { scrollTop, clientHeight } = containerRef.current;
-        const newIndex = Math.floor(scrollTop / clientHeight);
-        setActiveIndex(newIndex);
 
-        const newOpacities = children.map((_, index) => {
-          const distance = Math.abs(scrollTop - index * clientHeight);
-          return Math.max(1 - distance / clientHeight, 0);
-        });
-        setOpacities(newOpacities);
-
-        // Debugging logs
-        console.log('ScrollTop:', scrollTop);
-        console.log('ClientHeight:', clientHeight);
-        console.log('New Opacities:', newOpacities);
-      }
-    };
-
-    const container = containerRef.current;
-    if (container) {
-      container.addEventListener('scroll', handleScroll);
-    }
-
-    return () => {
-      if (container) {
-        container.removeEventListener('scroll', handleScroll);
-      }
-    };
-  }, [children.length]);
-
-  useEffect(() => {
-    // Initialize opacities on mount
-    if (containerRef.current) {
-      const { scrollTop, clientHeight } = containerRef.current;
-      const newOpacities = children.map((_, index) => {
-        const distance = Math.abs(scrollTop - index * clientHeight);
-        return Math.max(1 - distance / clientHeight, 0);
-      });
-      setOpacities(newOpacities);
-    }
-  }, [children.length]);
 
   return (
     <div 
       className={styles.scrollContainer} 
       ref={containerRef}
-      style={{
-        height: `calc(100vh * ${children.length})`,
-        overflowY: 'scroll' // Ensure the container is scrollable
-      }}
+      // style={{height: children.length * 100 + 'vh'}}
     >
-      {children.map((child, index) => (
+      {React.Children.map(children, (child, index) => (
         <div
           key={index}
-          className={`${styles.child} ${index === activeIndex ? styles.active : ''}`}
+          className={styles.child}
           style={{ 
-            zIndex: children.length - index,
+            zIndex: index,
             opacity: opacities[index] || 0
           }}
         >

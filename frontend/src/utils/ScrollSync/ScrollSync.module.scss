@@ -1,7 +1,7 @@
 @import "../../scss/helpers/import.scss";
 
 .scrollContainer {
-  height: 100vh;
+  max-height: 100vh;
   overflow-y: scroll;
   position: relative;
   // hide scrollbar
@@ -17,11 +17,6 @@
   top: 0;
   left: 0;
   transition: opacity 0.3s ease-in-out;
-  opacity: 0;
-  pointer-events: none; // Prevent interaction with non-active children
-}
 
-.child.active {
-  opacity: 1;
-  pointer-events: auto; // Allow interaction with the active child
+  // opacity: 0;
 }
