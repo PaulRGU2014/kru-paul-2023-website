@@ -3,6 +3,7 @@
 import styles from './Menus.module.scss';
 import React, { useState, useEffect, useRef } from "react";
 import Link from 'next/link';
+import Image from 'next/image';
 
 function Hamburger({ isMenuOpen, setIsMenuOpen, hamburgerRef }: { isMenuOpen: boolean, setIsMenuOpen: (isOpen: boolean) => void, hamburgerRef: React.RefObject<HTMLDivElement> }) {
   return (
@@ -52,6 +53,9 @@ export default function MenuNav({ content }: { content: any }) {
         <Hamburger {...{isMenuOpen, setIsMenuOpen, hamburgerRef}} />
         <div className={isMenuOpen ? styles.inner : styles.inner_close}>
           <ul className={styles.content} ref={menuRef}>
+            <Link href="/" className={styles.logo_main}>
+              <Image src="/Logo_big.svg" alt="Logo" width={72} height={72} style={{objectPosition: "center", objectFit: "cover"}} />
+            </Link>          
             <li>
               <Link className={styles.link} href="/">Home</Link>
             </li>
