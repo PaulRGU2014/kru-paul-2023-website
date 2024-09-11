@@ -75,7 +75,6 @@
 }
 
 .menuLink {
-  padding: 10px;
   transition: all 0.3s $ease-out-quint;
   animation: panelDrop 800ms $ease-out-quint both;
   &_wrapper {
@@ -86,16 +85,17 @@
     padding: 0;
   }
   a {
+    padding: 10px;
     text-decoration: none;
     color: $lt-black;
     font-weight: bold;
     transition: all 0.3s $ease-out-quint;
   }
   &:hover {
-    background-color: $lt-brown;
     transition: all 0.3s $ease-out-quint;
     a {
       color: $dk-navy;
+      background-color: $lt-brown;
       transition: all 0.3s $ease-out-quint;
     }
   }

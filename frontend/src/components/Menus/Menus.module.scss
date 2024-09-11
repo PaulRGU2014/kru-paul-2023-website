@@ -42,7 +42,7 @@
   opacity: 1;
   &_close {
     @extend .inner;
-    transform: translate3d(100%, 0, 0);
+    transform: translate3d(100%, -100%, 0);
     opacity: 0;
   }
   @include responsive(sm) {
@@ -64,16 +64,16 @@
   flex-direction: column;
   align-items: center;
   width: 30%;
-  max-width: 350px;
-  height: 100%;
+  max-width: 300px;
+  height: auto;
   margin: 0 0 0 auto;
   background-color: $pink;
-  padding: 35px 100px 45px 45px;
+  padding: 100px 50px 40px 20px;
   @include responsive(sm) {
     align-items: center;
     width: 100%;
     max-width: unset;
-    padding: 35px 0 75px 0px;
+    padding: 80px 0 40px 0px;
   }
 }
 
@@ -81,19 +81,33 @@
   list-style: none;
   margin-bottom: 20px;
   text-align: center;
+  transform: translateY(-20px);
+  transition: all 0.75s $ease-out-quint;
+  opacity: 0;
+  &:hover {
+    transition: all 0.75s $ease-out-quint;
+    a {
+      color: $dk-navy;
+    }
+  }
+  &.open {
+    transform: translateY(0);
+    opacity: 1;
+    transition: all 0.75s $ease-out-quint;
+  }
   a {
     text-decoration: none;
     color: $lt-black;
     font-size: 1.5rem;
     font-weight: 700;
-    &:hover {
-      color: $dk-navy;
-    }
   }
 }
 
-.link_admin {
-  @extend .link;
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .hamburger {

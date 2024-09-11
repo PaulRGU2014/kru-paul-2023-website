@@ -57,9 +57,6 @@ export default function Footer({content, pathname}: {content?: any, pathname: st
                 <div className={styles.inner}>
                     {!isHomePage &&
                     <ul className={styles.link_wrapper}>
-                        {!isHomePage && <li>
-                            <Link className={styles.link} href="/">Home</Link>
-                        </li>}
                         {!!content && content.footer_links?.map((item: any, index: number) => (
                             <li key={index}>
                                 <Link className={styles.link} href={item.link_url}>{item.link_title}</Link>
