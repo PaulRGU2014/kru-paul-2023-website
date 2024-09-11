@@ -30,6 +30,9 @@
     position: relative;
     overflow: hidden;
     padding: 40px 0px;
+    p{
+        max-width: 70%;
+    }
     @include responsive(md){
         padding: 20px 0px;
     }
