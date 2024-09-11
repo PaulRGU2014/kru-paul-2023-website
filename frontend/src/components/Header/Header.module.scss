@@ -1,19 +1,25 @@
 @import "../../scss/helpers/import.scss";
 
 .header {
-
   background-color: $lt-yellow;
-  // box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   z-index: 1000;
   position: sticky;
   top: 0;
-  animation: panelDrop 800ms $ease-out-quint both;
+  transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+  &.hidden {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  &.visible {
+    transform: translateY(0);
+    opacity: 1;
+  }
   @include responsive(md) {
     display: none;
   }
 }
 
-.wrapper{
+.wrapper {
   @include centered($max-width);
   display: flex;
   justify-content: space-between;
@@ -25,31 +31,28 @@
   display: flex;
   align-items: center;
   gap: 20px;
-  &_main{
+  &_main {
     display: flex;
     align-items: center;
     justify-content: center;
-    // animation: iconGrow 800ms 200ms $ease-out-back both;
-    img{
+    img {
       animation: logoIn 800ms 200ms $ease-out-back both;
     }
   }
   &_shadow {
     position: absolute;
-    width: 67px; /* Adjusted width for a better hexagon shape */
-    height: 90px; /* Adjusted height for a better hexagon shape */
-    // filter: drop-shadow(0px 0px 15px #79CAE7);
+    width: 67px;
+    height: 90px;
     animation: iconGrow 800ms 200ms $ease-out-back both;
     z-index: -1;
-    &::after{
+    &::after {
       content: '';
       display: block;
       position: absolute;
-      width: 67px; /* Adjusted width for a better hexagon shape */
-      height: 90px; /* Adjusted height for a better hexagon shape */
+      width: 67px;
+      height: 90px;
       background-color: #B0CDC2;
       z-index: -1;
-      // box-shadow: 0px 0px 15px 10px #79CAE7;
       clip-path: polygon(
         50% 0%,  /* Top point */
         100% 21%, /* Top-right point */
@@ -60,11 +63,11 @@
       );
     }
   }
-  a{
+  a {
     display: flex;
     margin: 0;
   }
-  h5{
+  h5 {
     margin: 0;
     color: $lt-black;
     animation: textIn 1000ms 600ms $ease-out-quint both;
@@ -75,12 +78,12 @@
   padding: 10px;
   transition: all 0.3s $ease-out-quint;
   animation: panelDrop 800ms $ease-out-quint both;
-  &_wrapper{
+  &_wrapper {
     display: flex;
     list-style: none;
     gap: 20px;
     margin: 0;
-    padding: 0;    
+    padding: 0;
   }
   a {
     text-decoration: none;
@@ -91,7 +94,7 @@
   &:hover {
     background-color: $lt-brown;
     transition: all 0.3s $ease-out-quint;
-    a{
+    a {
       color: $dk-navy;
       transition: all 0.3s $ease-out-quint;
     }
