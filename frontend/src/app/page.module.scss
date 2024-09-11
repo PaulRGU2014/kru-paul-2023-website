@@ -4,7 +4,8 @@
     // @include centered ($max-width);
     @include scroll-animation($anim: fromTop, $speed: 1000ms, $delay: 250ms );
     display: block;
-    background: linear-gradient(-180deg, $lt-yellow 0%, $blue-purple 100%);
+    // background: linear-gradient(-180deg, $lt-yellow 0%, $blue-purple 50%, $lt-yellow 100%);
+    background: $lt-yellow;
 }
 
 .menuBurger{
