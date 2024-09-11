@@ -1,0 +1,53 @@
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 437.14 261">
+  <defs>
+    <style>.cls-1,.cls-3{fill:#79cae7;}.cls-14,.cls-17,.cls-2,.cls-4{fill:#fff;}.cls-3{stroke:#fff;stroke-miterlimit:10;stroke-width:5px;}.cls-14,.cls-4{font-size:21px;}.cls-17,.cls-4{font-family:Roboto-Bold,
+      Roboto;font-weight:700;}.cls-5{letter-spacing:-0.09em;}.cls-6{letter-spacing:-0.01em;}.cls-7{letter-spacing:-0.03em;}.cls-8{letter-spacing:0.01em;}.cls-9{letter-spacing:-0.06em;}.cls-10{letter-spacing:-0.02em;}.cls-11{letter-spacing:0em;}.cls-12{letter-spacing:-0.01em;}.cls-13{letter-spacing:-0.03em;}.cls-14{font-family:Roboto-Regular,
+      Roboto;}.cls-15{letter-spacing:-0.03em;}.cls-16{letter-spacing:0em;}.cls-17{font-size:48px;}</style>
+  </defs>
+  <title>Logo_New</title>
+  <polygon class="cls-1" points="60.05 153.5 116.57 153.5 116.57 187.41 60.05 153.5" />
+  <path class="cls-2" d="M148.51,286v27l-45-27h45m5-5H85.45l15.48,9.29,45,27,7.58,4.54V281Z"
+    transform="translate(-34.43 -130)" />
+  <polygon class="cls-1"
+    points="16.4 189.5 35.85 160.32 6.04 130.5 68.57 130.5 68.57 158.59 120.1 189.5 16.4 189.5" />
+  <path class="cls-2"
+    d="M100.51,263v27l45,27h-90l18-27-27-27h54m5-5H34.43L43,266.54l24.1,24.1L51.35,314.23,46.16,322h117.4l-15.48-9.29-42.57-25.54V258Z"
+    transform="translate(-34.43 -130)" />
+  <polygon class="cls-1" points="319.57 153.5 376.1 153.5 319.57 187.41 319.57 153.5" />
+  <path class="cls-2" d="M401.51,286l-45,27V286h45m18.05-5H351.51v40.83l7.57-4.54,45-27L419.56,281Z"
+    transform="translate(-34.43 -130)" />
+  <polygon class="cls-1"
+    points="317.05 189.5 368.57 158.59 368.57 130.5 431.11 130.5 401.29 160.32 420.74 189.5 317.05 189.5" />
+  <path class="cls-2"
+    d="M459.51,263l-27,27,18,27h-90l45-27V263h54m12.07-5H400.51v29.17l-42.58,25.54L342.45,322h117.4l-5.18-7.77-15.73-23.59,24.1-24.1,8.54-8.54Z"
+    transform="translate(-34.43 -130)" />
+  <polygon class="cls-1"
+    points="218.45 0 119.45 54 119.45 207 218.45 261 317.45 207 317.45 54 218.45 0" />
+  <polygon class="cls-3"
+    points="218.45 17.04 132.38 63.99 132.38 197.01 218.45 243.96 304.52 197.01 304.52 63.99 218.45 17.04" />
+  <rect class="cls-3" x="68.69" y="90" width="299.51" height="63" />
+  <text class="cls-4" transform="translate(93.72 127.64)">
+    <tspan class="cls-5">P</tspan>
+    <tspan class="cls-6" x="11.72" y="0">A</tspan>
+    <tspan x="25.68" y="0">UL</tspan>
+    <tspan class="cls-7" x="50.87" y="0"> </tspan>
+    <tspan x="55.48" y="0">T</tspan>
+    <tspan class="cls-8" x="68.48" y="0">H</tspan>
+    <tspan x="83.5" y="0">A</tspan>
+    <tspan class="cls-8" x="97.63" y="0">N</tspan>
+    <tspan class="cls-9" x="112.64" y="0">AT</tspan>
+    <tspan class="cls-10" x="137.3" y="0">A</tspan>
+    <tspan class="cls-11" x="151.03" y="0">WEENO</tspan>
+    <tspan class="cls-12" x="222.35" y="0">N</tspan>
+    <tspan class="cls-13" x="236.88" y="0">T</tspan>
+  </text>
+  <text class="cls-14" transform="translate(161.35 186.09)">DEVE<tspan class="cls-15" x="51" y="0">L</tspan><tspan
+      class="cls-16" x="61.64" y="0">OPER</tspan></text>
+  <text class="cls-17" transform="translate(188.82 79.61)">P<tspan class="cls-7" x="30.96" y="0">T</tspan></text>
+  <polygon class="cls-2"
+    points="165.07 59.18 167.9 64.92 174.25 65.84 169.66 70.32 170.74 76.63 165.07 73.65 159.4 76.63 160.48 70.32 155.89 65.84 162.23 64.92 165.07 59.18" />
+  <polygon class="cls-2"
+    points="269.6 59.18 272.43 64.92 278.77 65.84 274.18 70.32 275.27 76.63 269.6 73.65 263.92 76.63 265.01 70.32 260.42 65.84 266.76 64.92 269.6 59.18" />
+  <polygon class="cls-2"
+    points="218.35 203.78 221.19 209.52 227.53 210.44 222.94 214.92 224.02 221.23 218.35 218.25 212.68 221.23 213.76 214.92 209.17 210.44 215.51 209.52 218.35 203.78" />
+</svg>
