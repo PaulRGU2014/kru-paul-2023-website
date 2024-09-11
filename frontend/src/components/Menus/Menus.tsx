@@ -95,7 +95,7 @@ export default function MenuNav({ content }: MenuNavProps) {
     <div className={isMenuOpen ? styles.component : styles.component_close}>
       <div className={`${styles.wrapper} ${isMenuOpen ? styles.open : ""}`}>
         <Hamburger isMenuOpen={isMenuOpen} hamburgerRef={hamburgerRef} onClick={handleMenuToggle} />
-        <MenuContent {...{content, isMenuOpen, isMenuOpening, menuRef}} />
+        <MenuContent {...{content, isMenuOpen, setIsMenuOpen, isMenuOpening, menuRef}} />
       </div>
     </div>
   );

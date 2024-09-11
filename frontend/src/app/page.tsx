@@ -9,6 +9,13 @@ import Header from '@/components/Header/Header'
 import InViewAnim from '@/utils/InViewAnim/InViewAnim'
 import Link from 'next/link'
 
+type FooterDataType = {
+  // Define the structure of your footer data here
+  // Example:
+  title: string;
+  links: { title: string; url: string }[];
+};
+
 export default async function Page() {
   const headersList = headers();
   const pathname = headersList.get('x-pathname') || '';
@@ -17,7 +24,7 @@ export default async function Page() {
   const footerQuery = `*[_type=="footer"]{...}`;
   const data = await client.fetch(query);
   const footerData = await client.fetch(footerQuery);
-
+      <div className={styles.menuBurger}><MenuNav content={(footerData as FooterDataType[])[0]} /></div>
   if (!data) {
     return <div className='loading'>Loading...</div>;
   }
