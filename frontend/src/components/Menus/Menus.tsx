@@ -54,16 +54,19 @@ export default function MenuNav({ content }: { content: any }) {
         <div className={isMenuOpen ? styles.inner : styles.inner_close}>
           <ul className={styles.content} ref={menuRef}>
             <Link href="/" className={styles.logo_main}>
-              <Image src="/Logo_New.svg" alt="Logo" width={150} height={90} style={{objectPosition: "left", objectFit: "cover"}} />
+              <Image src="/Logo_New.svg" alt="Logo" width={200} height={120} style={{objectPosition: "left", objectFit: "cover"}} />
             </Link>          
-            <li>
-              <Link className={styles.link} href="/">Home</Link>
+            <li className={styles.link}>
+              <Link href="/">Home</Link>
             </li>
             {content?.footer_links?.map((item: any, index: number) => (
-              <li key={index}>
-                <Link className={styles.link} href={item.link_url}>{item.link_title}</Link>
+              <li className={styles.link} key={index}>
+                <Link href={item.link_url}>{item.link_title}</Link>
               </li>
             ))}
+            <li className={styles.link_admin}>
+              <Link href="/backend">Admin</Link>
+            </li>
           </ul>
         </div>
       </div>

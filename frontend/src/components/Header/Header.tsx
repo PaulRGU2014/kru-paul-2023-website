@@ -13,25 +13,22 @@ const Header = () => {
           </Link>
           <h5>Krupaul.com</h5>
         </div>
-        <nav className={styles.nav}>
-          <ul>
-            {/* <li>
-              <Link href="/">Home</Link>
-            </li> */}
-            <li>
-              <Link href="/about-me">About</Link>
-            </li>
-            <li>
-              <Link href="/showcase">Showcase</Link>
-            </li>
-            <li>
-              <Link href="/contact">Contact</Link>
-            </li>
-            <li>
-              <Link href="/backend">Login</Link>
-            </li>
-          </ul>
-        </nav>
+        <ul className={styles.menuLink_wrapper}>
+          <li className={styles.menuLink} style={{animationDelay: "200ms"}}>
+            <Link href="/about-me">About</Link>
+          </li>
+          <li className={styles.menuLink} style={{animationDelay: "400ms"}}>
+            <Link href="/showcase">Showcase</Link>
+          </li>
+          <li className={styles.menuLink} style={{animationDelay: "600ms"}}>
+            <Link href="/contact">Contact</Link>
+          </li>
+        </ul>
+        <ul className={styles.menuLink_wrapper}>
+          <li className={styles.menuLink} style={{animationDelay: "800ms"}}>
+            <Link href="/backend">Admin</Link>
+          </li>
+        </ul>
       </div>
     </header>
   );
