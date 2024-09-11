@@ -39,7 +39,7 @@ function MenuContent({ content, isMenuOpen, setIsMenuOpen, isMenuOpening, menuRe
           <li 
             className={`${styles.link} ${isMenuOpen === true ? styles.open : ""}`} 
             key={index} 
-            style={{ transitionDelay: isMenuOpening ? `${(index + 1) * 200}ms` : "0ms" }}
+            style={{ transitionDelay: isMenuOpening ? `${(index + 1) * 100}ms` : "0ms" }}
             onClick={() => {
               setIsMenuOpen(false);
             }}
