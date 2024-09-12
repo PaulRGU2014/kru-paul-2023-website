@@ -1,7 +1,9 @@
 import '../../scss/global.scss'
 import client from "../../../client"
+import styles from './page.module.scss'
 import ComponentLoader from '@/components/ComponentLoader'
 import MenuNav from '@/components/Menus/Menus'
+import Header from '@/components/Header/Header'
 import Footer from '@/components/Footer/Footer'
 import { headers } from 'next/headers'
 
@@ -20,7 +22,8 @@ export default async function Page() {
 
   return (
     <>
-      <MenuNav content={(footerData as any)[0]} />
+      <div className={styles.menuBurger}><MenuNav content={(footerData as any)[0]} /></div>
+      <Header />
       <ComponentLoader components={(data as any[])[0]?.components} />
       <Footer content={(footerData as any)[0]} pathname={pathname} />
     </>

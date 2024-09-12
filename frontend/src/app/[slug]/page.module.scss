@@ -1,0 +1,64 @@
+@import "../../scss/helpers/import.scss";
+
+.component {
+    // @include centered ($max-width);
+    @include scroll-animation($anim: fromTop, $speed: 1000ms, $delay: 250ms );
+    display: block;
+    // background: linear-gradient(-180deg, $lt-yellow 0%, $blue-purple 50%, $lt-yellow 100%);
+    background: $lt-yellow;
+}
+
+.menuBurger{
+    display: none;
+    @include responsive (md){
+        display: block;
+    }
+}
+
+.wrapper{
+    @include centered ($max-width);
+    padding:90px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    min-height: 350px
+}
+
+.inner{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 850px;
+}
+
+.linkWrapper{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-items: stretch;
+    width: 100%;
+    a{
+        display: block;
+        padding: 30px;
+        text-align: center;
+        background-color: transparent;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-weight: 700;
+        // border-radius: 10px;
+        border: none;
+        width: 250px;
+        // box-shadow: 0px 0px 10px $dk-navy;
+        transition: all 0.3s $ease-out-quint;
+        &:hover{
+            background-color: $blue-purple;
+            color: $lt-yellow;
+            transition: all 0.3s $ease-out-quint;
+        }
+    }
+}
+
+.link{
+    border: 1px solid $navy
+}
