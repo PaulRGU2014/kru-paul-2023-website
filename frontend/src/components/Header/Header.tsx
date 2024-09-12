@@ -51,18 +51,21 @@ const Header = () => {
           <h5>Krupaul.com</h5>
         </div>
         <ul className={styles.menuLink_wrapper}>
-          <li className={styles.menuLink} style={{animationDelay: "200ms"}}>
+          <li className={styles.menuLink} style={{animationDelay: "100ms"}}>
             <Link href="/about-me">About</Link>
           </li>
-          <li className={styles.menuLink} style={{animationDelay: "400ms"}}>
+          <li className={styles.menuLink} style={{animationDelay: "200ms"}}>
             <Link href="/showcase">Showcase</Link>
           </li>
-          <li className={styles.menuLink} style={{animationDelay: "600ms"}}>
+          <li className={styles.menuLink} style={{animationDelay: "300ms"}}>
             <Link href="/contact">Contact</Link>
+          </li>
+          <li className={styles.menuLink} style={{animationDelay: "400ms"}}>
+            <Link href="/online-resume">Résumé</Link>
           </li>
         </ul>
         <ul className={styles.menuLink_wrapper}>
-          <li className={styles.menuLink} style={{animationDelay: "800ms"}}>
+          <li className={styles.menuLink} style={{animationDelay: "500ms"}}>
             <Link href="/backend">Admin</Link>
           </li>
         </ul>
