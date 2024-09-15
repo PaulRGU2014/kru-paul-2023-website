@@ -5,9 +5,10 @@ import {footer} from './footer'
 import {hero} from './hero'
 import {resume} from './resume'
 import {header} from './header'
+import {hardcodedBlocks} from './hardcodedBlocks'
 
 
 
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [footer, header, hero, pages, galleryCollage, resume],
+  types: [hardcodedBlocks, footer, header, hero, pages, galleryCollage, resume],
 }

@@ -23,7 +23,8 @@ export const pages = defineType({
             {type: 'galleryCollage'},
             {type: 'footer'},
             {type: 'hero'},
-            {type: 'resume'}
+            {type: 'resume'},
+            {type: 'hardcodedBlocks'},
           ]
         }
       ],

@@ -1,0 +1,211 @@
+@import '../../scss/helpers/import';
+
+.component{}
+.wrapper{
+    @include centered($max-width);
+    margin: {
+        top: $standard-vertical-spacing;
+        bottom: $standard-vertical-spacing;
+    };
+    @include responsive(md) {
+        margin: {
+            top: 30px;
+            bottom: 30px;
+        };
+    }
+}
+
+.inner{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 50px;
+    @include responsive(md) {
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+}
+
+.title{
+    color: $neutral-black;
+    font-family: Urbanist;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    width: 100%;
+    max-width: 790px;
+    margin-bottom: 50px;
+    padding-right: 12%;
+    @include responsive(md) {
+        font-size: 24px;
+        max-width: unset;
+        margin-bottom: 25px;
+    }
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    &_wrapper{
+        @include scroll-animation($anim: fromTop, $speed: 1000ms, );
+        transition-delay: 100ms;
+    }
+    button{
+        color: var(--neutrals-white, #FFF);
+        font-family: Urbanist;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        border-radius: 7px;
+        background: red;
+        padding: 20px 30px;
+    }
+    @include responsive(lg) {
+        button{
+            align-self: flex-start;
+        }
+    }
+}
+
+.info{
+    display: flex;
+    flex-direction: column;
+    max-width: 485px;
+    width: 100%;
+    &_wrapper{
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: flex-end;
+        margin-bottom: 35px;
+        border-bottom: 1px solid $black;
+        &:last-of-type{
+            max-width: 340px;
+        }
+        label{
+            min-width: 85px;
+            padding: 10px 0;
+        }
+        input{
+            width: 80%;
+            padding: 10px;
+            border: none;
+            outline: none;        
+            // hide placeholder
+            &::placeholder{
+                color: transparent;
+            }
+        }
+        input:focus{
+            outline: none;
+        }
+        input:focus + label{
+            font-size: 14px;
+            font-weight: 700;
+        }
+        input:not(:placeholder-shown) + label{
+            font-size: 14px;
+            font-weight: 700;
+        }
+    }
+    @include responsive(md) {
+        max-width: unset;
+        &_wrapper{
+            &:last-of-type{
+                max-width: unset;
+            }            
+        }
+    }
+}
+
+.project{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    border-bottom: 1px solid $black;
+    margin-bottom: 70px;
+    max-width: 765px;
+    width: 100%;
+    position: relative;
+    &_button{
+        position: absolute;
+        right: 0;
+        top: 0;
+        cursor: pointer;
+        padding: 0;
+        margin: 0;
+        transition: all 0.5s $ease-out-quint;
+        transform-origin: center;
+
+    }
+    label{
+        width: 135px;
+        padding: 10px 0;
+    }
+    textarea{
+        width: 80%;
+        resize: none;
+        //auto resize textarea with content
+        height: auto;
+        min-height: 42px;
+        border: none;
+        padding: 10px;
+        transition: all 0.5s $ease-out-quint;
+        &::placeholder{
+            color: transparent;
+        }
+    }
+    textarea:focus{
+        outline: none;
+    }
+    textarea:focus + label{
+        font-size: 14px;
+        font-weight: 700;
+    }
+    textarea:not(:placeholder-shown) + label{
+        font-size: 14px;
+        font-weight: 700;
+    }
+}
+
+.recapcha{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 20px;
+    width: 100%;
+    & > div {
+        width: fit-content;
+    }
+    @include responsive(md) {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+.map{
+    width: 100%;
+    max-width: 230px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    @include scroll-animation($anim: fromTop, $speed: 1000ms, );
+    transition-delay: 300ms;
+    & > svg {
+        margin-bottom: 16px;
+    }
+    p{
+        font-size: 18px;
+        margin: 0;
+    }
+    @include responsive(md) {
+        align-items: flex-start;
+        align-self: flex-start;
+    }
+    @include responsive (md) {
+        justify-content: flex-start;
+    }
+}
