@@ -5,9 +5,11 @@ import Footer from "./Footer/Footer";
 import Resume from "./Resume/Resume";
 import GalleryCollage from "./GalleryCollage/GalleryCollage";
 import ContactForm from "./ContactForm/ContactForm";
+import HomePageAnim from "./HomePageAnim/HomePageAnim";
 
 const hardcodedComponents = {
   contactForm: ContactForm,
+  homePageAnim: HomePageAnim,
 };
 
 function HardcodedComponent ({ block_title, ...props }: { block_title: keyof typeof hardcodedComponents }) {

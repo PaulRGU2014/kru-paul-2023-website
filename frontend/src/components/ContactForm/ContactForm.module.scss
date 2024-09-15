@@ -1,12 +1,11 @@
 @import '../../scss/helpers/import';
 
-.component{}
+.component{
+    background-color: $lt-yellow;
+}
 .wrapper{
     @include centered($max-width);
-    margin: {
-        top: $standard-vertical-spacing;
-        bottom: $standard-vertical-spacing;
-    };
+    padding: 60px 0;
     @include responsive(md) {
         margin: {
             top: 30px;
@@ -18,7 +17,7 @@
 .inner{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
     gap: 50px;
     @include responsive(md) {
         flex-direction: column;
@@ -28,13 +27,7 @@
 
 .title{
     color: $neutral-black;
-    font-family: Urbanist;
-    font-size: 48px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
     width: 100%;
-    max-width: 790px;
     margin-bottom: 50px;
     padding-right: 12%;
     @include responsive(md) {
@@ -51,17 +44,19 @@
     &_wrapper{
         @include scroll-animation($anim: fromTop, $speed: 1000ms, );
         transition-delay: 100ms;
+        width: 75%;
     }
     button{
-        color: var(--neutrals-white, #FFF);
-        font-family: Urbanist;
-        font-size: 18px;
-        font-style: normal;
         font-weight: 700;
-        line-height: normal;
-        border-radius: 7px;
-        background: red;
+        color: $dk-navy;
+        text-transform: uppercase;
+        border: none;
+        background-color: $lt-pink;
         padding: 20px 30px;
+        &:hover{
+            background-color: $dk-pink;
+            color: $white;
+        }
     }
     @include responsive(lg) {
         button{
@@ -73,16 +68,14 @@
 .info{
     display: flex;
     flex-direction: column;
-    max-width: 485px;
     width: 100%;
     &_wrapper{
         display: flex;
-        flex-direction: row-reverse;
+        flex-direction: column-reverse;
         justify-content: flex-end;
         margin-bottom: 35px;
-        border-bottom: 1px solid $black;
-        &:last-of-type{
-            max-width: 340px;
+        & > * {
+            background-color: transparent;
         }
         label{
             min-width: 85px;
@@ -92,7 +85,8 @@
             width: 80%;
             padding: 10px;
             border: none;
-            outline: none;        
+            outline: none;     
+            border-bottom: 1px solid $black;   
             // hide placeholder
             &::placeholder{
                 color: transparent;
@@ -122,9 +116,9 @@
 
 .project{
     display: flex;
-    flex-direction: row-reverse;
+    flex-direction: column-reverse;
     justify-content: flex-end;
-    border-bottom: 1px solid $black;
+    // border-bottom: 1px solid $black;
     margin-bottom: 70px;
     max-width: 765px;
     width: 100%;
@@ -141,11 +135,11 @@
 
     }
     label{
-        width: 135px;
+        width: 100%;
         padding: 10px 0;
     }
     textarea{
-        width: 80%;
+        width: 100%;
         resize: none;
         //auto resize textarea with content
         height: auto;
@@ -153,6 +147,8 @@
         border: none;
         padding: 10px;
         transition: all 0.5s $ease-out-quint;
+        background-color: transparent;
+        border-bottom: 1px solid $black;
         &::placeholder{
             color: transparent;
         }
@@ -182,30 +178,5 @@
     @include responsive(md) {
         flex-direction: column;
         align-items: flex-start;
-    }
-}
-
-.map{
-    width: 100%;
-    max-width: 230px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    @include scroll-animation($anim: fromTop, $speed: 1000ms, );
-    transition-delay: 300ms;
-    & > svg {
-        margin-bottom: 16px;
-    }
-    p{
-        font-size: 18px;
-        margin: 0;
-    }
-    @include responsive(md) {
-        align-items: flex-start;
-        align-self: flex-start;
-    }
-    @include responsive (md) {
-        justify-content: flex-start;
     }
 }
