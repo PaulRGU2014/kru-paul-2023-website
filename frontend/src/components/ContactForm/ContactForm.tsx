@@ -7,6 +7,17 @@ import { GoogleReCaptchaProvider, GoogleReCaptcha } from "react-google-recaptcha
 
 export default function ContactForm() {
   const [recaptchaValid, setRecaptchaValid] = useState(false);
+
+  const handleRecaptchaVerify = (token: string) => {
+    if (token) {
+      setRecaptchaValid(true);
+      console.log("reCAPTCHA verified successfully:", token);
+    } else {
+      setRecaptchaValid(false);
+      console.log("reCAPTCHA verification failed");
+    }
+  };
+
   return (
     <InViewAnim>
       <GoogleReCaptchaProvider reCaptchaKey="6LdW4UQqAAAAAB3K7hRRo3qo7WQ2FqQVqeQJfMNb">
@@ -49,8 +60,7 @@ export default function ContactForm() {
                   </div>
                   <div className={styles.recapcha}>
                     <button disabled={!recaptchaValid}>Get in Touch</button>
-                    <GoogleReCaptcha onVerify={() => setRecaptchaValid(true)} />
-
+                    <GoogleReCaptcha onVerify={handleRecaptchaVerify} />
                   </div>
                 </form>
               </section>
