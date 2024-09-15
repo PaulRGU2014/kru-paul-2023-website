@@ -24,15 +24,16 @@ export default async function Page() {
   const footerQuery = `*[_type=="footer"]{...}`;
   const data = await client.fetch(query);
   const footerData = await client.fetch(footerQuery);
-      <div className={styles.menuBurger}><MenuNav content={(footerData as FooterDataType[])[0]} /></div>
   if (!data) {
     return <div className='loading'>Loading...</div>;
   }
+  const menuData = await client.fetch(`*[_type=="header"]{...}`);
+
 
   return (
     <InViewAnim>
-      <div className={styles.menuBurger}><MenuNav content={(footerData as any)[0]} /></div>
-      <Header />
+      <div className={styles.menuBurger}><MenuNav content={(menuData as any)[0]} /></div>
+      <Header content={(menuData as any)[0]} />
       <ComponentLoader components={(data as any[])[0]?.components} />
       <main className={styles.component}>
         <div className={styles.wrapper}>

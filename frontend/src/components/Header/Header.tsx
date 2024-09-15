@@ -5,7 +5,16 @@ import Link from 'next/link';
 import Image from 'next/image';
 import styles from './Header.module.scss';
 
-const Header = () => {
+interface Menu {
+  menu_url: string;
+  menu_title: string;
+}
+
+interface Content {
+  main_menu: Menu[];
+}
+
+const Header = ({ content }: { content: Content }) => {
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
 
@@ -51,18 +60,11 @@ const Header = () => {
           <h5>Krupaul.com</h5>
         </div>
         <ul className={styles.menuLink_wrapper}>
-          <li className={styles.menuLink} style={{animationDelay: "100ms"}}>
-            <Link href="/about-me">About</Link>
+          {content?.main_menu?.map((menu, index) => (
+          <li key={index} className={styles.menuLink} style={{animationDelay: "100ms"}}>
+            <Link href={menu.menu_url}>{menu.menu_title}</Link>
           </li>
-          <li className={styles.menuLink} style={{animationDelay: "200ms"}}>
-            <Link href="/showcase">Showcase</Link>
-          </li>
-          <li className={styles.menuLink} style={{animationDelay: "300ms"}}>
-            <Link href="/contact">Contact</Link>
-          </li>
-          <li className={styles.menuLink} style={{animationDelay: "400ms"}}>
-            <Link href="/online-resume">Résumé</Link>
-          </li>
+          ))}
         </ul>
         <ul className={styles.menuLink_wrapper}>
           <li className={styles.menuLink} style={{animationDelay: "500ms"}}>

@@ -35,7 +35,7 @@ function MenuContent({ content, isMenuOpen, setIsMenuOpen, isMenuOpening, menuRe
         {/* <Link href="/" className={styles.logo_main}>
           <Image src="/Logo_New.svg" alt="Logo" width={200} height={120} style={{objectPosition: "left", objectFit: "cover"}} />
         </Link>           */}
-        {content?.footer_links?.map((item: any, index: number) => (
+        {content?.main_menu?.map((item: any, index: number) => (
           <li 
             className={`${styles.link} ${isMenuOpen === true ? styles.open : ""}`} 
             key={index} 
@@ -44,9 +44,18 @@ function MenuContent({ content, isMenuOpen, setIsMenuOpen, isMenuOpening, menuRe
               setIsMenuOpen(false);
             }}
           >
-            <Link href={item.link_url}>{item.link_title}</Link>
+            <Link href={item.menu_url}>{item.menu_title}</Link>
           </li>
         ))}
+        <li 
+          className={`${styles.link} ${isMenuOpen === true ? styles.open : ""}`} 
+          style={{ transitionDelay: isMenuOpening ? `${(content.main_menu.length + 1) * 100}ms` : "0ms" }}
+          onClick={() => {
+            setIsMenuOpen(false);
+          }}
+        >
+          <Link href="/backend">Admin</Link>
+        </li>
       </ul>
     </div>
   );

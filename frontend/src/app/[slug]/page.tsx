@@ -15,6 +15,7 @@ export default async function Page() {
   const footerQuery = `*[_type=="footer"]{...}`;
   const data = await client.fetch(query);
   const footerData = await client.fetch(footerQuery);
+  const menuData = await client.fetch(`*[_type=="header"]{...}`);
 
   if (!data) {
     return <div className='loading'>Loading...</div>;
@@ -22,8 +23,8 @@ export default async function Page() {
 
   return (
     <>
-      <div className={styles.menuBurger}><MenuNav content={(footerData as any)[0]} /></div>
-      <Header />
+      <div className={styles.menuBurger}><MenuNav content={(menuData as any)[0]} /></div>
+      <Header content={(menuData as any)[0]} />
       <ComponentLoader components={(data as any[])[0]?.components} />
       <Footer content={(footerData as any)[0]} pathname={pathname} />
     </>
