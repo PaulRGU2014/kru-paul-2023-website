@@ -1,18 +1,12 @@
 "use client"
 
-import React, { useState, useCallback, useEffect } from "react";
+import React, { useState, useCallback } from "react";
 import styles from "./ContactForm.module.scss";
 import InViewAnim from "../../utils/InViewAnim/InViewAnim";
 import { GoogleReCaptchaProvider, GoogleReCaptcha } from "react-google-recaptcha-v3";
 
 export default function ContactForm() {
   const [recaptchaValid, setRecaptchaValid] = useState(false);
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    message: ""
-  });
 
   const handleRecaptchaVerify = useCallback((token: string) => {
     if (token) {
@@ -24,41 +18,15 @@ export default function ContactForm() {
     }
   }, []);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value
-    }));
-  };
-
   const onSubmit = async (e: React.FormEvent) => {
     if (!recaptchaValid) {
       e.preventDefault();
       console.log("reCAPTCHA not verified");
       return;
     }
-
-    // Allow the form to be submitted to Formspree
+    // clear form fields
     console.log("Form submitted successfully");
   };
-
-  useEffect(() => {
-    const handleFormspreeRedirect = () => {
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        message: ""
-      });
-    };
-
-    window.addEventListener("beforeunload", handleFormspreeRedirect);
-
-    return () => {
-      window.removeEventListener("beforeunload", handleFormspreeRedirect);
-    };
-  }, []);
 
   return (
     <InViewAnim>
@@ -76,36 +44,15 @@ export default function ContactForm() {
                 >
                   <div className={styles.info}>
                     <div className={styles.info_wrapper}>
-                      <input
-                        type="text"
-                        name="name"
-                        id="name"
-                        placeholder="Enter your name here"
-                        value={formData.name}
-                        onChange={handleChange}
-                      />
+                      <input type="text" name="name" id="name" placeholder="Enter your name here" />
                       <label htmlFor="name">Name</label>
                     </div>
                     <div className={styles.info_wrapper}>
-                      <input
-                        type="email"
-                        name="email"
-                        id="email"
-                        placeholder="Enter your email here"
-                        value={formData.email}
-                        onChange={handleChange}
-                      />
+                      <input type="email" name="email" id="email" placeholder="Enter your email here" />
                       <label htmlFor="email">Email</label>
                     </div>
                     <div className={styles.info_wrapper}>
-                      <input
-                        type="tel"
-                        name="phone"
-                        id="phone"
-                        placeholder="Enter phone number here"
-                        value={formData.phone}
-                        onChange={handleChange}
-                      />
+                      <input type="tel" name="phone" id="phone" placeholder="Enter phone number here" />
                       <label htmlFor="phone">Phone</label>
                     </div>
                   </div>
@@ -114,8 +61,6 @@ export default function ContactForm() {
                       name="message"
                       id="message"
                       placeholder="Enter your message here"
-                      value={formData.message}
-                      onChange={handleChange}
                       onInput={(e) => {
                         const target = e.target as HTMLTextAreaElement;
                         target.style.height = "auto";
