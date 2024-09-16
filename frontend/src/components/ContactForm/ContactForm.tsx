@@ -7,6 +7,10 @@ import { GoogleReCaptchaProvider, GoogleReCaptcha } from "react-google-recaptcha
 
 export default function ContactForm() {
   const [recaptchaValid, setRecaptchaValid] = useState(false);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [message, setMessage] = useState("");
 
   const handleRecaptchaVerify = useCallback((token: string) => {
     if (token) {
@@ -24,7 +28,6 @@ export default function ContactForm() {
       console.log("reCAPTCHA not verified");
       return;
     }
-    // clear form fields
     console.log("Form submitted successfully");
   };
 
@@ -44,15 +47,36 @@ export default function ContactForm() {
                 >
                   <div className={styles.info}>
                     <div className={styles.info_wrapper}>
-                      <input type="text" name="name" id="name" placeholder="Enter your name here" />
+                      <input
+                        type="text"
+                        name="name"
+                        id="name"
+                        placeholder="Enter your name here"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                      />
                       <label htmlFor="name">Name</label>
                     </div>
                     <div className={styles.info_wrapper}>
-                      <input type="email" name="email" id="email" placeholder="Enter your email here" />
+                      <input
+                        type="email"
+                        name="email"
+                        id="email"
+                        placeholder="Enter your email here"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                      />
                       <label htmlFor="email">Email</label>
                     </div>
                     <div className={styles.info_wrapper}>
-                      <input type="tel" name="phone" id="phone" placeholder="Enter phone number here" />
+                      <input
+                        type="tel"
+                        name="phone"
+                        id="phone"
+                        placeholder="Enter phone number here"
+                        value={phone}
+                        onChange={(e) => setPhone(e.target.value)}
+                      />
                       <label htmlFor="phone">Phone</label>
                     </div>
                   </div>
@@ -61,6 +85,8 @@ export default function ContactForm() {
                       name="message"
                       id="message"
                       placeholder="Enter your message here"
+                      value={message}
+                      onChange={(e) => setMessage(e.target.value)}
                       onInput={(e) => {
                         const target = e.target as HTMLTextAreaElement;
                         target.style.height = "auto";
