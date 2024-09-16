@@ -19,8 +19,9 @@ export default function ContactForm() {
       return;
     }
 
-    const recaptchaToken = await executeRecaptcha('your_action_name');
+    const recaptchaToken = await executeRecaptcha('reCapcha executed');
     setToken(recaptchaToken);
+    setRecaptchaValid(true);
 
     // Send the token to your backend for verification
   };
