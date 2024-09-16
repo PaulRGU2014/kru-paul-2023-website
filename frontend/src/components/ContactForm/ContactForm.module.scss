@@ -96,11 +96,11 @@
             outline: none;
         }
         input:focus + label{
-            font-size: 14px;
+            // font-size: 14px;
             font-weight: 700;
         }
         input:not(:placeholder-shown) + label{
-            font-size: 14px;
+            // font-size: 14px;
             font-weight: 700;
         }
     }
@@ -157,11 +157,11 @@
         outline: none;
     }
     textarea:focus + label{
-        font-size: 14px;
+        // font-size: 14px;
         font-weight: 700;
     }
     textarea:not(:placeholder-shown) + label{
-        font-size: 14px;
+        // font-size: 14px;
         font-weight: 700;
     }
 }

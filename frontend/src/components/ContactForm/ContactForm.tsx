@@ -1,12 +1,17 @@
 "use client"
 
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useRef } from "react";
 import styles from "./ContactForm.module.scss";
 import InViewAnim from "../../utils/InViewAnim/InViewAnim";
 import { GoogleReCaptchaProvider, GoogleReCaptcha } from "react-google-recaptcha-v3";
 
 export default function ContactForm() {
   const [recaptchaValid, setRecaptchaValid] = useState(false);
+
+  const nameRef = useRef<HTMLInputElement>(null);
+  const emailRef = useRef<HTMLInputElement>(null);
+  const phoneRef = useRef<HTMLInputElement>(null);
+  const messageRef = useRef<HTMLTextAreaElement>(null);
 
   const handleRecaptchaVerify = useCallback((token: string) => {
     if (token) {
@@ -24,8 +29,15 @@ export default function ContactForm() {
       console.log("reCAPTCHA not verified");
       return;
     }
+
     // Allow the form to be submitted to Formspree
     console.log("Form submitted successfully");
+
+    // Clear form fields
+    if (nameRef.current) nameRef.current.value = "";
+    if (emailRef.current) emailRef.current.value = "";
+    if (phoneRef.current) phoneRef.current.value = "";
+    if (messageRef.current) messageRef.current.value = "";
   };
 
   return (
@@ -44,20 +56,21 @@ export default function ContactForm() {
                 >
                   <div className={styles.info}>
                     <div className={styles.info_wrapper}>
-                      <input type="text" name="name" id="name" placeholder="Enter your name here" />
+                      <input ref={nameRef} type="text" name="name" id="name" placeholder="Enter your name here" />
                       <label htmlFor="name">Name</label>
                     </div>
                     <div className={styles.info_wrapper}>
-                      <input type="email" name="email" id="email" placeholder="Enter your email here" />
+                      <input ref={emailRef} type="email" name="email" id="email" placeholder="Enter your email here" />
                       <label htmlFor="email">Email</label>
                     </div>
                     <div className={styles.info_wrapper}>
-                      <input type="tel" name="phone" id="phone" placeholder="Enter phone number here" />
+                      <input ref={phoneRef} type="tel" name="phone" id="phone" placeholder="Enter phone number here" />
                       <label htmlFor="phone">Phone</label>
                     </div>
                   </div>
                   <div className={styles.project}>
                     <textarea
+                      ref={messageRef}
                       name="message"
                       id="message"
                       placeholder="Enter your message here"
