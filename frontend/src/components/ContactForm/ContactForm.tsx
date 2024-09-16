@@ -19,12 +19,12 @@ export default function ContactForm() {
   }, []);
 
   const onSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
     if (!recaptchaValid) {
+      e.preventDefault();
       console.log("reCAPTCHA not verified");
       return;
     }
-    // Handle form submission logic here
+    // Allow the form to be submitted to Formspree
     console.log("Form submitted successfully");
   };
 
@@ -36,7 +36,12 @@ export default function ContactForm() {
             <div className={styles.inner}>
               <section className={styles.form_wrapper}>
                 <h3 className={styles.title}>Your Information</h3>
-                <form className={styles.form} onSubmit={onSubmit} method="POST" action="https://formspree.io/f/xnqlwbzy">
+                <form
+                  className={styles.form}
+                  onSubmit={onSubmit}
+                  method="POST"
+                  action="https://formspree.io/f/xnqlwbzy"
+                >
                   <div className={styles.info}>
                     <div className={styles.info_wrapper}>
                       <input type="text" name="name" id="name" placeholder="Enter your name here" />
