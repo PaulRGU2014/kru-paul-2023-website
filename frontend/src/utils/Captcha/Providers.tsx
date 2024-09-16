@@ -10,7 +10,7 @@ interface ProvidersProps {
 export function Providers({ children }: ProvidersProps) {
 
   return  (
-      <GoogleReCaptchaProvider reCaptchaKey="your-site-key">
+      <GoogleReCaptchaProvider reCaptchaKey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ''}>
         {children}
       </GoogleReCaptchaProvider>
   )
