@@ -28,6 +28,7 @@
     "react-markdown": "^8.0.6",
     "remark-gfm": "^4.0.0",
     "sanity": "^3.56.0",
+    "socket.io-client": "^4.8.0",
     "styled-components": "^6.1.12"
   },
   "devDependencies": {
