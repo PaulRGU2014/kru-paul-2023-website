@@ -2,7 +2,7 @@
 
 
 .component{
-  padding: 30px 0 180px 0;
+  padding: 30px 0;
   @include responsive(md){
     padding: 20px 0;
   }
