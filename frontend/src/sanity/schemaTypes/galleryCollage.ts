@@ -55,5 +55,16 @@ export const galleryCollage = defineType({
         },
       ],
     }),
+    defineField({
+      name: "for_component",
+      title: "For Component",
+      type: "string",
+      options: {
+        list: [
+          {title: "Gallery Collage", value: "galleryCollage"},
+          {title: "Square Logos", value: "squareLogos"}
+        ]
+      }
+    }),
   ],
 })
