@@ -2,7 +2,7 @@
 
 
 .component{
-  padding: 30px 0;
+  padding: 30px 0 180px 0;
   @include responsive(md){
     padding: 20px 0;
   }
@@ -19,7 +19,7 @@
   max-width: 768px;
   margin: 0 auto;
   @include responsive(md) {
-    gap: 10px;
+    gap: 20px;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: repeat(1fr);
   }
@@ -37,6 +37,11 @@
   [data-in-view=true] &{
       opacity: 1;
       transition: all 1s $ease-out-quint;
+  }
+  img {
+    padding: 16px;
+    width: calc(100% - 32px) !important;
+    height: calc(100% - 32px) !important;
   }
 }
 

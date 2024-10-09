@@ -33,11 +33,9 @@ export default function SquareLogos({content}: { content: any }) {
 						objectFit="contain"
 						objectPosition='center'
 						style={{
-							// paddingTop: content.story[currentImageIndex].isPortrait===true ? '200%' : '100%',
 						}}
 					/>}
 					<div className={styles.modal_content}>
-						{/* {!!content.images[currentImageIndex].title && <h6>{content.images[currentImageIndex].title }</h6>} */}
 						{!!content.images[currentImageIndex].image_description && <RichText html={content.images[currentImageIndex].image_description} />}
 					</div>
 				</div>
@@ -49,6 +47,7 @@ export default function SquareLogos({content}: { content: any }) {
 						<ImageLoader className={styles.image} 
 							key={index} 	
 							style={{
+								// top: `calc(${(index % 3) * 50}% + 16px)`, TODO: fix this
 								transitionDelay: isClient ? `${Math.random() * 300 + 1000}ms` : '0s'
 							}}
 							src={item.asset._ref} 
