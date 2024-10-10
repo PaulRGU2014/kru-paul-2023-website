@@ -40,6 +40,9 @@
     width: calc(100% - 32px) !important;
     height: calc(100% - 32px) !important;
   }
+  &:hover{
+    background-color: $lt-yellow;
+  }
 }
 
 .modal_inner{
