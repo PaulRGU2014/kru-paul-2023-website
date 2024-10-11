@@ -2,7 +2,7 @@
 
 import Head from "next/head"
 import '../scss/global.scss'
-
+import { GoogleAnalytics } from '@next/third-parties/google'
 
 export default function RootLayout({children}: {children: React.ReactNode}) {
   
@@ -14,6 +14,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
       <body suppressHydrationWarning={true}>
           {children}
       </body>
+      <GoogleAnalytics gaId="G-606GP5V2VM" />
     </html>
   )
 }

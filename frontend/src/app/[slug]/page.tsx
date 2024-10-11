@@ -6,6 +6,8 @@ import MenuNav from '@/components/Menus/Menus'
 import Header from '@/components/Header/Header'
 import Footer from '@/components/Footer/Footer'
 import { headers } from 'next/headers'
+import { GoogleAnalytics } from '@next/third-parties/google'
+
 
 export default async function Page() {
   const headersList = headers();
@@ -27,6 +29,7 @@ export default async function Page() {
       <Header content={(menuData as any)[0]} />
       <ComponentLoader components={(data as any[])[0]?.components} />
       <Footer content={(footerData as any)[0]} pathname={pathname} />
+      <GoogleAnalytics gaId="G-606GP5V2VM" />
     </>
   );
 }
