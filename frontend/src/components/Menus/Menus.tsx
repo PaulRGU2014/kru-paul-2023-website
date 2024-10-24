@@ -32,9 +32,9 @@ function MenuContent({ content, isMenuOpen, setIsMenuOpen, isMenuOpening, menuRe
   return (
     <div className={isMenuOpen ? styles.inner : styles.inner_close}>
       <ul className={styles.content} ref={menuRef}>
-        {/* <Link href="/" className={styles.logo_main}>
-          <Image src="/Logo_New.svg" alt="Logo" width={200} height={120} style={{objectPosition: "left", objectFit: "cover"}} />
-        </Link>           */}
+        <Link href="/" className={styles.logo_main}>
+          <Image src="/Logo_New.svg" alt="Logo" width={150} height={90} style={{objectPosition: "left", objectFit: "cover", padding: "15px"}} />
+        </Link>          
         {content?.main_menu?.map((item: any, index: number) => (
           <li 
             className={`${styles.link} ${isMenuOpen === true ? styles.open : ""}`} 
@@ -54,7 +54,7 @@ function MenuContent({ content, isMenuOpen, setIsMenuOpen, isMenuOpening, menuRe
             setIsMenuOpen(false);
           }}
         >
-          <Link href="/backend">Admin</Link>
+          <Link href="https://www.ebay.com/usr/krupaul" target='_blank'>Store</Link>
         </li>
       </ul>
     </div>

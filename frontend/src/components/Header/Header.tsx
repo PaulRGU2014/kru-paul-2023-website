@@ -68,7 +68,7 @@ const Header = ({ content }: { content: Content }) => {
         </ul>
         <ul className={styles.menuLink_wrapper}>
           <li className={styles.menuLink} style={{animationDelay: "500ms"}}>
-            <Link href="/backend">Admin</Link>
+            <Link href="https://www.ebay.com/usr/krupaul" target='_blank'>Store</Link>
           </li>
         </ul>
       </div>
